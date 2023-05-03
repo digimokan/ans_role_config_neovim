@@ -1,0 +1,7 @@
+- name: "Install the 'neovim' application package"
+  ansible.builtin.package:
+    name: neovim
+    state: present
+  become: true
+  become_user: root
+

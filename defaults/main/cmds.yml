@@ -1,0 +1,3 @@
+# command to execute to run neovim
+neovim_main_cmd: 'nvim '
+
