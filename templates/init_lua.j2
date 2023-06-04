@@ -51,6 +51,8 @@ vim.opt.diffopt:append("vertical")
 
 -- CURSOR, LINES, COLUMN SETTINGS
 
+-- cursor style: 'hor' (horizontal bar), 'ver' (vertical bar), 'block'
+vim.opt.guicursor = "{{ cursor_style_for_all_modes }}"
 -- shade active line
 vim.opt.cursorline = {{ shade_active_line }}
 -- set permanent colorschemed stripe along a vertical column number
