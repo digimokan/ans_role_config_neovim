@@ -216,7 +216,7 @@ add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
 add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 -- toggle back to previous buffer
-add_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#")
+add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<CR>")
 
 -- QUIT / SAVE KEYMAPS
 
