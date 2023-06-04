@@ -1,0 +1,11 @@
+# keymaps that use the leader key prefix, in normal mode
+
+keymap_quit_neovim: '<leader>q'
+keymap_save_file: '<leader>w'
+
+keymap_clear_highlighted_search_text: '<leader>n'
+keymap_search_replace_in_buffer: '<leader>R'
+
+keymap_open_file_browser_at_current_file: '<leader>t'
+keymap_close_file_browser: '<leader>T'
+

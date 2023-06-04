@@ -7,10 +7,13 @@
 -- SETTINGS
 --------------------------------------------------------------------------------
 
--- TERMINAL COLOR SETTINGS
+-- TERMINAL SETTINGS
 
 -- use truecolors in term (if vt support)
 vim.opt.termguicolors = {{ use_24bit_true_colors_in_term }}
+-- disable the built-in neovim netrw file manager
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- ALERT SETTINGS
 
@@ -290,6 +293,23 @@ add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
 -- PLUGINS
 --------------------------------------------------------------------------------
 
+local function nvim_tree_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  -- vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('CWD-Up'))
+  -- vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
+  -- vim.keymap.set('n', 'h', api.tree.collapse_all,          opts('Collapse'))
+  -- vim.keymap.set('n', '?', api.tree.toggle_help,           opts('Help'))
+end
+
 -- auto-install the plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -350,8 +370,32 @@ require("lazy").setup({
           lualine_z = {'location'}
         },
       }
-    end,
+    end, -- config function()
   },
 
-})
+  -- nvim-tree.lua file-explorer tree
+  {
+    url = "https://github.com/nvim-tree/nvim-tree.lua",
+    commit = '{{ nvim_tree_lua_plugin_commit.hash }}',
+    config = function()
+      require('nvim-tree').setup {
+        -- sort_by = "case_sensitive",
+        view = {
+          width = 20,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        -- filters = {
+        --   dotfiles = true,
+        -- },
+        on_attach = nvim_tree_on_attach,
+      }
+    end, -- config function()
+  },
+
+}) -- require("lazy").setup({
+
+add_silent_normal_mode_mapping("{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>")
+add_silent_normal_mode_mapping("{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>")
 
