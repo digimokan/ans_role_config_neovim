@@ -307,9 +307,9 @@ vim.opt.rtp:prepend(lazypath)
 -- install individual plugins
 require("lazy").setup({
 
-  -- onedark.nvim colorscheme
+  -- onedark colorscheme
   {
-    "navarasu/onedark.nvim",
+    "https://github.com/navarasu/onedark.nvim",
     commit = '{{ onedark_nvim_plugin_commit.hash }}',
     lazy = false,
     priority = 1000,
