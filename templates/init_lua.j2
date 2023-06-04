@@ -227,8 +227,10 @@ add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<c
 
 -- QUIT / SAVE KEYMAPS
 
+-- close current buffer
+add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
 -- quit neovim
-add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quit<cr>")
+add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quitall<cr>")
 -- save current split
 add_normal_mode_mapping("{{ keymap_save_file }}", ":write<cr>")
 
@@ -301,13 +303,20 @@ local function nvim_tree_on_attach(bufnr)
   end
 
   -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
+  -- api.config.mappings.default_on_attach(bufnr)
 
   -- custom mappings
-  -- vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('CWD-Up'))
-  -- vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
-  -- vim.keymap.set('n', 'h', api.tree.collapse_all,          opts('Collapse'))
-  -- vim.keymap.set('n', '?', api.tree.toggle_help,           opts('Help'))
+  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Change-CWD-Up'))
+  vim.keymap.set('n', 's', api.tree.change_root_to_node,   opts('Set-Current-As-CWD'))
+  vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
+  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Collapse'))
+  vim.keymap.set('n', 'a', api.fs.create,                  opts('Create'))
+  vim.keymap.set('n', 'm', api.fs.rename_sub,              opts('Move-Or-Rename'))
+  vim.keymap.set('n', 'e', api.fs.rename_basename,         opts('Edit-Filename'))
+  vim.keymap.set('n', 'c', api.fs.copy.node,               opts('Copy'))
+  vim.keymap.set('n', 'p', api.fs.paste,                   opts('Paste'))
+  vim.keymap.set('n', 'd', api.fs.remove,                  opts('Delete'))
+  vim.keymap.set('n', '?', api.tree.toggle_help,           opts('Help'))
 end
 
 -- auto-install the plugin manager
