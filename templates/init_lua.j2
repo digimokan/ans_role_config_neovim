@@ -195,13 +195,14 @@ end
 -- LEADER KEY
 
 -- set the leader key
+add_silent_normal_mode_mapping("<space>", "<nop>")
 vim.g.mapleader = "{{ neovim_leader_key }}"
 
 -- MODE CHANGE KEYMAPS
 
 -- enter normal mode
 add_normal_mode_mapping("{{ keymap_enter_normal_mode }}", ":")
-add_normal_mode_mapping(":", "<Nop>")
+add_normal_mode_mapping(":", "<nop>")
 -- insert at start of line
 add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
 
@@ -216,22 +217,22 @@ add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
 add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 -- toggle back to previous buffer
-add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<CR>")
+add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>")
 
 -- QUIT / SAVE KEYMAPS
 
 -- quit neovim
-add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quit<CR>")
+add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quit<cr>")
 -- save current split
-add_normal_mode_mapping("{{ keymap_save_file }}", ":write<CR>")
+add_normal_mode_mapping("{{ keymap_save_file }}", ":write<cr>")
 
 -- SPLIT KEYMAPS
 
 -- resize current split in horizontal or vertical dimension
-add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<CR>")
-add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<CR>")
-add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<CR>")
-add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<CR>")
+add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<cr>")
+add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<cr>")
+add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>")
+add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>")
 -- rotate through all splits
 add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
 
@@ -243,10 +244,10 @@ add_silent_normal_mode_mapping("{{ keymap_toggle_fold_expand_collapse }}", "za")
 -- BUFFER-SEARCH KEYMAPS
 
 -- clear highlighted text from last search
-add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<CR>")
+add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>")
 
 -- search and replace in buffer
-add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<Left><Left>")
+add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>")
 
 -- INDENT / TAB KEYMAPS
 
@@ -261,8 +262,8 @@ add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
 
 -- UNDO / REDO KEYMAPS
 
-add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<CR>")
-add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<CR>")
+add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<cr>")
+add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
 
 -- switch to nerdtree
 -- nnoremap <silent> <leader>t :silent NERDTreeFind<CR>

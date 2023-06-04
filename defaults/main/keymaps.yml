@@ -1,24 +1,24 @@
-neovim_leader_key: "<Space>"
+neovim_leader_key: " "
 
 keymap_enter_normal_mode: ';'
 keymap_enter_insert_mode_at_line_start: 'I'
 
 keymap_go_to_end_of_line: '-'
-keymap_toggle_to_prev_buffer: '<CR>'
+keymap_toggle_to_prev_buffer: '<cr>'
 
-keymap_quit_neovim: '<Leader>q'
-keymap_save_file: '<Leader>w'
+keymap_quit_neovim: '<leader>q'
+keymap_save_file: '<leader>w'
 
 keymap_inc_current_split_height: "<up>"
 keymap_dec_current_split_height: "<down>"
 keymap_inc_current_split_width: "<right>"
 keymap_dec_current_split_width: "<left>"
-keymap_rotate_through_splits: "<Tab>"
+keymap_rotate_through_splits: "<tab>"
 
 keymap_toggle_fold_expand_collapse: ','
 
-keymap_clear_highlighted_search_text: '<Leader>n'
-keymap_search_replace_in_buffer: '<Leader>R'
+keymap_clear_highlighted_search_text: '<leader>n'
+keymap_search_replace_in_buffer: '<leader>R'
 
 keymap_indent_visual_selection_to_left: '<'
 keymap_indent_visual_selection_to_right: '>'
