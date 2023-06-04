@@ -1,0 +1,6 @@
+# ignore case in search patterns
+ignore_case_in_buffer_search: 'true'
+
+# override ignorecase (if true), and search case-sensitive if upper-case input
+override_ignore_buffer_search_case_if_caps: 'true'
+

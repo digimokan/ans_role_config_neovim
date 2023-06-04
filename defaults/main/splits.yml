@@ -1,0 +1,6 @@
+# create new splits below current one
+create_new_splits_below: 'true'
+
+# create new splits to right of current one
+create_new_splits_to_right: 'true'
+

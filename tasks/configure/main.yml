@@ -1,0 +1,23 @@
+- name: "Create user neovim config dir at '{{ user_neovim_config_dir }}'"
+  ansible.builtin.file:
+    path: "{{ user_neovim_config_dir }}"
+    state: directory
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '755'
+  vars:
+    user_neovim_config_dir: "{{ neovim_user_config_file_path | dirname }}"
+  become: true
+  become_user: root
+
+- name: "Configure user neovim settings in '{{ neovim_user_config_file_path }}'"
+  ansible.builtin.template:
+    dest: "{{ neovim_user_config_file_path }}"
+    src: "init_lua.j2"
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '644'
+    force: yes
+  become: true
+  become_user: root
+

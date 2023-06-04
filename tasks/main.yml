@@ -1,7 +1,6 @@
-- name: "Install the 'neovim' application package"
-  ansible.builtin.package:
-    name: neovim
-    state: present
-  become: true
-  become_user: root
+- name: "Install neovim"
+  ansible.builtin.include_tasks: install/main.yml
+
+- name: "Configure neovim"
+  ansible.builtin.include_tasks: configure/main.yml
 

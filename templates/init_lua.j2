@@ -1,0 +1,284 @@
+-- vim: set filetype=lua:
+-- ANSIBLE-MANAGED CONFIGURATION FILE
+-- Ref: https://neovim.io/doc/user/options.html
+--      https://neovim.io/doc/user/api.html
+
+--------------------------------------------------------------------------------
+-- SETTINGS
+--------------------------------------------------------------------------------
+
+-- TERMINAL COLOR SETTINGS
+
+-- use truecolors in term (if vt support)
+vim.opt.termguicolors = {{ use_24bit_true_colors_in_term }}
+
+-- ALERT SETTINGS
+
+-- issue audible alert bells
+vim.opt.errorbells = {{ audio_bell_on_alert }}
+-- issue visual alert bells
+vim.opt.visualbell = {{ visual_bell_on_alert }}
+
+-- FILE SAVE/LOAD SETTINGS
+
+-- reload buffer if changed externally
+vim.opt.autoread = {{ reload_buffer_if_changed_externally }}
+-- save swapfiles
+vim.opt.swapfile = {{ save_vim_swapfiles }}
+-- edit/save with file-format preferences in this order
+-- vim.opt.fileformats = "unix,dos,mac" -- probably not needed, default "unix,dos"
+-- enable filetype detection (c source, perl, etc.).  vim guesses filetype
+-- based on content (filetype detection necessary for filetype plugin / syntax)
+-- filetype on -- not seeing this set in any advanced configs
+
+-- BUFFER SETTINGS
+
+-- allow hidden (not visible, unsaved) bufs
+vim.opt.hidden = {{ allow_hidden_unsaved_buffers }}
+-- prompt when switching from unsaved buf
+vim.opt.confirm = {{ prompt_on_switch_from_usaved_buff }}
+
+-- SPLIT SETTINGS
+
+-- create new splits below current one
+vim.opt.splitbelow = {{ create_new_splits_below }}
+-- create new splits to right of current one
+vim.opt.splitright = {{ create_new_splits_to_right }}
+-- separator char(s) between vsplits
+vim.opt.fillchars:append("vert:│") -- this may already be the default
+-- options for diff mode
+vim.opt.diffopt:append("vertical")
+
+-- CURSOR, LINES, COLUMN SETTINGS
+
+-- shade active line
+vim.opt.cursorline = {{ shade_active_line }}
+-- set permanent colorschemed stripe along a vertical column number
+vim.opt.colorcolumn = {{ shade_vertical_column_num }}
+-- show line numbers
+vim.opt.number = {{ show_line_nums_in_left_margin }}
+-- keep at least n lines above or below the cursor
+vim.opt.scrolloff = {{ show_n_lines_above_below_cursor }}
+-- wrap long lines
+vim.opt.wrap = {{ wrap_long_lines }}
+
+-- TEXT DISPLAY SETTINGS
+
+-- show matching paired chars with a brief secondary-cursor highlight
+vim.opt.showmatch = {{ show_matching_brace_paren_pairs }}
+-- show invisible characters
+vim.opt.list = true
+-- what to show for invisible characters
+vim.opt.listchars = { tab = "{{ char_to_show_for_tab }}", trail = "{{ char_to_show_for_trailing_space }}", nbsp = "{{ char_to_show_for_nbsp }}" }
+
+-- NEOVIM CMD-LINE (BELOW STATUSLINE) SETTINGS
+
+-- show info when this min num of lines has been changed (0 for always)
+vim.opt.report = {{ min_num_lines_to_show_cmd_info }}
+-- show info about current mode ("INSERT", "VISUAL", etc)
+vim.opt.showcmd = {{ show_current_vim_mode_cmd_info }}
+-- show info for current cursor-pos line number and column number
+vim.opt.ruler = {{ show_line_and_col_cmd_info }}
+-- what to show or abbreviate for certain cmd-line messages
+vim.opt.shortmess = "{{ msg_showing_criteria }}"
+
+-- POP-UP DISPLAY SETTINGS
+
+-- what to list for completion matches in pop-up wildmenu
+-- vim.opt.wildmode = { "list", "longest" } -- maybe plugins do not need this
+
+-- BUFFER-SEARCH SETTINGS
+
+-- ignore case in search patterns
+vim.opt.ignorecase = {{ ignore_case_in_buffer_search }}
+-- override ignorecase (if true), and search case-sensitive if upper-case input
+vim.opt.smartcase = {{ override_ignore_buffer_search_case_if_caps }}
+
+-- EDITING SETTINGS
+
+-- allow backspacing over certain non-character markers
+vim.opt.backspace = { "indent", "eol", "start" }
+-- auto-formatting: insert comment leader on starting new line
+vim.opt.formatoptions:append("{{ 'r' if insert_comment_leader_on_new_line else ''}}")
+-- auto-formatting: allow long line to continue without formatting, on editing
+vim.opt.formatoptions:append("{{ 'l' if allow_long_line_to_continue else ''}}")
+
+-- INDENT / TAB SETTINGS
+
+-- number of spaces to use for each step of autoindent
+vim.opt.shiftwidth = {{ num_spaces_to_use_for_auto_indent }}
+-- round an indent to multiple of shiftwidth
+vim.opt.shiftround = {{ round_indent_to_auto_indent_multiple }}
+-- when inserting an input <TAB>, expand it to a series of spaces
+vim.opt.expandtab = {{ expand_inserted_tabs_to_spaces }}
+-- when expanding a <TAB>, use this number of spaces
+vim.opt.softtabstop = {{ num_spaces_to_use_for_expanded_tabs }}
+-- for file with existing tab, represent the tab as this number of spaces
+vim.opt.tabstop = {{ show_existing_tabs_as_this_num_spaces }}
+-- make inserted/new lines use same spaces or actual <TAB>s of existing lines
+vim.opt.copyindent = {{ insert_tabs_when_surrounding_code_has_them }}
+-- make insertions in existing line us same spaces or actual <TAB>s
+vim.opt.preserveindent = {{ insert_tabs_when_surrounding_code_has_them }}
+
+-- UNDO / REDO SETTINGS
+
+-- enable persistent undo/redo between editing sessions, via an undo file
+vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
+
+--------------------------------------------------------------------------------
+-- FILE BROWSER [nerdtree] [nerdtree-git]
+--------------------------------------------------------------------------------
+
+-- let g:NERDTreeWinSize = 20                    -- horizontal size of nerdtree
+-- let g:NERDTreeShowHidden = 1                  -- show hidden files in the nerdtree
+-- let g:NERDTreeChDirMode = 2                   -- always set vim curr wkg dir to nerdtree base dir
+-- let g:NERDTreeCascadeSingleChildDir = 0       -- collapse dirs with single child
+-- let g:NERDTreeAutoDeleteBuffer = 1            -- using menu del, del matching buff of file
+-- let NERDTreeHijackNetrw = 0                   -- do not use netrw (messes up sessions)
+
+-- let g:NERDTreeMapActivateNode = 'l'           -- expand dir or open file and switch to it
+-- let g:NERDTreeMapCloseDir = 'h'               -- close parent dir of current position
+-- let g:NERDTreeMapChangeRoot = 'c'             -- make parent dir of curr pos the nerdtree-root-dir
+-- let g:NERDTreeMapUpdirKeepOpen = 'C'          -- make the nerdtree-root-dir go up one dir
+-- let g:NERDTreeMapMenu = 'o'                   -- enter create/delete/move menu for selected file or parent dir
+
+-- let g:NERDTreeIndicatorMapCustom = {
+--   \ 'Modified'  : '~',
+--   \ 'Staged'    : '✭',
+--   \ 'Untracked' : '✚',
+--   \ 'Renamed'   : '➜',
+--   \ 'Unmerged'  : '═',
+--   \ 'Deleted'   : '✖',
+--   \ 'Dirty'     : '~',
+--   \ 'Clean'     : '✔︎',
+--   \ 'Ignored'   : '-',
+--   \ 'Unknown'   : '?'
+-- \ }
+
+--------------------------------------------------------------------------------
+-- FILE FINDING / OPENING [fzf] [projectionist]
+--------------------------------------------------------------------------------
+
+-- projectionist: set global defaults (override with project .projections.json)
+-- let g:projectionist_heuristics = {
+--   \ '*': {
+--     \ '*.h'   : { 'alternate' : [ '{}.c', '{}.cpp' ] },
+--     \ '*.hpp' : { 'alternate' : [ '{}.cpp', '{}.hxx' ] },
+--     \ '*.c'   : { 'alternate' :   '{}.h' },
+--     \ '*.cpp' : { 'alternate' : [ '{}.h', '{}.hpp' ] },
+--     \ '*.hxx' : { 'alternate' :   '{}.hpp' }
+--   \ }
+-- \ }
+
+--------------------------------------------------------------------------------
+-- KEYMAPS
+--------------------------------------------------------------------------------
+
+-- keymap function ref: https://neovim.io/doc/user/lua.html#vim.keymap.set()
+-- default keymaps ref: http://neovim.io/doc/user/quickref.html
+
+-- LOCAL MAPPING FUNCTIONS
+
+local function add_silent_normal_mode_mapping(keys, action)
+  vim.keymap.set("n", keys, action, { silent = true })
+end
+local function add_normal_mode_mapping(keys, action)
+  vim.keymap.set("n", keys, action, { silent = false })
+end
+local function add_silent_visual_mode_mapping(keys, action)
+  vim.keymap.set("v", keys, action, { silent = true })
+end
+local function add_visual_mode_mapping(keys, action)
+  vim.keymap.set("v", keys, action, { silent = false })
+end
+
+-- LEADER KEY
+
+-- set the leader key
+vim.g.mapleader = "{{ neovim_leader_key }}"
+
+-- MODE CHANGE KEYMAPS
+
+-- enter normal mode
+add_normal_mode_mapping("{{ keymap_enter_normal_mode }}", ":")
+add_normal_mode_mapping(":", "<Nop>")
+-- insert at start of line
+add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
+
+-- NAVIGATION KEYMAPS
+
+-- make w/b/e/t respect camelcase/snakecase in all modes
+-- map <silent> w <Plug>CamelCaseMotion_w
+-- map <silent> b <Plug>CamelCaseMotion_b
+-- map <silent> e <Plug>CamelCaseMotion_e
+-- map <silent> \ <Plug>CamelCaseMotion_ge
+-- go to end of line
+add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
+add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
+-- toggle back to previous buffer
+add_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#")
+
+-- QUIT / SAVE KEYMAPS
+
+-- quit neovim
+add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quit<CR>")
+-- save current split
+add_normal_mode_mapping("{{ keymap_save_file }}", ":write<CR>")
+
+-- SPLIT KEYMAPS
+
+-- resize current split in horizontal or vertical dimension
+add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<CR>")
+add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<CR>")
+add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<CR>")
+add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<CR>")
+-- rotate through all splits
+add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
+
+-- FOLD KEYMAPS
+
+-- fold expand/collapse toggle
+add_silent_normal_mode_mapping("{{ keymap_toggle_fold_expand_collapse }}", "za")
+
+-- BUFFER-SEARCH KEYMAPS
+
+-- clear highlighted text from last search
+add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<CR>")
+
+-- search and replace in buffer
+add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<Left><Left>")
+
+-- INDENT / TAB KEYMAPS
+
+-- allow repeat indenting of visual selection
+add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_left }}", "<gv")
+add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_right }}", ">gv")
+
+-- COPY / PASTE KEYMAPS
+
+-- copy to end of line
+add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
+
+-- UNDO / REDO KEYMAPS
+
+add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<CR>")
+add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<CR>")
+
+-- switch to nerdtree
+-- nnoremap <silent> <leader>t :silent NERDTreeFind<CR>
+
+-- projectionist: invoke the defined 'alternate' cmd
+-- nnoremap <silent> <leader>a :A<CR>
+
+-- toggle an insert-mode-only capslock
+-- imap <silent> <C-l> <Plug>CapsLockToggle
+
+-- single-comment selected lines
+-- nmap <silent> <leader>c gcc
+-- vmap <silent> <leader>c gc
+
+-- paste from clipboard in insert mode with CTRL-V
+-- inoremap <C-v> <F7><C-r>+<F7>
+
+-- nnoremap <silent> <leader>u :silent MundoToggle<CR>
+

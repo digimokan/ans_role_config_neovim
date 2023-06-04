@@ -1,0 +1,13 @@
+# show info when this min num of lines has been changed (0 for always)
+min_num_lines_to_show_cmd_info: 0
+
+# show info about current mode ("INSERT", "VISUAL", etc)
+show_current_vim_mode_cmd_info: 'false'
+
+# show info for current cursor-pos line number and column number
+show_line_and_col_cmd_info: 'false'
+
+# what to show or abbreviate for certain cmd-line messages
+# ref: https://neovim.io/doc/user/options.html#'shortmess'
+msg_showing_criteria: "tToOF"
+

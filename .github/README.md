@@ -55,6 +55,8 @@ Install and configure the neovim text editor.
          ansible.builtin.include_role:
            name: ans_role_config_neovim
            public: yes
+         vars:
+           neovim_user_name: "userl"
    ```
 
 ## Role Options
@@ -62,6 +64,10 @@ Install and configure the neovim text editor.
 See the role `defaults` files for main role vars listings:
 
   * [defaults](../defaults/main/)
+
+Define these _required_ vars for the role:
+
+  * `neovim_user_name`: user name of main neovim user
 
 ## Contributing
 

@@ -1,0 +1,3 @@
+# use truecolors in term (if vt support)
+use_24bit_true_colors_in_term: 'true'
+
