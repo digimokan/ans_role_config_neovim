@@ -6,8 +6,8 @@ keymap_enter_insert_mode_at_line_start: 'I'
 keymap_go_to_end_of_line: '-'
 keymap_toggle_to_prev_buffer: '<CR>'
 
-keymap_quit_neovim: '<leader>q'
-keymap_save_file: '<leader>w'
+keymap_quit_neovim: '<Leader>q'
+keymap_save_file: '<Leader>w'
 
 keymap_inc_current_split_height: "<up>"
 keymap_dec_current_split_height: "<down>"
