@@ -54,7 +54,7 @@ vim.opt.diffopt:append("vertical")
 -- shade active line
 vim.opt.cursorline = {{ shade_active_line }}
 -- set permanent colorschemed stripe along a vertical column number
-vim.opt.colorcolumn = {{ shade_vertical_column_num }}
+vim.opt.colorcolumn = "{{ shade_vertical_column_num }}"
 -- show line numbers
 vim.opt.number = {{ show_line_nums_in_left_margin }}
 -- keep at least n lines above or below the cursor
