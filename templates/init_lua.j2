@@ -132,36 +132,6 @@ vim.opt.preserveindent = {{ insert_tabs_when_surrounding_code_has_them }}
 vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
 
 --------------------------------------------------------------------------------
--- FILE BROWSER [nerdtree] [nerdtree-git]
---------------------------------------------------------------------------------
-
--- let g:NERDTreeWinSize = 20                    -- horizontal size of nerdtree
--- let g:NERDTreeShowHidden = 1                  -- show hidden files in the nerdtree
--- let g:NERDTreeChDirMode = 2                   -- always set vim curr wkg dir to nerdtree base dir
--- let g:NERDTreeCascadeSingleChildDir = 0       -- collapse dirs with single child
--- let g:NERDTreeAutoDeleteBuffer = 1            -- using menu del, del matching buff of file
--- let NERDTreeHijackNetrw = 0                   -- do not use netrw (messes up sessions)
-
--- let g:NERDTreeMapActivateNode = 'l'           -- expand dir or open file and switch to it
--- let g:NERDTreeMapCloseDir = 'h'               -- close parent dir of current position
--- let g:NERDTreeMapChangeRoot = 'c'             -- make parent dir of curr pos the nerdtree-root-dir
--- let g:NERDTreeMapUpdirKeepOpen = 'C'          -- make the nerdtree-root-dir go up one dir
--- let g:NERDTreeMapMenu = 'o'                   -- enter create/delete/move menu for selected file or parent dir
-
--- let g:NERDTreeIndicatorMapCustom = {
---   \ 'Modified'  : '~',
---   \ 'Staged'    : '✭',
---   \ 'Untracked' : '✚',
---   \ 'Renamed'   : '➜',
---   \ 'Unmerged'  : '═',
---   \ 'Deleted'   : '✖',
---   \ 'Dirty'     : '~',
---   \ 'Clean'     : '✔︎',
---   \ 'Ignored'   : '-',
---   \ 'Unknown'   : '?'
--- \ }
-
---------------------------------------------------------------------------------
 -- FILE FINDING / OPENING [fzf] [projectionist]
 --------------------------------------------------------------------------------
 
@@ -272,9 +242,6 @@ add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
 
 add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<cr>")
 add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
-
--- switch to nerdtree
--- nnoremap <silent> <leader>t :silent NERDTreeFind<CR>
 
 -- projectionist: invoke the defined 'alternate' cmd
 -- nnoremap <silent> <leader>a :A<CR>
@@ -390,7 +357,7 @@ require("lazy").setup({
     init = function()
       add_silent_normal_mode_mapping("{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>")
       add_silent_normal_mode_mapping("{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>")
-    end, -- init function()
+    end,
   },
 
 }) -- require("lazy").setup({
