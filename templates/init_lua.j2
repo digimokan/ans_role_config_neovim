@@ -302,7 +302,6 @@ local function nvim_tree_on_attach(bufnr)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-  -- custom mappings
   vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Change-CWD-Up'))
   vim.keymap.set('n', 's', api.tree.change_root_to_node,   opts('Set-Current-As-CWD'))
   vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
