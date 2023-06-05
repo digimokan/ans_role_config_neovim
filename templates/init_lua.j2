@@ -388,16 +388,8 @@ require("lazy").setup({
     commit = '{{ nvim_tree_lua_plugin_commit.hash }}',
     config = function()
       require('nvim-tree').setup {
-        -- sort_by = "case_sensitive",
-        view = {
-          width = 20,
-        },
-        renderer = {
-          group_empty = true,
-        },
-        -- filters = {
-        --   dotfiles = true,
-        -- },
+        view = { width = 20, },
+        renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
       }
     end, -- config function()
