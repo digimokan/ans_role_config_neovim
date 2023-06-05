@@ -365,11 +365,9 @@ require("lazy").setup({
     config = function()
       local function nvim_tree_on_attach(bufnr)
         local api = require "nvim-tree.api"
-
         local function opts(desc)
           return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
         end
-
         vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Change-CWD-Up'))
         vim.keymap.set('n', 's', api.tree.change_root_to_node,   opts('Set-Current-As-CWD'))
         vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
@@ -381,7 +379,7 @@ require("lazy").setup({
         vim.keymap.set('n', 'p', api.fs.paste,                   opts('Paste'))
         vim.keymap.set('n', 'd', api.fs.remove,                  opts('Delete'))
         vim.keymap.set('n', '?', api.tree.toggle_help,           opts('Help'))
-      end
+      end -- nvim_tree_on_attach()
 
       require('nvim-tree').setup {
         view = { width = 20, },
@@ -389,10 +387,11 @@ require("lazy").setup({
         on_attach = nvim_tree_on_attach,
       }
     end, -- config function()
+    init = function()
+      add_silent_normal_mode_mapping("{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>")
+      add_silent_normal_mode_mapping("{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>")
+    end, -- init function()
   },
 
 }) -- require("lazy").setup({
-
-add_silent_normal_mode_mapping("{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>")
-add_silent_normal_mode_mapping("{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>")
 
