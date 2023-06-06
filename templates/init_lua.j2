@@ -383,5 +383,12 @@ require("lazy").setup({
     end, -- config function()
   },
 
+  -- nvim-autopairs brace/paren-matching
+  {
+    url = "https://github.com/windwp/nvim-autopairs",
+    commit = '{{ nvim_autopairs_plugin_commit.hash }}',
+    config = function() require("nvim-autopairs").setup {} end
+  },
+
 }) -- require("lazy").setup({
 
