@@ -12,7 +12,4 @@ keymap_close_file_browser: '<leader>T'
 
 keymap_next_git_hunk: '<leader><right>'
 keymap_prev_git_hunk: '<leader><left>'
-keymap_toggle_git_preview: '<leader>-'
-keymap_toggle_git_blame_full: '<leader>y'
-keymap_toggle_git_blame_line: '<leader>b'
 
