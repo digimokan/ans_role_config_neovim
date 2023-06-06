@@ -360,5 +360,34 @@ require("lazy").setup({
     end,
   },
 
+  -- gitsigns git integration
+  {
+    url = "https://github.com/lewis6991/gitsigns.nvim",
+    commit = '{{ gitsigns_nvim_plugin_commit.hash }}',
+    config = function()
+      require('gitsigns').setup {
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          -- Actions
+          map('n', '{{ keymap_next_git_hunk }}', gs.next_hunk)
+          map('n', '{{ keymap_prev_git_hunk }}', gs.prev_hunk)
+          map('n', '{{ keymap_toggle_git_preview }}', gs.preview_hunk)
+          map('n', '{{ keymap_toggle_git_blame_full }}', function() gs.blame_line{full=true} end)
+          map('n', '{{ keymap_toggle_git_blame_line }}', gs.toggle_current_line_blame)
+
+          -- Text object
+          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        end -- on_attach
+      } -- require('gitsigns').setup
+    end, -- config function()
+  },
+
 }) -- require("lazy").setup({
 
