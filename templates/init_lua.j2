@@ -373,10 +373,9 @@ require("lazy").setup({
             vim.keymap.set(mode, l, r, opts)
           end
 
-          local gs = package.loaded.gitsigns
           -- actions
-          map('n', '{{ keymap_next_git_hunk }}', gs.next_hunk)
-          map('n', '{{ keymap_prev_git_hunk }}', gs.prev_hunk)
+          map('n', '{{ keymap_next_git_hunk }}', package.loaded.gitsigns.next_hunk)
+          map('n', '{{ keymap_prev_git_hunk }}', package.loaded.gitsigns.prev_hunk)
           -- text object
           map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end -- on_attach
