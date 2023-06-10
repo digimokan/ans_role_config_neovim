@@ -408,7 +408,7 @@ require("lazy").setup({
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
     commit = '{{ indent_blankline_nvim_plugin_commit.hash }}',
-    config = function() require("plugins/indent_blankline").setup {} end
+    config = function() require("indent_blankline").setup {} end
   },
 
 }) -- require("lazy").setup({
