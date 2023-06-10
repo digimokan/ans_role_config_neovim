@@ -286,9 +286,7 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     config = function()
-      require('onedark').setup {
-        style = 'warm'
-      }
+      require('onedark').setup { style = 'warm' }
       require('onedark').load()
     end,
   },
@@ -297,32 +295,30 @@ require("lazy").setup({
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
     commit = '{{ lualine_nvim_plugin_commit.hash }}',
-    config = function()
-      require('lualine').setup {
-        options = {
-          icons_enabled = false,
-          theme = 'gruvbox-material',
-          component_separators = { left = '│', right = '│'},
-          section_separators = { left = '', right = ''},
-        },
-        sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch'},
-          lualine_c = {'filename'},
-          lualine_x = {'diagnostics'},
-          lualine_y = {'filetype', 'fileformat', 'encoding'},
-          lualine_z = {'progress', 'location'}
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = {'location'}
-        },
-      }
-    end, -- config function()
+    config = function() require('lualine').setup {
+      options = {
+        icons_enabled = false,
+        theme = 'gruvbox-material',
+        component_separators = { left = '│', right = '│'},
+        section_separators = { left = '', right = ''},
+      },
+      sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch'},
+        lualine_c = {'filename'},
+        lualine_x = {'diagnostics'},
+        lualine_y = {'filetype', 'fileformat', 'encoding'},
+        lualine_z = {'progress', 'location'}
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {'location'}
+      },
+    } end, -- config function()
   },
 
   -- nvim-tree.lua file-explorer tree
@@ -364,23 +360,21 @@ require("lazy").setup({
   {
     url = "https://github.com/lewis6991/gitsigns.nvim",
     commit = '{{ gitsigns_nvim_plugin_commit.hash }}',
-    config = function()
-      require('gitsigns').setup {
-        on_attach = function(bufnr)
-          local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-          end
+    config = function() require('gitsigns').setup {
+      on_attach = function(bufnr)
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
+        end
 
-          -- actions
-          map('n', '{{ keymap_next_git_hunk }}', package.loaded.gitsigns.next_hunk)
-          map('n', '{{ keymap_prev_git_hunk }}', package.loaded.gitsigns.prev_hunk)
-          -- text object
-          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-        end -- on_attach
-      } -- require('gitsigns').setup
-    end, -- config function()
+        -- actions
+        map('n', '{{ keymap_next_git_hunk }}', package.loaded.gitsigns.next_hunk)
+        map('n', '{{ keymap_prev_git_hunk }}', package.loaded.gitsigns.prev_hunk)
+        -- text object
+        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      end -- on_attach
+    } end, -- config function()
   },
 
   -- nvim-autopairs brace/paren-matching
@@ -398,32 +392,33 @@ require("lazy").setup({
       -- "p00f/nvim-ts-rainbow",
     -- },
     config = function() require('nvim-treesitter.configs').setup {
-        -- build/install these parsers (each is a .so file in plugin dir)
-        -- treesitter doc says c, lua, vim, vimdoc, query MUST be installed
-        ensure_installed = {
-          "awk",
-          "bash",
-          "c", "cmake", "cpp",
-          "diff",
-          "fish",
-          "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
-          "json",
-          "lua",
-          "make",
-          "markdown",
-          "query",
-          "toml",
-          "vim", "vimdoc",
-          "yaml",
-        },
-        -- build the parsers in the list automatically on neovim startup
-        auto_install = true,
-        -- when building parsers, build them synchronously
-        sync_install = true,
-        -- enable the following treesitter modules, which use the installed parsers
-        highlight = { enable = true, }, -- use parser for better syntax highlighting
-        -- autopairs = { enable = true, }, -- auto-insert parens and braces
-    } end,
+      -- build/install these parsers (each is a .so file in plugin dir)
+      -- treesitter doc says c, lua, vim, vimdoc, query MUST be installed
+      ensure_installed = {
+        "awk",
+        "bash",
+        "c", "cmake", "cpp",
+        "diff",
+        "fish",
+        "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
+        "json",
+        "lua",
+        "make",
+        "markdown",
+        "meson",
+        "query",
+        "toml",
+        "vim", "vimdoc",
+        "yaml",
+      },
+      -- build the parsers in the list automatically on neovim startup
+      auto_install = true,
+      -- when building parsers, build them synchronously
+      sync_install = true,
+      -- enable the following treesitter modules, which use the installed parsers
+      highlight = { enable = true, }, -- use parser for better syntax highlighting
+      -- autopairs = { enable = true, }, -- auto-insert parens and braces
+    } end, -- config function()
     -- when treesitter plugin gets an update, re-build all parsers to latest
     build = ":TSUpdate",
   },
