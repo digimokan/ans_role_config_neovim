@@ -11,4 +11,5 @@ nvim_spider_plugin_commit:           { hash: 'ef0c75f', date: '2023-05-25' }
 telescope_nvim_plugin_tag:           { tag:  '0.1.2',   date: '2023-06-08' }
 plenary_nvim_plugin_commit:          { hash: '36aaceb', date: '2023-06-10' }
 telescope_undo_nvim_plugin_commit:   { hash: '3dec002', date: '2023-06-03' }
+which_key_nvim_plugin_commit:        { hash: 'e271c28', date: '2023-05-22' }
 
