@@ -1,8 +1,9 @@
 # pin all plugins to a version, by commit
-onedark_nvim_plugin_commit:    { hash: '8ef5192', date: '2023-06-02' }
-lualine_nvim_plugin_commit:    { hash: '05d78e9', date: '2023-05-04' }
-nvim_tree_lua_plugin_commit:   { hash: '58d1014', date: '2023-06-04' }
-gitsigns_nvim_plugin_commit:   { hash: 'f868d82', date: '2023-05-25' }
-nvim_autopairs_plugin_commit:  { hash: '59df87a', date: '2023-05-25' }
-nvim_treesitter_plugin_commit: { hash: 'f9d7011', date: '2023-06-10' }
+onedark_nvim_plugin_commit:     { hash: '8ef5192', date: '2023-06-02' }
+lualine_nvim_plugin_commit:     { hash: '05d78e9', date: '2023-05-04' }
+nvim_tree_lua_plugin_commit:    { hash: '58d1014', date: '2023-06-04' }
+gitsigns_nvim_plugin_commit:    { hash: 'f868d82', date: '2023-05-25' }
+nvim_autopairs_plugin_commit:   { hash: '59df87a', date: '2023-05-25' }
+nvim_treesitter_plugin_commit:  { hash: 'f9d7011', date: '2023-06-10' }
+nvim_ts_rainbow2_plugin_commit: { hash: 'e1783c8', date: '2023-06-04' }
 
