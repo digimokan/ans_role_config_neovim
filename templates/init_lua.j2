@@ -432,6 +432,7 @@ require("lazy").setup({
     },
     config = function() require("telescope").setup {} end,
     init = function()
+      local builtin = require('telescope.builtin')
       vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, {})
       vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, {})
     end,
