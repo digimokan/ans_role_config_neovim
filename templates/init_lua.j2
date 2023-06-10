@@ -381,7 +381,7 @@ require("lazy").setup({
   {
     url = "https://github.com/windwp/nvim-autopairs",
     commit = '{{ nvim_autopairs_plugin_commit.hash }}',
-    config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup {} end,
   },
 
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
@@ -408,14 +408,19 @@ require("lazy").setup({
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
     commit = '{{ indent_blankline_nvim_plugin_commit.hash }}',
-    config = function() require("indent_blankline").setup {} end
+    config = function() require("indent_blankline").setup {} end,
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
     commit = '{{ nvim_spider_plugin_commit.hash }}',
-    config = function() require("spider").setup {} end
+    config = function() require("spider").setup {} end,
+    init = function()
+      vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+      vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+      vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+    end,
   },
 
 }) -- require("lazy").setup({
