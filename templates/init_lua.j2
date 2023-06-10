@@ -423,14 +423,19 @@ require("lazy").setup({
     end,
   },
 
-  -- telescope.nvim: fuzzy filter, finder, and picker
+  -- telescope.nvim: fuzzy filter, finder, and pick
   {
     url = "https://github.com/nvim-telescope/telescope.nvim",
     tag = '{{ telescope_nvim_plugin_tag.tag }}',
     dependencies = {
       { url = "https://github.com/nvim-lua/plenary.nvim", commit = '{{ plenary_nvim_plugin_commit.hash }}' },
     },
-    config = function() require("telescope").setup {} end,
+    config = function() require("telescope").setup {
+      defaults = {
+        -- make one press of ESC exit telescope, since it starts in insert mode
+        mappings = { i = { ["<esc>"] = "close", ["<C-c>"] = false }, },
+      }
+    } end,
     init = function()
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, {})
