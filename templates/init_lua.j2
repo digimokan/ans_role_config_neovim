@@ -392,31 +392,11 @@ require("lazy").setup({
       -- "p00f/nvim-ts-rainbow",
     -- },
     config = function() require('nvim-treesitter.configs').setup {
-      -- build/install these parsers (each is a .so file in plugin dir)
-      -- treesitter doc says c, lua, vim, vimdoc, query MUST be installed
-      ensure_installed = {
-        "awk",
-        "bash",
-        "c", "cmake", "cpp",
-        "diff",
-        "fish",
-        "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
-        "json",
-        "lua",
-        "make",
-        "markdown",
-        "meson",
-        "query",
-        "toml",
-        "vim", "vimdoc",
-        "yaml",
-      },
-      -- build the parsers in the list automatically on neovim startup
+      -- build a parser for the buffer's filetype automatically, on buff enter
+      -- each parser is a .so file located in the treesitter plugin dir
       auto_install = true,
-      -- when building parsers, build them synchronously
-      sync_install = true,
-      -- enable the following treesitter modules, which use the installed parsers
-      highlight = { enable = true, }, -- use parser for better syntax highlighting
+      -- treesitter module for better syntax highlighting
+      highlight = { enable = true, },
       -- autopairs = { enable = true, }, -- auto-insert parens and braces
     } end, -- config function()
     -- when treesitter plugin gets an update, re-build all parsers to latest
