@@ -13,3 +13,6 @@ keymap_close_file_browser: '<leader>T'
 keymap_next_git_hunk: '<leader><right>'
 keymap_prev_git_hunk: '<leader><left>'
 
+keymap_find_proj_files: '<leader>f'
+keymap_find_open_buffer: '<leader>r'
+

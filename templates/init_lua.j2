@@ -423,5 +423,19 @@ require("lazy").setup({
     end,
   },
 
+  -- telescope.nvim: fuzzy filter, finder, and picker
+  {
+    url = "https://github.com/nvim-telescope/telescope.nvim",
+    tag = '{{ telescope_nvim_plugin_tag.tag }}',
+    dependencies = {
+      { url = "https://github.com/nvim-lua/plenary.nvim", commit = '{{ plenary_nvim_plugin_commit.hash }}' },
+    },
+    config = function() require("telescope").setup {} end,
+    init = function()
+      vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, {})
+      vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, {})
+    end,
+  },
+
 }) -- require("lazy").setup({
 
