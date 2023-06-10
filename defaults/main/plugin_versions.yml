@@ -7,4 +7,5 @@ nvim_autopairs_plugin_commit:        { hash: '59df87a', date: '2023-05-25' }
 nvim_treesitter_plugin_commit:       { hash: 'f9d7011', date: '2023-06-10' }
 nvim_ts_rainbow2_plugin_commit:      { hash: 'e1783c8', date: '2023-06-04' }
 indent_blankline_nvim_plugin_commit: { hash: '7075d78', date: '2023-05-29' }
+nvim_spider_plugin_commit:           { hash: 'ef0c75f', date: '2023-05-25' }
 

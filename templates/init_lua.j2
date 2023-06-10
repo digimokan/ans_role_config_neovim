@@ -411,5 +411,12 @@ require("lazy").setup({
     config = function() require("indent_blankline").setup {} end
   },
 
+  -- nvim.spider: smarter camelcase/etc word motion
+  {
+    url = "https://github.com/chrisgrieser/nvim-spider",
+    commit = '{{ nvim_spider_plugin_commit.hash }}',
+    config = function() require("spider").setup {} end
+  },
+
 }) -- require("lazy").setup({
 
