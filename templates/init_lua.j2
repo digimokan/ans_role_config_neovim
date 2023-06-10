@@ -390,5 +390,22 @@ require("lazy").setup({
     config = function() require("nvim-autopairs").setup {} end
   },
 
+  -- nvim-treesitter buffer syntax parsing (and add-ons)
+  {
+    url = "https://github.com/nvim-treesitter/nvim-treesitter",
+    commit = '{{ nvim_treesitter_plugin_commit.hash }}',
+    -- dependencies = {
+      -- "p00f/nvim-ts-rainbow",
+    -- },
+    config = function()
+      require('nvim-treesitter').setup {
+        highlight = { enable = true, }, -- use parser for better syntax highlighting
+        -- autopairs = { enable = true, }, -- auto-insert parens and braces
+      }
+    end,
+    -- on lazy.nvim update action, ensure each lang parser is built to latest
+    build = ":TSUpdate",
+  },
+
 }) -- require("lazy").setup({
 
