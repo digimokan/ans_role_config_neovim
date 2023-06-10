@@ -279,7 +279,7 @@ vim.opt.rtp:prepend(lazypath)
 -- install individual plugins
 require("lazy").setup({
 
-  -- onedark colorscheme
+    -- onedark.nvim: colorscheme
   {
     url = "https://github.com/navarasu/onedark.nvim",
     commit = '{{ onedark_nvim_plugin_commit.hash }}',
@@ -291,7 +291,7 @@ require("lazy").setup({
     end,
   },
 
-  -- lualine statusline
+  -- lualine.nvim: statusline
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
     commit = '{{ lualine_nvim_plugin_commit.hash }}',
@@ -321,7 +321,7 @@ require("lazy").setup({
     } end, -- config function()
   },
 
-  -- nvim-tree.lua file-explorer tree
+  -- nvim-tree.lua: file-explorer tree
   {
     url = "https://github.com/nvim-tree/nvim-tree.lua",
     commit = '{{ nvim_tree_lua_plugin_commit.hash }}',
@@ -356,7 +356,7 @@ require("lazy").setup({
     end,
   },
 
-  -- gitsigns git integration
+  -- gitsigns.nvim: git integration
   {
     url = "https://github.com/lewis6991/gitsigns.nvim",
     commit = '{{ gitsigns_nvim_plugin_commit.hash }}',
@@ -377,14 +377,14 @@ require("lazy").setup({
     } end, -- config function()
   },
 
-  -- nvim-autopairs brace/paren insertion
+  -- nvim-autopairs: brace/paren insertion
   {
     url = "https://github.com/windwp/nvim-autopairs",
     commit = '{{ nvim_autopairs_plugin_commit.hash }}',
     config = function() require("nvim-autopairs").setup {} end
   },
 
-  -- nvim-treesitter buffer syntax parsing (and add-ons)
+  -- nvim-treesitter: buffer syntax parsing (and add-ons)
   {
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
     commit = '{{ nvim_treesitter_plugin_commit.hash }}',
@@ -402,6 +402,13 @@ require("lazy").setup({
     } end, -- config function()
     -- when treesitter plugin gets an update, re-build all parsers to latest
     build = ":TSUpdate",
+  },
+
+  -- indent-blankline.nvim: indentation guides
+  {
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim",
+    commit = '{{ indent_blankline_nvim_plugin_commit.hash }}',
+    config = function() require("plugins/indent_blankline").setup {} end
   },
 
 }) -- require("lazy").setup({
