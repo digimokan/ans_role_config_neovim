@@ -428,18 +428,28 @@ require("lazy").setup({
     url = "https://github.com/nvim-telescope/telescope.nvim",
     tag = '{{ telescope_nvim_plugin_tag.tag }}',
     dependencies = {
-      { url = "https://github.com/nvim-lua/plenary.nvim", commit = '{{ plenary_nvim_plugin_commit.hash }}' },
+      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = '{{ plenary_nvim_plugin_commit.hash }}' },
+      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = '{{ telescope_undo_nvim_plugin_commit.hash }}' },
     },
-    config = function() require("telescope").setup {
-      defaults = {
-        -- make one press of ESC exit telescope, since it starts in insert mode
-        mappings = { i = { ["<esc>"] = "close", ["<C-c>"] = false }, },
-      }
-    } end,
+    config = function()
+      require("telescope").setup {
+        defaults = {
+          -- make one press of ESC exit telescope, since it starts in insert mode
+          mappings = { i = { ["<esc>"] = "close", ["<C-c>"] = false }, },
+        }, -- defaults
+        extensions = {
+          undo = {
+            mappings = { i = { ["<cr>"] = require("telescope-undo.actions").restore, }, },
+          },
+        }, -- extensions
+      } -- require("telescope").setup
+      require("telescope").load_extension("undo")
+    end, --config = function()
     init = function()
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, {})
       vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, {})
+      vim.keymap.set('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", {})
     end,
   },
 

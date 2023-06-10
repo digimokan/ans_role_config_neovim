@@ -16,3 +16,5 @@ keymap_prev_git_hunk: '<leader><left>'
 keymap_find_proj_files: '<leader>f'
 keymap_find_open_buffer: '<leader>r'
 
+keymap_open_undo_tree: '<leader>u'
+
