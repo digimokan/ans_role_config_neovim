@@ -183,8 +183,7 @@ map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line S
 -- NAVIGATION KEYMAPS
 
 -- go to end of line
-map("n", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
-map("v", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
+map({ "n", "v" }, "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
 map("n", "{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>", "Go To Prev Buffer", { silent = true })
 
@@ -350,18 +349,11 @@ require("lazy").setup({
     commit = '{{ gitsigns_nvim_plugin_commit.hash }}',
     config = function() require('gitsigns').setup {
       on_attach = function(bufnr)
-        -- local function map(mode, l, r, opts)
-        --   opts = opts or {}
-        --   opts.buffer = bufnr
-        --   vim.keymap.set(mode, l, r, opts)
-        -- end
-
         -- actions
         local gs = package.loaded.gitsigns
         map('n', '{{ keymap_next_git_hunk }}', gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
         map('n', '{{ keymap_prev_git_hunk }}', gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
         -- text object
-        -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', "Unstaged Git Hunk")
       end -- on_attach
     } end, -- config function()
@@ -407,11 +399,8 @@ require("lazy").setup({
     commit = '{{ nvim_spider_plugin_commit.hash }}',
     config = function() require("spider").setup {} end,
     init = function()
-      -- vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Next-Word-Start" })
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", "Next Word Start")
-      -- vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Next-Word-End" })
       map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", "Next Word End")
-      -- vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Prev-Word-Start" })
       map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", "Prev Word Start")
     end,
   },
@@ -440,11 +429,8 @@ require("lazy").setup({
     end, --config = function()
     init = function()
       local builtin = require('telescope.builtin')
-      -- vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, { desc = "Find File In Project" })
       map('n', '{{ keymap_find_proj_files }}', builtin.find_files, "Find File In Project")
-      -- vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, { desc = "Find File In Buffers" })
       map('n', '{{ keymap_find_open_buffer }}', builtin.buffers, "Find File In Buffers")
-      -- vim.keymap.set('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", { desc = "Open Undo Tree" })
       map('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", "Open Undo Tree")
     end,
   },
