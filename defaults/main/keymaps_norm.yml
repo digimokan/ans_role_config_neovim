@@ -1,6 +1,6 @@
 neovim_leader_key: " "
 
-keymap_enter_normal_mode: ';'
+keymap_enter_cmd_mode: ';'
 keymap_enter_insert_mode_at_line_start: 'I'
 
 keymap_go_to_end_of_line: '-'

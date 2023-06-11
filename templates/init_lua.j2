@@ -155,6 +155,17 @@ vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
 
 -- LOCAL MAPPING FUNCTIONS
 
+local function map(mode, keys, action, desc, opts)
+  opts = opts or {}
+  map_opts = {}
+  map_opts.desc = desc
+  map_opts.silent = opts.silent or false
+  map_opts.noremap = opts.noremap or true
+  if opts.nowait then map_opts.nowait = opts.nowait end
+  if opts.buffer then map_opts.buffer = opts.buffer end
+  vim.keymap.set(mode, keys, action, map_opts)
+end
+
 local function add_silent_normal_mode_mapping(keys, action)
   vim.keymap.set("n", keys, action, { silent = true })
 end
@@ -171,72 +182,95 @@ end
 -- LEADER KEY
 
 -- set the leader key
-add_silent_normal_mode_mapping("<space>", "<nop>")
+-- add_silent_normal_mode_mapping("<space>", "<nop>")
+map("n", "<space>", "<nop>", "Leader Map", { silent = true })
 vim.g.mapleader = "{{ neovim_leader_key }}"
 
 -- MODE CHANGE KEYMAPS
 
 -- enter normal mode
-add_normal_mode_mapping("{{ keymap_enter_normal_mode }}", ":")
-add_normal_mode_mapping(":", "<nop>")
+-- add_normal_mode_mapping("{{ keymap_enter_cmd_mode }}", ":")
+map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
+-- add_normal_mode_mapping(":", "<nop>")
+map("n", ":", "<nop>", "Unmapping")
 -- insert at start of line
-add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
+-- add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
+map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
 
 -- NAVIGATION KEYMAPS
 
 -- go to end of line
-add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
-add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
+-- add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
+map("n", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
+-- add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
+map("v", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
-add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>")
+-- add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>")
+map("n", "{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>", "Go To Prev Buffer", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
 -- close current buffer
-add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
+-- add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
+map("n", "{{ keymap_close_buffer }}", ":quit<cr>", "Close Buffer")
 -- quit neovim
-add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quitall<cr>")
+-- add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quitall<cr>")
+map("n", "{{ keymap_quit_neovim }}", ":quitall<cr>", "Quit Neovim")
 -- save current split
-add_normal_mode_mapping("{{ keymap_save_file }}", ":write<cr>")
+-- add_normal_mode_mapping("{{ keymap_save_file }}", ":write<cr>")
+map("n", "{{ keymap_save_file }}", ":write<cr>", "Save Buffer")
 
 -- SPLIT KEYMAPS
 
 -- resize current split in horizontal or vertical dimension
-add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<cr>")
-add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<cr>")
-add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>")
-add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>")
+-- add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<cr>")
+map("n", "{{ keymap_inc_current_split_height }}", ":resize +1<cr>", "Inc Split Height", { silent = true })
+-- add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<cr>")
+map("n", "{{ keymap_dec_current_split_height }}", ":resize -1<cr>", "Dec Split Height", { silent = true })
+-- add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>")
+map("n", "{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>", "Dec Split Width", { silent = true })
+-- add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>")
+map("n", "{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>", "Inc Split Width", { silent = true })
 -- rotate through all splits
-add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
+-- add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
+map("n", "{{ keymap_rotate_through_splits }}", "<C-w>w", "Rotate Through Splits", { silent = true })
 
 -- FOLD KEYMAPS
 
 -- fold expand/collapse toggle
-add_silent_normal_mode_mapping("{{ keymap_toggle_fold_expand_collapse }}", "za")
+-- add_silent_normal_mode_mapping("{{ keymap_toggle_fold_expand_collapse }}", "za")
+map("n", "{{ keymap_toggle_fold_expand_collapse }}", "za", "Toggle Fold Expand/Collapse", { silent = true })
 
 -- BUFFER-SEARCH KEYMAPS
 
 -- clear highlighted text from last search
-add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>")
+-- add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>")
+map("n", "{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>", "Clear Highlighted Search Text")
 
 -- search and replace in buffer
-add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>")
+-- add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>")
+map("n", "{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>", "Search & Replace In Buffer")
 
 -- INDENT / TAB KEYMAPS
 
 -- allow repeat indenting of visual selection
-add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_left }}", "<gv")
-add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_right }}", ">gv")
+-- add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_left }}", "<gv")
+map("v", "{{ keymap_indent_visual_selection_to_left }}", "<gv", "Indent To Left")
+-- add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_right }}", ">gv")
+map("v", "{{ keymap_indent_visual_selection_to_right }}", ">gv", "Indent To Right")
 
 -- COPY / PASTE KEYMAPS
 
 -- copy to end of line
-add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
+-- add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
+map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Copy To End Of Line")
 
 -- UNDO / REDO KEYMAPS
 
-add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<cr>")
-add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
+-- add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<cr>")
+map("n", "{{ keymap_undo_last_edit }}", ":undo<cr>", "Undo Last Edit")
+-- add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
+map("n", "{{ keymap_redo_last_edit }}", ":redo<cr>", "Redo Last Edit")
 
 -- projectionist: invoke the defined 'alternate' cmd
 -- nnoremap <silent> <leader>a :A<CR>
@@ -362,8 +396,8 @@ require("lazy").setup({
         end
 
         -- actions
-        map('n', '{{ keymap_next_git_hunk }}', package.loaded.gitsigns.next_hunk)
-        map('n', '{{ keymap_prev_git_hunk }}', package.loaded.gitsigns.prev_hunk)
+        map('n', '{{ keymap_next_git_hunk }}', package.loaded.gitsigns.next_hunk, { desc = "Next Unstaged Git Hunk" })
+        map('n', '{{ keymap_prev_git_hunk }}', package.loaded.gitsigns.prev_hunk, { desc = "Prev Unstaged Git Hunk" })
         -- text object
         map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end -- on_attach
@@ -410,9 +444,9 @@ require("lazy").setup({
     commit = '{{ nvim_spider_plugin_commit.hash }}',
     config = function() require("spider").setup {} end,
     init = function()
-      vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-      vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-      vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+      vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Next-Word-Start" })
+      vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Next-Word-End" })
+      vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Prev-Word-Start" })
     end,
   },
 
@@ -440,9 +474,9 @@ require("lazy").setup({
     end, --config = function()
     init = function()
       local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, {})
-      vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, {})
-      vim.keymap.set('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", {})
+      vim.keymap.set('n', '{{ keymap_find_proj_files }}', builtin.find_files, { desc = "Find File In Project" })
+      vim.keymap.set('n', '{{ keymap_find_open_buffer }}', builtin.buffers, { desc = "Find File In Buffers" })
+      vim.keymap.set('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", { desc = "Open Undo Tree" })
     end,
   },
 
