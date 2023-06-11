@@ -11,7 +11,7 @@
 
 -- use truecolors in term (if vt support)
 vim.opt.termguicolors = {{ use_24bit_true_colors_in_term }}
--- disable the built-in neovim netrw file manager
+-- disable the built-in neovim netrw file manager (req for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -28,11 +28,6 @@ vim.opt.visualbell = {{ visual_bell_on_alert }}
 vim.opt.autoread = {{ reload_buffer_if_changed_externally }}
 -- save swapfiles
 vim.opt.swapfile = {{ save_vim_swapfiles }}
--- edit/save with file-format preferences in this order
--- vim.opt.fileformats = "unix,dos,mac" -- probably not needed, default "unix,dos"
--- enable filetype detection (c source, perl, etc.).  vim guesses filetype
--- based on content (filetype detection necessary for filetype plugin / syntax)
--- filetype on -- not seeing this set in any advanced configs
 
 -- BUFFER SETTINGS
 
