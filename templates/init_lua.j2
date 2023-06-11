@@ -36,17 +36,6 @@ vim.opt.hidden = {{ allow_hidden_unsaved_buffers }}
 -- prompt when switching from unsaved buf
 vim.opt.confirm = {{ prompt_on_switch_from_usaved_buff }}
 
--- SPLIT SETTINGS
-
--- create new splits below current one
-vim.opt.splitbelow = {{ create_new_splits_below }}
--- create new splits to right of current one
-vim.opt.splitright = {{ create_new_splits_to_right }}
--- separator char(s) between vsplits
-vim.opt.fillchars:append("vert:│") -- this may already be the default
--- options for diff mode
-vim.opt.diffopt:append("vertical")
-
 -- CURSOR, LINES, COLUMN SETTINGS
 
 -- cursor style: 'hor' (horizontal bar), 'ver' (vertical bar), 'block'
