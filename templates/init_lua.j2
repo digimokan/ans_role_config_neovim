@@ -184,11 +184,6 @@ add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
 
 -- NAVIGATION KEYMAPS
 
--- make w/b/e/t respect camelcase/snakecase in all modes
--- map <silent> w <Plug>CamelCaseMotion_w
--- map <silent> b <Plug>CamelCaseMotion_b
--- map <silent> e <Plug>CamelCaseMotion_e
--- map <silent> \ <Plug>CamelCaseMotion_ge
 -- go to end of line
 add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
