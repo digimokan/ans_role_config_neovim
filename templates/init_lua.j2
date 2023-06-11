@@ -228,7 +228,7 @@ map("v", "{{ keymap_indent_visual_selection_to_right }}", ">gv", "Indent To Righ
 -- COPY / PASTE KEYMAPS
 
 -- copy to end of line
-map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Copy To End Of Line")
+map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Yank To End Of Line")
 
 -- UNDO / REDO KEYMAPS
 
@@ -272,41 +272,41 @@ require("lazy").setup({
     -- onedark.nvim: colorscheme
   {
     url = "https://github.com/navarasu/onedark.nvim",
-    commit = '{{ onedark_nvim_plugin_commit.hash }}',
+    commit = "{{ onedark_nvim_plugin_commit.hash }}",
     lazy = false,
     priority = 1000,
     config = function()
-      require('onedark').setup { style = 'warm' }
-      require('onedark').load()
+      require("onedark").setup { style = "warm" }
+      require("onedark").load()
     end,
   },
 
   -- lualine.nvim: statusline
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
-    commit = '{{ lualine_nvim_plugin_commit.hash }}',
+    commit = "{{ lualine_nvim_plugin_commit.hash }}",
     config = function() require('lualine').setup {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox-material',
-        component_separators = { left = '│', right = '│'},
-        section_separators = { left = '', right = ''},
+        theme = "gruvbox-material",
+        component_separators = { left = "│", right = "│"},
+        section_separators = { left = "", right = ""},
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {'diagnostics'},
-        lualine_y = {'filetype', 'fileformat', 'encoding'},
-        lualine_z = {'progress', 'location'}
+        lualine_a = {"mode"},
+        lualine_b = {"branch"},
+        lualine_c = {"filename"},
+        lualine_x = {"diagnostics"},
+        lualine_y = {"filetype", "fileformat", "encoding"},
+        lualine_z = {"progress", "location"}
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
+        lualine_c = {"filename"},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {'location'}
+        lualine_z = {"location"}
       },
     } end, -- config function()
   },
@@ -314,24 +314,24 @@ require("lazy").setup({
   -- nvim-tree.lua: file-explorer tree
   {
     url = "https://github.com/nvim-tree/nvim-tree.lua",
-    commit = '{{ nvim_tree_lua_plugin_commit.hash }}',
+    commit = "{{ nvim_tree_lua_plugin_commit.hash }}",
     config = function()
       local function nvim_tree_on_attach(bufnr)
         local api = require "nvim-tree.api"
-        map('n', 'u', api.tree.change_root_to_parent, 'Change CWD Up',    { buffer = bufnr, silent = true, nowait = true })
-        map('n', 's', api.tree.change_root_to_node, 'Set Current As CWD', { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'l', api.node.open.edit, 'Open',                         { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'h', api.node.navigate.parent_close, 'Collapse',         { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'a', api.fs.create, 'Create',                            { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'm', api.fs.rename_sub, 'Move Or Rename',                { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'e', api.fs.rename_basename, 'Edit Filename',            { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'c', api.fs.copy.node, 'Copy',                           { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'p', api.fs.paste, 'Paste',                              { buffer = bufnr, silent = true, nowait = true })
-        map('n', 'd', api.fs.remove, 'Delete',                            { buffer = bufnr, silent = true, nowait = true })
-        map('n', '?', api.tree.toggle_help, 'Help',                       { buffer = bufnr, silent = true, nowait = true })
+        map("n", "u", api.tree.change_root_to_parent, "Change CWD Up",    { buffer = bufnr, silent = true, nowait = true })
+        map("n", "s", api.tree.change_root_to_node, "Set Current As CWD", { buffer = bufnr, silent = true, nowait = true })
+        map("n", "l", api.node.open.edit, "Open",                         { buffer = bufnr, silent = true, nowait = true })
+        map("n", "h", api.node.navigate.parent_close, "Collapse",         { buffer = bufnr, silent = true, nowait = true })
+        map("n", "a", api.fs.create, "Create",                            { buffer = bufnr, silent = true, nowait = true })
+        map("n", "m", api.fs.rename_sub, "Move Or Rename",                { buffer = bufnr, silent = true, nowait = true })
+        map("n", "e", api.fs.rename_basename, "Edit Filename",            { buffer = bufnr, silent = true, nowait = true })
+        map("n", "c", api.fs.copy.node, "Copy",                           { buffer = bufnr, silent = true, nowait = true })
+        map("n", "p", api.fs.paste, "Paste",                              { buffer = bufnr, silent = true, nowait = true })
+        map("n", "d", api.fs.remove, "Delete",                            { buffer = bufnr, silent = true, nowait = true })
+        map("n", "?", api.tree.toggle_help, "Help",                       { buffer = bufnr, silent = true, nowait = true })
       end -- nvim_tree_on_attach()
 
-      require('nvim-tree').setup {
+      require("nvim-tree").setup {
         view = { width = 20, },
         renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
@@ -351,10 +351,10 @@ require("lazy").setup({
       on_attach = function(bufnr)
         -- actions
         local gs = package.loaded.gitsigns
-        map('n', '{{ keymap_next_git_hunk }}', gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
-        map('n', '{{ keymap_prev_git_hunk }}', gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_next_git_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
         -- text object
-        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', "Unstaged Git Hunk")
+        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Unstaged Git Hunk")
       end -- on_attach
     } end, -- config function()
   },
@@ -362,18 +362,18 @@ require("lazy").setup({
   -- nvim-autopairs: brace/paren insertion
   {
     url = "https://github.com/windwp/nvim-autopairs",
-    commit = '{{ nvim_autopairs_plugin_commit.hash }}',
+    commit = "{{ nvim_autopairs_plugin_commit.hash }}",
     config = function() require("nvim-autopairs").setup {} end,
   },
 
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
   {
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
-    commit = '{{ nvim_treesitter_plugin_commit.hash }}',
+    commit = "{{ nvim_treesitter_plugin_commit.hash }}",
     dependencies = {
-      { url = "https://github.com/HiPhish/nvim-ts-rainbow2", commit = '{{ nvim_ts_rainbow2_plugin_commit.hash }}' },
+      { url = "https://github.com/HiPhish/nvim-ts-rainbow2", commit = "{{ nvim_ts_rainbow2_plugin_commit.hash }}" },
     },
-    config = function() require('nvim-treesitter.configs').setup {
+    config = function() require("nvim-treesitter.configs").setup {
       -- build a parser for the buffer's filetype automatically, on buff enter
       -- each parser is a .so file located in the treesitter plugin dir
       auto_install = true,
@@ -389,14 +389,14 @@ require("lazy").setup({
   -- indent-blankline.nvim: indentation guides
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
-    commit = '{{ indent_blankline_nvim_plugin_commit.hash }}',
+    commit = "{{ indent_blankline_nvim_plugin_commit.hash }}",
     config = function() require("indent_blankline").setup {} end,
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
-    commit = '{{ nvim_spider_plugin_commit.hash }}',
+    commit = "{{ nvim_spider_plugin_commit.hash }}",
     config = function() require("spider").setup {} end,
     init = function()
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", "Next Word Start")
@@ -408,10 +408,10 @@ require("lazy").setup({
   -- telescope.nvim: fuzzy filter, finder, and pick
   {
     url = "https://github.com/nvim-telescope/telescope.nvim",
-    tag = '{{ telescope_nvim_plugin_tag.tag }}',
+    tag = "{{ telescope_nvim_plugin_tag.tag }}",
     dependencies = {
-      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = '{{ plenary_nvim_plugin_commit.hash }}' },
-      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = '{{ telescope_undo_nvim_plugin_commit.hash }}' },
+      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = "{{ plenary_nvim_plugin_commit.hash }}" },
+      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = "{{ telescope_undo_nvim_plugin_commit.hash }}" },
     },
     config = function()
       require("telescope").setup {
@@ -428,17 +428,17 @@ require("lazy").setup({
       require("telescope").load_extension("undo")
     end, --config = function()
     init = function()
-      local builtin = require('telescope.builtin')
-      map('n', '{{ keymap_find_proj_files }}', builtin.find_files, "Find File In Project")
-      map('n', '{{ keymap_find_open_buffer }}', builtin.buffers, "Find File In Buffers")
-      map('n', '{{ keymap_open_undo_tree }}', "<cmd>Telescope undo<cr>", "Open Undo Tree")
+      local builtin = require("telescope.builtin")
+      map("n", "{{ keymap_find_proj_files }}", builtin.find_files, "Find File In Project")
+      map("n", "{{ keymap_find_open_buffer }}", builtin.buffers, "Find File In Buffers")
+      map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
     end,
   },
 
   -- which-key.nvim: pop-up display for keymaps
   {
     url = "https://github.com/folke/which-key.nvim",
-    commit = '{{ which_key_nvim_plugin_commit.hash }}',
+    commit = "{{ which_key_nvim_plugin_commit.hash }}",
     config = function() require("which-key").setup {} end,
   },
 
