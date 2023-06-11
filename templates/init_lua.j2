@@ -182,94 +182,71 @@ end
 -- LEADER KEY
 
 -- set the leader key
--- add_silent_normal_mode_mapping("<space>", "<nop>")
 map("n", "<space>", "<nop>", "Leader Map", { silent = true })
 vim.g.mapleader = "{{ neovim_leader_key }}"
 
 -- MODE CHANGE KEYMAPS
 
 -- enter normal mode
--- add_normal_mode_mapping("{{ keymap_enter_cmd_mode }}", ":")
 map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
--- add_normal_mode_mapping(":", "<nop>")
 map("n", ":", "<nop>", "Unmapping")
 -- insert at start of line
--- add_normal_mode_mapping("{{ keymap_enter_insert_mode_at_line_start }}", "0i")
 map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
 
 -- NAVIGATION KEYMAPS
 
 -- go to end of line
--- add_normal_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 map("n", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
--- add_visual_mode_mapping("{{ keymap_go_to_end_of_line }}", "$")
 map("v", "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
--- add_silent_normal_mode_mapping("{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>")
 map("n", "{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>", "Go To Prev Buffer", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
 -- quit neovim
--- add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quitall<cr>")
 map("n", "{{ keymap_quit_neovim }}", ":quitall<cr>", "Quit Neovim")
 -- save current split
--- add_normal_mode_mapping("{{ keymap_save_file }}", ":write<cr>")
 map("n", "{{ keymap_save_file }}", ":write<cr>", "Save Buffer")
 
 -- SPLIT KEYMAPS
 
 -- resize current split in horizontal or vertical dimension
--- add_silent_normal_mode_mapping("{{ keymap_inc_current_split_height }}", ":resize +1<cr>")
 map("n", "{{ keymap_inc_current_split_height }}", ":resize +1<cr>", "Inc Split Height", { silent = true })
--- add_silent_normal_mode_mapping("{{ keymap_dec_current_split_height }}", ":resize -1<cr>")
 map("n", "{{ keymap_dec_current_split_height }}", ":resize -1<cr>", "Dec Split Height", { silent = true })
--- add_silent_normal_mode_mapping("{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>")
 map("n", "{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>", "Dec Split Width", { silent = true })
--- add_silent_normal_mode_mapping("{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>")
 map("n", "{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>", "Inc Split Width", { silent = true })
 -- rotate through all splits
--- add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
 map("n", "{{ keymap_rotate_through_splits }}", "<C-w>w", "Rotate Through Splits", { silent = true })
 -- close current split
--- add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
 map("n", "{{ keymap_close_split }}", ":quit<cr>", "Close Split")
 
 -- FOLD KEYMAPS
 
 -- fold expand/collapse toggle
--- add_silent_normal_mode_mapping("{{ keymap_toggle_fold_expand_collapse }}", "za")
 map("n", "{{ keymap_toggle_fold_expand_collapse }}", "za", "Toggle Fold Expand/Collapse", { silent = true })
 
 -- BUFFER-SEARCH KEYMAPS
 
 -- clear highlighted text from last search
--- add_normal_mode_mapping("{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>")
 map("n", "{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>", "Clear Highlighted Search Text")
 
 -- search and replace in buffer
--- add_normal_mode_mapping("{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>")
 map("n", "{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>", "Search & Replace In Buffer")
 
 -- INDENT / TAB KEYMAPS
 
 -- allow repeat indenting of visual selection
--- add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_left }}", "<gv")
 map("v", "{{ keymap_indent_visual_selection_to_left }}", "<gv", "Indent To Left")
--- add_visual_mode_mapping("{{ keymap_indent_visual_selection_to_right }}", ">gv")
 map("v", "{{ keymap_indent_visual_selection_to_right }}", ">gv", "Indent To Right")
 
 -- COPY / PASTE KEYMAPS
 
 -- copy to end of line
--- add_normal_mode_mapping("{{ keymap_copy_to_end_of_line }}", "y$")
 map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Copy To End Of Line")
 
 -- UNDO / REDO KEYMAPS
 
--- add_normal_mode_mapping("{{ keymap_undo_last_edit }}", ":undo<cr>")
 map("n", "{{ keymap_undo_last_edit }}", ":undo<cr>", "Undo Last Edit")
--- add_normal_mode_mapping("{{ keymap_redo_last_edit }}", ":redo<cr>")
 map("n", "{{ keymap_redo_last_edit }}", ":redo<cr>", "Redo Last Edit")
 
 -- projectionist: invoke the defined 'alternate' cmd
