@@ -210,9 +210,6 @@ map("n", "{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>", "Go To Prev Buffe
 
 -- QUIT / SAVE KEYMAPS
 
--- close current buffer
--- add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
-map("n", "{{ keymap_close_buffer }}", ":quit<cr>", "Close Buffer")
 -- quit neovim
 -- add_normal_mode_mapping("{{ keymap_quit_neovim }}", ":quitall<cr>")
 map("n", "{{ keymap_quit_neovim }}", ":quitall<cr>", "Quit Neovim")
@@ -234,6 +231,9 @@ map("n", "{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>", "Inc
 -- rotate through all splits
 -- add_silent_normal_mode_mapping("{{ keymap_rotate_through_splits }}", "<C-w>w")
 map("n", "{{ keymap_rotate_through_splits }}", "<C-w>w", "Rotate Through Splits", { silent = true })
+-- close current split
+-- add_normal_mode_mapping("{{ keymap_close_buffer }}", ":quit<cr>")
+map("n", "{{ keymap_close_split }}", ":quit<cr>", "Close Split")
 
 -- FOLD KEYMAPS
 
