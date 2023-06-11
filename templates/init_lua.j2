@@ -334,7 +334,7 @@ require("lazy").setup({
         map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
         -- text object
         map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Unstaged Git Hunk")
-      end -- on_attach
+      end
     } end, -- config function()
   },
 
