@@ -166,19 +166,6 @@ local function map(mode, keys, action, desc, opts)
   vim.keymap.set(mode, keys, action, map_opts)
 end
 
-local function add_silent_normal_mode_mapping(keys, action)
-  vim.keymap.set("n", keys, action, { silent = true })
-end
-local function add_normal_mode_mapping(keys, action)
-  vim.keymap.set("n", keys, action, { silent = false })
-end
-local function add_silent_visual_mode_mapping(keys, action)
-  vim.keymap.set("v", keys, action, { silent = true })
-end
-local function add_visual_mode_mapping(keys, action)
-  vim.keymap.set("v", keys, action, { silent = false })
-end
-
 -- LEADER KEY
 
 -- set the leader key
@@ -355,8 +342,8 @@ require("lazy").setup({
       }
     end, -- config function()
     init = function()
-      add_silent_normal_mode_mapping("{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>")
-      add_silent_normal_mode_mapping("{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>")
+      map("n", "{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>", "Go To File Browser", { silent = true })
+      map("n", "{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>", "Close File Browser", { silent = true })
     end,
   },
 
