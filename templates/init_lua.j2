@@ -11,6 +11,7 @@
 
 -- use truecolors in term (if vt support)
 vim.opt.termguicolors = {{ use_24bit_true_colors_in_term }}
+vim.opt.timeoutlen = {{ multikey_timeout_for_keymaps_ms }}
 -- disable the built-in neovim netrw file manager (req for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

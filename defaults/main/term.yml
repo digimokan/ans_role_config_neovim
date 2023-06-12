@@ -1,3 +1,6 @@
 # use truecolors in term (if vt support)
 use_24bit_true_colors_in_term: 'true'
 
+# wait time after keypress to abort trying for a multi-key mappings
+multikey_timeout_for_keymaps_ms: 500
+
