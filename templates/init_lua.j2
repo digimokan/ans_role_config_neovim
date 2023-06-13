@@ -165,26 +165,26 @@ map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line S
 -- go to end of line
 map({ "n", "v" }, "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
-map("n", "{{ keymap_toggle_to_prev_buffer }}", ":buffer#<cr>", "Go To Prev Buffer", { silent = true })
+map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Go To Prev Buffer", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
 -- quit neovim
-map("n", "{{ keymap_quit_neovim }}", ":quitall<cr>", "Quit Neovim")
+map("n", "{{ keymap_quit_neovim }}", "<cmd>quitall<cr>", "Quit Neovim")
 -- save current split
-map("n", "{{ keymap_save_file }}", ":write<cr>", "Save Buffer")
+map("n", "{{ keymap_save_file }}", "<cmd>write<cr>", "Save Buffer")
 
 -- SPLIT KEYMAPS
 
 -- resize current split in horizontal or vertical dimension
-map("n", "{{ keymap_inc_current_split_height }}", ":resize +1<cr>", "Inc Split Height", { silent = true })
-map("n", "{{ keymap_dec_current_split_height }}", ":resize -1<cr>", "Dec Split Height", { silent = true })
-map("n", "{{ keymap_dec_current_split_width }}", ":vertical resize -1<cr>", "Dec Split Width", { silent = true })
-map("n", "{{ keymap_inc_current_split_width }}", ":vertical resize +1<cr>", "Inc Split Width", { silent = true })
+map("n", "{{ keymap_inc_current_split_height }}", "<cmd>resize +1<cr>", "Inc Split Height", { silent = true })
+map("n", "{{ keymap_dec_current_split_height }}", "<cmd>resize -1<cr>", "Dec Split Height", { silent = true })
+map("n", "{{ keymap_dec_current_split_width }}", "<cmd>vertical resize -1<cr>", "Dec Split Width", { silent = true })
+map("n", "{{ keymap_inc_current_split_width }}", "<cmd>vertical resize +1<cr>", "Inc Split Width", { silent = true })
 -- rotate through all splits
 map("n", "{{ keymap_rotate_through_splits }}", "<C-w>w", "Rotate Through Splits", { silent = true })
 -- close current split
-map("n", "{{ keymap_close_split }}", ":quit<cr>", "Close Split")
+map("n", "{{ keymap_close_split }}", "<cmd>quit<cr>", "Close Split")
 
 -- FOLD KEYMAPS
 
@@ -194,10 +194,10 @@ map("n", "{{ keymap_toggle_fold_expand_collapse }}", "za", "Toggle Fold Expand/C
 -- BUFFER-SEARCH KEYMAPS
 
 -- clear highlighted text from last search
-map("n", "{{ keymap_clear_highlighted_search_text }}", ":nohlsearch<cr>", "Clear Highlighted Search Text")
+map("n", "{{ keymap_clear_highlighted_search_text }}", "<cmd>nohlsearch<cr>", "Clear Highlighted Search Text")
 
 -- search and replace in buffer
-map("n", "{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>", "Search & Replace In Buffer")
+map("n", "{{ keymap_search_replace_in_buffer }}", "<cmd>%s//g<left><left>", "Search & Replace In Buffer")
 
 -- INDENT / TAB KEYMAPS
 
@@ -212,8 +212,8 @@ map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Yank To End Of Line")
 
 -- UNDO / REDO KEYMAPS
 
-map("n", "{{ keymap_undo_last_edit }}", ":undo<cr>", "Undo Last Edit")
-map("n", "{{ keymap_redo_last_edit }}", ":redo<cr>", "Redo Last Edit")
+map("n", "{{ keymap_undo_last_edit }}", "<cmd>undo<cr>", "Undo Last Edit")
+map("n", "{{ keymap_redo_last_edit }}", "<cmd>redo<cr>", "Redo Last Edit")
 
 -- projectionist: invoke the defined 'alternate' cmd
 -- nnoremap <silent> <leader>a :A<CR>
@@ -323,8 +323,8 @@ require("lazy").setup({
       }
     end, -- config function()
     init = function()
-      map("n", "{{ keymap_open_file_browser_at_current_file }}", ":NvimTreeFindFile<cr>", "Go To File Browser", { silent = true })
-      map("n", "{{ keymap_close_file_browser }}", ":NvimTreeClose<cr>",                   "Close File Browser", { silent = true })
+      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Go To File Browser", { silent = true })
+      map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",                   "Close File Browser", { silent = true })
     end,
   },
 
@@ -339,7 +339,7 @@ require("lazy").setup({
         map("n", "{{ keymap_next_git_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
         map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
         -- text object
-        map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Unstaged Git Hunk")
+        map({"o", "x"}, "ih", "<cmd><C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
       end
     }, -- opts
   },
@@ -369,7 +369,7 @@ require("lazy").setup({
     }, -- opts
     main = "nvim-treesitter.configs",
     -- when treesitter plugin gets an update, re-build all parsers to latest
-    build = ":TSUpdate",
+    build = "<cmd>TSUpdate",
   },
 
   -- indent-blankline.nvim: indentation guides
