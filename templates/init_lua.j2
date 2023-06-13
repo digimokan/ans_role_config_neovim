@@ -232,24 +232,31 @@ map("n", "{{ keymap_redo_last_edit }}", ":redo<cr>", "Redo Last Edit")
 -- PLUGINS
 --------------------------------------------------------------------------------
 
--- auto-install the plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- do one-time auto-install of the lazy.nvim plugin manager
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    "--branch={{ lazy_nvim_plugin_version.tag }}",
     lazypath,
   })
 end
+-- set rtp for lazy.nvim and its plugins
 vim.opt.rtp:prepend(lazypath)
 
 -- install individual plugins
 require("lazy").setup({
 
-    -- onedark.nvim: colorscheme
+  -- manage lazy.nvim itself
+  {
+    url = "https://github.com/folke/lazy.nvim.git",
+    tag = "{{ lazy_nvim_plugin_version.tag }}",
+  },
+
+  -- onedark.nvim: colorscheme
   {
     url = "https://github.com/navarasu/onedark.nvim",
     commit = "{{ onedark_nvim_plugin_commit.hash }}",
