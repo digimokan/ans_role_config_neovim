@@ -197,7 +197,7 @@ map("n", "{{ keymap_toggle_fold_expand_collapse }}", "za", "Toggle Fold Expand/C
 map("n", "{{ keymap_clear_highlighted_search_text }}", "<cmd>nohlsearch<cr>", "Clear Highlighted Search Text")
 
 -- search and replace in buffer
-map("n", "{{ keymap_search_replace_in_buffer }}", "<cmd>%s//g<left><left>", "Search & Replace In Buffer")
+map("n", "{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>", "Search & Replace In Buffer")
 
 -- INDENT / TAB KEYMAPS
 
@@ -339,7 +339,7 @@ require("lazy").setup({
         map("n", "{{ keymap_next_git_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
         map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
         -- text object
-        map({"o", "x"}, "ih", "<cmd><C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
+        map({"o", "x"}, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
       end
     }, -- opts
   },
@@ -369,7 +369,7 @@ require("lazy").setup({
     }, -- opts
     main = "nvim-treesitter.configs",
     -- when treesitter plugin gets an update, re-build all parsers to latest
-    build = "<cmd>TSUpdate",
+    build = ":TSUpdate",
   },
 
   -- indent-blankline.nvim: indentation guides
