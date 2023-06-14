@@ -240,7 +240,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch={{ lazy_nvim_plugin_version.tag }}",
+    "--branch={{ lazy_nvim_vers.tag }}",
     lazypath,
   })
 end
@@ -253,7 +253,7 @@ require("lazy").setup({
   -- manage lazy.nvim itself
   {
     url = "https://github.com/folke/lazy.nvim.git",
-    tag = "{{ lazy_nvim_plugin_version.tag }}",
+    tag = "{{ lazy_nvim_vers.tag }}",
   },
 
   -- onedark.nvim: colorscheme
