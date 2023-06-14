@@ -1,16 +1,15 @@
-# pin all plugins to a version, by commit
-lazy_nvim_plugin_version:            { tag:  'v9.23.0', date: '2023-06-09' }
-onedark_nvim_plugin_commit:          { hash: '8ef5192', date: '2023-06-02' }
-lualine_nvim_plugin_commit:          { hash: '05d78e9', date: '2023-05-04' }
-nvim_tree_lua_plugin_commit:         { hash: '58d1014', date: '2023-06-04' }
-gitsigns_nvim_plugin_commit:         { hash: 'f868d82', date: '2023-05-25' }
-nvim_autopairs_plugin_commit:        { hash: '59df87a', date: '2023-05-25' }
-nvim_treesitter_plugin_commit:       { hash: 'f9d7011', date: '2023-06-10' }
-nvim_ts_rainbow2_plugin_commit:      { hash: 'e1783c8', date: '2023-06-04' }
-indent_blankline_nvim_plugin_commit: { hash: '7075d78', date: '2023-05-29' }
-nvim_spider_plugin_commit:           { hash: 'ef0c75f', date: '2023-05-25' }
-telescope_nvim_plugin_tag:           { tag:  '0.1.2',   date: '2023-06-08' }
-plenary_nvim_plugin_commit:          { hash: '36aaceb', date: '2023-06-10' }
-telescope_undo_nvim_plugin_commit:   { hash: '3dec002', date: '2023-06-03' }
-which_key_nvim_plugin_commit:        { hash: 'e271c28', date: '2023-05-22' }
+lazy_nvim_vers:               { tag:    'v9.23.0', date: '2023-06-09', descrip: 'plugin manager' }
+onedark_nvim_vers:            { commit: '8ef5192', date: '2023-06-02', descrip: 'colorscheme' }
+lualine_nvim_vers:            { commit: '05d78e9', date: '2023-05-04', descrip: 'statusline' }
+nvim_tree_lua_vers:           { commit: '58d1014', date: '2023-06-04', descrip: 'file browser' }
+gitsigns_nvim_vers:           { commit: 'f868d82', date: '2023-05-25', descrip: 'git diff column' }
+nvim_autopairs_vers:          { commit: '59df87a', date: '2023-05-25', descrip: 'paren insertion' }
+nvim_treesitter_vers:         { commit: 'f9d7011', date: '2023-06-10', descrip: 'file AST parsing' }
+nvim_ts_rainbow2_vers:        { commit: 'e1783c8', date: '2023-06-04', descrip: 'colored parens' }
+indent_blankline_nvim_vers:   { commit: '7075d78', date: '2023-05-29', descrip: 'indent guides' }
+nvim_spider_vers:             { commit: 'ef0c75f', date: '2023-05-25', descrip: 'move by word segments' }
+telescope_nvim_vers:          { tag:    '0.1.2',   date: '2023-06-08', descrip: 'file finder' }
+plenary_nvim_vers:            { commit: '36aaceb', date: '2023-06-10', descrip: 'file finder' }
+telescope_undo_nvim_vers:     { commit: '3dec002', date: '2023-06-03', descrip: 'undo tree' }
+which_key_nvim_vers:          { commit: 'e271c28', date: '2023-05-22', descrip: 'keymap help' }
 

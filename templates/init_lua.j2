@@ -259,7 +259,7 @@ require("lazy").setup({
   -- onedark.nvim: colorscheme
   {
     url = "https://github.com/navarasu/onedark.nvim",
-    commit = "{{ onedark_nvim_plugin_commit.hash }}",
+    commit = "{{ onedark_nvim_vers.commit }}",
     lazy = false,
     priority = 1000,
     opts = { style = "warm" },
@@ -269,7 +269,7 @@ require("lazy").setup({
   -- lualine.nvim: statusline
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
-    commit = "{{ lualine_nvim_plugin_commit.hash }}",
+    commit = "{{ lualine_nvim_vers.commit }}",
     opts = {
       options = {
         icons_enabled = false,
@@ -299,7 +299,7 @@ require("lazy").setup({
   -- nvim-tree.lua: file-explorer tree
   {
     url = "https://github.com/nvim-tree/nvim-tree.lua",
-    commit = "{{ nvim_tree_lua_plugin_commit.hash }}",
+    commit = "{{ nvim_tree_lua_vers.commit }}",
     config = function()
       local function nvim_tree_on_attach(bufnr)
         local api = require "nvim-tree.api"
@@ -331,7 +331,7 @@ require("lazy").setup({
   -- gitsigns.nvim: git integration
   {
     url = "https://github.com/lewis6991/gitsigns.nvim",
-    commit = '{{ gitsigns_nvim_plugin_commit.hash }}',
+    commit = '{{ gitsigns_nvim_vers.commit }}',
     opts = {
       on_attach = function(bufnr)
         -- actions
@@ -347,16 +347,16 @@ require("lazy").setup({
   -- nvim-autopairs: brace/paren insertion
   {
     url = "https://github.com/windwp/nvim-autopairs",
-    commit = "{{ nvim_autopairs_plugin_commit.hash }}",
+    commit = "{{ nvim_autopairs_vers.commit }}",
     config = true,
   },
 
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
   {
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
-    commit = "{{ nvim_treesitter_plugin_commit.hash }}",
+    commit = "{{ nvim_treesitter_vers.commit }}",
     dependencies = {
-      { url = "https://github.com/HiPhish/nvim-ts-rainbow2", commit = "{{ nvim_ts_rainbow2_plugin_commit.hash }}" },
+      { url = "https://github.com/HiPhish/nvim-ts-rainbow2", commit = "{{ nvim_ts_rainbow2_vers.commit }}" },
     },
     opts = {
       -- build a parser for the buffer's filetype automatically, on buff enter
@@ -375,14 +375,14 @@ require("lazy").setup({
   -- indent-blankline.nvim: indentation guides
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
-    commit = "{{ indent_blankline_nvim_plugin_commit.hash }}",
+    commit = "{{ indent_blankline_nvim_vers.commit }}",
     config = true,
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
-    commit = "{{ nvim_spider_plugin_commit.hash }}",
+    commit = "{{ nvim_spider_vers.commit }}",
     config = true,
     init = function()
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", "Next Word Start")
@@ -394,10 +394,10 @@ require("lazy").setup({
   -- telescope.nvim: fuzzy filter, finder, and pick
   {
     url = "https://github.com/nvim-telescope/telescope.nvim",
-    tag = "{{ telescope_nvim_plugin_tag.tag }}",
+    tag = "{{ telescope_nvim_vers.tag }}",
     dependencies = {
-      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = "{{ plenary_nvim_plugin_commit.hash }}" },
-      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = "{{ telescope_undo_nvim_plugin_commit.hash }}" },
+      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = "{{ plenary_nvim_vers.commit }}" },
+      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = "{{ telescope_undo_nvim_vers.commit }}" },
     },
     config = function()
       require("telescope").setup {
@@ -424,7 +424,7 @@ require("lazy").setup({
   -- which-key.nvim: pop-up display for keymaps
   {
     url = "https://github.com/folke/which-key.nvim",
-    commit = "{{ which_key_nvim_plugin_commit.hash }}",
+    commit = "{{ which_key_nvim_vers.commit }}",
     config = true,
   },
 
