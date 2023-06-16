@@ -149,8 +149,8 @@ end
 -- LEADER KEY
 
 -- set the leader key
-map("n", "<space>", "<nop>", "Leader Map", { silent = true })
-vim.g.mapleader = "{{ neovim_leader_key }}"
+map("n", "{{ neovim_leader_key.map }}", "<nop>", "Leader Map", { silent = true })
+vim.g.mapleader = "{{ neovim_leader_key.super }}"
 
 -- MODE CHANGE KEYMAPS
 
@@ -326,6 +326,8 @@ require("lazy").setup({
       map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Go To File Browser", { silent = true })
       map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",                   "Close File Browser", { silent = true })
     end,
+    lazy = true,
+    cmd = "NvimTreeFindFile",
   },
 
   -- gitsigns.nvim: git integration
@@ -349,6 +351,8 @@ require("lazy").setup({
     url = "https://github.com/windwp/nvim-autopairs",
     commit = "{{ nvim_autopairs_vers.commit }}",
     config = true,
+    lazy = true,
+    event = "InsertEnter",
   },
 
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
@@ -376,19 +380,18 @@ require("lazy").setup({
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
     commit = "{{ indent_blankline_nvim_vers.commit }}",
-    config = true,
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
     commit = "{{ nvim_spider_vers.commit }}",
-    config = true,
     init = function()
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", "Next Word Start")
       map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", "Next Word End")
       map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", "Prev Word Start")
     end,
+    lazy = true,
   },
 
   -- telescope.nvim: fuzzy filter, finder, and pick
@@ -419,6 +422,8 @@ require("lazy").setup({
       map("n", "{{ keymap_find_open_buffer }}", builtin.buffers, "Find File In Buffers")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
     end,
+    lazy = true,
+    cmd = "Telescope",
   },
 
   -- which-key.nvim: pop-up display for keymaps
@@ -426,6 +431,8 @@ require("lazy").setup({
     url = "https://github.com/folke/which-key.nvim",
     commit = "{{ which_key_nvim_vers.commit }}",
     config = true,
+    cmd = "WhichKey",
+    keys = "{{ neovim_leader_key.map }}",
   },
 
 }) -- require("lazy").setup({

@@ -1,4 +1,4 @@
-neovim_leader_key: " "
+neovim_leader_key: { super: " ", map: "<space>" }
 
 keymap_enter_cmd_mode: ';'
 keymap_enter_insert_mode_at_line_start: 'I'
