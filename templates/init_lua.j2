@@ -150,6 +150,12 @@ local function unmap(mode, keys)
   map(mode, keys, "<nop>", "Unmapping")
 end
 
+-- UNMAPS
+
+unmap("n", ":")
+unmap("n", "$")
+unmap("n", "&")
+
 -- LEADER KEY
 
 -- set the leader key
@@ -160,14 +166,15 @@ vim.g.mapleader = "{{ neovim_leader_key.super }}"
 
 -- enter normal mode
 map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
-unmap("n", ":")
 -- insert at start of line
 map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
 
 -- NAVIGATION KEYMAPS
 
--- go to end of line
-map({ "n", "v" }, "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
+-- move to the first non-whitespace char in the line
+map({ "n", "v" }, "{{ keymap_move_to_start_of_line_no_wsp }}", "^", "Start Of Line (Non-Wsp)")
+-- move to end of line
+map({ "n", "v" }, "{{ keymap_move_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
 map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
 -- move to next location in jumplist
