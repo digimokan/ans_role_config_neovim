@@ -1,5 +1,7 @@
 # keymaps that use the leader key prefix, in normal mode
 
+keymap_plugin_manager_menu: '<leader>p'
+
 keymap_close_split: '<leader>q'
 keymap_quit_neovim: '<leader><bs>'
 keymap_save_file: '<leader>w'
