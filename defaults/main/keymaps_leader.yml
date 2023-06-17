@@ -14,6 +14,11 @@ keymap_close_file_browser: '<leader>T'
 
 keymap_next_git_hunk: '<leader><right>'
 keymap_prev_git_hunk: '<leader><left>'
+keymap_toggle_git_preview: '<leader>gs'
+keymap_toggle_git_blame_full: '<leader>gb'
+keymap_toggle_git_blame_line: '<leader>gm'
+keymap_git_stage_hunk: '<leader>gl'
+keymap_git_unstage_hunk: '<leader>gh'
 
 keymap_find_proj_files: '<leader>f'
 keymap_find_open_buffer: '<leader>r'

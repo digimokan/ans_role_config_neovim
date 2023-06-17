@@ -343,6 +343,12 @@ require("lazy").setup({
         local gs = package.loaded.gitsigns
         map("n", "{{ keymap_next_git_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
         map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_toggle_git_preview }}", gs.preview_hunk, "Toggle Git Preview", { buffer = bufnr })
+        map("n", "{{ keymap_toggle_git_blame_full }}", function() gs.blame_line{full=true} end, "Toggle Git EXT Blame", { buffer = bufnr })
+        map("n", "{{ keymap_toggle_git_blame_line }}", gs.toggle_current_line_blame, "Toggle Git Blame", { buffer = bufnr })
+        map("n", "{{ keymap_git_stage_hunk }}", gs.stage_hunk, "Git Stage Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_git_unstage_hunk }}", gs.undo_stage_hunk, "Git Unstage Hunk", { buffer = bufnr })
+
         -- text object
         map({"o", "x"}, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
       end
