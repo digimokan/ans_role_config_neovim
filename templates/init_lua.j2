@@ -180,7 +180,7 @@ map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<C-o>", "Next Jumplist Pos",
 -- move to prev location in jumplist
 map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<C-i>", "Prev Jumplist Pos", { silent = true })
 -- move to last edit location
-map("n", "{{ keymap_move_to_last_edit_pos }}", "g;", "Prev Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_last_edit_pos }}", "g;", "Last Edit Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
@@ -458,7 +458,7 @@ require("lazy").setup({
         ["{"] = "which_key_ignore", ["}"] = "which_key_ignore", ["["] = "which_key_ignore",
         ["]"] = "which_key_ignore", ["!"] = "which_key_ignore", ["'"] = "which_key_ignore",
         ['"'] = "which_key_ignore", ['@'] = "which_key_ignore", ['`'] = "which_key_ignore",
-        ["C-l"] = "which_key_ignore", ["C-w"] = "which_key_ignore", ["F"] = "which_key_ignore",
+        ["<C-l>"] = "which_key_ignore", ["<C-w>"] = "which_key_ignore", ["F"] = "which_key_ignore",
         ["T"] = "which_key_ignore", ["H"] = "which_key_ignore", ["M"] = "which_key_ignore",
         ["L"] = "which_key_ignore", ["j"] = "which_key_ignore", ["k"] = "which_key_ignore",
         ["h"] = "which_key_ignore", ["l"] = "which_key_ignore",
