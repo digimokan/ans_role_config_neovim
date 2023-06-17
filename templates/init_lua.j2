@@ -146,6 +146,10 @@ local function map(mode, keys, action, desc, opts)
   vim.keymap.set(mode, keys, action, map_opts)
 end
 
+local function unmap(mode, keys)
+  map(mode, keys, "<nop>", "Unmapping")
+end
+
 -- LEADER KEY
 
 -- set the leader key
@@ -156,7 +160,7 @@ vim.g.mapleader = "{{ neovim_leader_key.super }}"
 
 -- enter normal mode
 map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
-map("n", ":", "<nop>", "Unmapping")
+unmap("n", ":")
 -- insert at start of line
 map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
 
