@@ -166,6 +166,12 @@ map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line S
 map({ "n", "v" }, "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
 map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Go To Prev Buffer", { silent = true })
+-- move to next location in jumplist
+map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<cmd>C-o<cr>", "Go To Next Jumplist Pos", { silent = true })
+-- move to prev location in jumplist
+map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<cmd>C-i<cr>", "Go To Prev Jumplist Pos", { silent = true })
+-- move to last edit location
+map("n", "{{ keymap_move_to_last_edit_pos }}", "<cmd>g;<cr>", "Go To Prev Jumplist Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
@@ -341,11 +347,10 @@ require("lazy").setup({
       on_attach = function(bufnr)
         -- actions
         local gs = package.loaded.gitsigns
-        map("n", "{{ keymap_next_git_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_prev_git_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_toggle_git_preview }}", gs.preview_hunk, "Toggle Git Preview", { buffer = bufnr })
-        map("n", "{{ keymap_toggle_git_blame_full }}", function() gs.blame_line{full=true} end, "Toggle Git EXT Blame", { buffer = bufnr })
-        map("n", "{{ keymap_toggle_git_blame_line }}", gs.toggle_current_line_blame, "Toggle Git Blame", { buffer = bufnr })
+        map("n", "{{ keymap_git_next_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_git_prev_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ keymap_git_show_preview }}", gs.preview_hunk, "Toggle Git Preview", { buffer = bufnr })
+        map("n", "{{ keymap_git_show_blame }}", function() gs.blame_line{} end, "Toggle Git EXT Blame", { buffer = bufnr })
         map("n", "{{ keymap_git_stage_hunk }}", gs.stage_hunk, "Git Stage Hunk", { buffer = bufnr })
         map("n", "{{ keymap_git_unstage_hunk }}", gs.undo_stage_hunk, "Git Unstage Hunk", { buffer = bufnr })
 

@@ -1,10 +1,14 @@
 neovim_leader_key: { super: " ", map: "<space>" }
 
-keymap_enter_cmd_mode: ';'
-keymap_enter_insert_mode_at_line_start: 'I'
+keymap_enter_cmd_mode: ";"
+keymap_enter_insert_mode_at_line_start: "I"
 
-keymap_go_to_end_of_line: '-'
-keymap_toggle_to_prev_buffer: '<cr>'
+keymap_go_to_end_of_line: "-"
+keymap_toggle_to_prev_buffer: "<cr>"
+
+keymap_move_to_next_jumplist_pos: "s"
+keymap_move_to_prev_jumplist_pos: "f"
+keymap_move_to_last_edit_pos: "t"
 
 keymap_inc_current_split_height: "<up>"
 keymap_dec_current_split_height: "<down>"
@@ -12,12 +16,12 @@ keymap_inc_current_split_width: "<right>"
 keymap_dec_current_split_width: "<left>"
 keymap_rotate_through_splits: "<tab>"
 
-keymap_toggle_fold_expand_collapse: ','
+keymap_toggle_fold_expand_collapse: ","
 
-keymap_indent_visual_selection_to_left: '<'
-keymap_indent_visual_selection_to_right: '>'
+keymap_indent_visual_selection_to_left: "<"
+keymap_indent_visual_selection_to_right: ">"
 
-keymap_copy_to_end_of_line: 'Y'
+keymap_copy_to_end_of_line: "Y"
 
 keymap_undo_last_edit: "u"
 keymap_redo_last_edit: "U"

@@ -1,27 +1,26 @@
 # keymaps that use the leader key prefix, in normal mode
 
-keymap_plugin_manager_menu: '<leader>p'
+keymap_plugin_manager_menu: "<leader>p"
 
-keymap_close_split: '<leader>q'
-keymap_quit_neovim: '<leader><bs>'
-keymap_save_file: '<leader>w'
+keymap_close_split: "<leader>q"
+keymap_quit_neovim: "<leader><bs>"
+keymap_save_file: "<leader>w"
 
-keymap_clear_highlighted_search_text: '<leader>n'
-keymap_search_replace_in_buffer: '<leader>R'
+keymap_clear_highlighted_search_text: "<leader>n"
+keymap_search_replace_in_buffer: "<leader>R"
 
-keymap_open_file_browser_at_current_file: '<leader>t'
-keymap_close_file_browser: '<leader>T'
+keymap_open_file_browser_at_current_file: "<leader>t"
+keymap_close_file_browser: "<leader>T"
 
-keymap_next_git_hunk: '<leader><right>'
-keymap_prev_git_hunk: '<leader><left>'
-keymap_toggle_git_preview: '<leader>gs'
-keymap_toggle_git_blame_full: '<leader>gb'
-keymap_toggle_git_blame_line: '<leader>gm'
-keymap_git_stage_hunk: '<leader>gl'
-keymap_git_unstage_hunk: '<leader>gh'
+keymap_git_next_hunk: "<leader><right>"
+keymap_git_prev_hunk: "<leader><left>"
+keymap_git_show_preview: "<leader>gs"
+keymap_git_show_blame: "<leader>gb"
+keymap_git_stage_hunk: "<leader>gl"
+keymap_git_unstage_hunk: "<leader>gh"
 
-keymap_find_proj_files: '<leader>f'
-keymap_find_open_buffer: '<leader>r'
+keymap_find_proj_files: "<leader>f"
+keymap_find_open_buffer: "<leader>r"
 
-keymap_open_undo_tree: '<leader>u'
+keymap_open_undo_tree: "<leader>u"
 
