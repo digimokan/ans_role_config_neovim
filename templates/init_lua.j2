@@ -165,13 +165,13 @@ map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line S
 -- go to end of line
 map({ "n", "v" }, "{{ keymap_go_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
-map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Go To Prev Buffer", { silent = true })
+map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
 -- move to next location in jumplist
-map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<cmd>C-o<cr>", "Go To Next Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<C-o>", "Next Jumplist Pos", { silent = true })
 -- move to prev location in jumplist
-map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<cmd>C-i<cr>", "Go To Prev Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<C-i>", "Prev Jumplist Pos", { silent = true })
 -- move to last edit location
-map("n", "{{ keymap_move_to_last_edit_pos }}", "<cmd>g;<cr>", "Go To Prev Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_last_edit_pos }}", "g;", "Prev Jumplist Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
@@ -332,7 +332,7 @@ require("lazy").setup({
       }
     end, -- config function()
     init = function()
-      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Go To File Browser", { silent = true })
+      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Open File Browser", { silent = true })
       map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",                   "Close File Browser", { silent = true })
     end,
     lazy = true,
