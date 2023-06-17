@@ -447,6 +447,9 @@ require("lazy").setup({
     config = true,
     cmd = "WhichKey",
     keys = "{{ neovim_leader_key.map }}",
+    init = function()
+      map("n", "{{ keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>", "Keymap Help Screen")
+    end,
   },
 
 }) -- require("lazy").setup({

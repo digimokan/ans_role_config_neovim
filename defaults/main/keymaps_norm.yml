@@ -1,4 +1,5 @@
 neovim_leader_key: { super: " ", map: "<space>" }
+keymap_show_all_keymaps: "?"
 
 keymap_enter_cmd_mode: ";"
 keymap_enter_insert_mode_at_line_start: "I"
