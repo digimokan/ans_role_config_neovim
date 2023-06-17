@@ -349,8 +349,8 @@ require("lazy").setup({
         local gs = package.loaded.gitsigns
         map("n", "{{ keymap_git_next_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
         map("n", "{{ keymap_git_prev_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_git_show_preview }}", gs.preview_hunk, "Toggle Git Preview", { buffer = bufnr })
-        map("n", "{{ keymap_git_show_blame }}", function() gs.blame_line{} end, "Toggle Git EXT Blame", { buffer = bufnr })
+        map("n", "{{ keymap_git_show_preview }}", gs.preview_hunk, "Git Show Preview", { buffer = bufnr })
+        map("n", "{{ keymap_git_show_blame }}", function() gs.blame_line() end, "Git Show Blame", { buffer = bufnr })
         map("n", "{{ keymap_git_stage_hunk }}", gs.stage_hunk, "Git Stage Hunk", { buffer = bufnr })
         map("n", "{{ keymap_git_unstage_hunk }}", gs.undo_stage_hunk, "Git Unstage Hunk", { buffer = bufnr })
 
@@ -431,9 +431,8 @@ require("lazy").setup({
       require("telescope").load_extension("undo")
     end, --config = function()
     init = function()
-      local builtin = require("telescope.builtin")
-      map("n", "{{ keymap_find_proj_files }}", builtin.find_files, "Find File In Project")
-      map("n", "{{ keymap_find_open_buffer }}", builtin.buffers, "Find File In Buffers")
+      map("n", "{{ keymap_find_proj_files }}", function() require("telescope.builtin").find_files() end, "Find File In Project")
+      map("n", "{{ keymap_find_open_buffer }}", function() require("telescope.builtin").buffers() end, "Find File In Buffers")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
     end,
     lazy = true,
