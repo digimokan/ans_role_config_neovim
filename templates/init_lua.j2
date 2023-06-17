@@ -153,18 +153,6 @@ end
 -- UNMAPS
 
 unmap("n", ":")
-unmap("n", "$")
-unmap("n", "&")
-unmap("n", "^")
-unmap("n", "{")
-unmap("n", "}")
-unmap("n", "[")
-unmap("n", "]")
-unmap("n", "!")
-unmap("n", '"')
-unmap("n", "'")
-unmap("n", "@")
-unmap("n", "`")
 
 -- LEADER KEY
 
@@ -464,7 +452,22 @@ require("lazy").setup({
   {
     url = "https://github.com/folke/which-key.nvim",
     commit = "{{ which_key_nvim_vers.commit }}",
-    config = true,
+    config = function()
+      require("which-key").register({
+        ["$"] = "which_key_ignore",
+        ["&"] = "which_key_ignore",
+        ["^"] = "which_key_ignore",
+        ["{"] = "which_key_ignore",
+        ["}"] = "which_key_ignore",
+        ["["] = "which_key_ignore",
+        ["]"] = "which_key_ignore",
+        ["!"] = "which_key_ignore",
+        ["'"] = "which_key_ignore",
+        ['"'] = "which_key_ignore",
+        ['@'] = "which_key_ignore",
+        ['`'] = "which_key_ignore",
+      })
+    end,
     cmd = "WhichKey",
     keys = "{{ neovim_leader_key.map }}",
     init = function()
