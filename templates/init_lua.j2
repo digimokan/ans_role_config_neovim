@@ -454,14 +454,14 @@ require("lazy").setup({
     commit = "{{ which_key_nvim_vers.commit }}",
     config = function()
       require("which-key").register({
+        ["<C-l>"] = "which_key_ignore", ["<C-w>"] = "which_key_ignore",
         ["$"] = "which_key_ignore", ["&"] = "which_key_ignore", ["^"] = "which_key_ignore",
         ["{"] = "which_key_ignore", ["}"] = "which_key_ignore", ["["] = "which_key_ignore",
         ["]"] = "which_key_ignore", ["!"] = "which_key_ignore", ["'"] = "which_key_ignore",
-        ['"'] = "which_key_ignore", ['@'] = "which_key_ignore", ['`'] = "which_key_ignore",
-        ["<C-l>"] = "which_key_ignore", ["<C-w>"] = "which_key_ignore", ["F"] = "which_key_ignore",
-        ["T"] = "which_key_ignore", ["H"] = "which_key_ignore", ["M"] = "which_key_ignore",
-        ["L"] = "which_key_ignore", ["j"] = "which_key_ignore", ["k"] = "which_key_ignore",
-        ["h"] = "which_key_ignore", ["l"] = "which_key_ignore",
+        ['"'] = "which_key_ignore", ["`"] = "which_key_ignore", ['@'] = "which_key_ignore",
+        ['F'] = "which_key_ignore", ["H"] = "which_key_ignore", ["L"] = "which_key_ignore",
+        ["M"] = "which_key_ignore", ["T"] = "which_key_ignore", ["h"] = "which_key_ignore",
+        ["j"] = "which_key_ignore", ["k"] = "which_key_ignore", ["l"] = "which_key_ignore",
       })
     end,
     cmd = "WhichKey",
