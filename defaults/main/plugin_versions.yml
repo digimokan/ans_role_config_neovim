@@ -12,4 +12,7 @@ telescope_nvim_vers:          { tag:    '0.1.2',   date: '2023-06-08', descrip: 
 plenary_nvim_vers:            { commit: '36aaceb', date: '2023-06-10', descrip: 'file finder' }
 telescope_undo_nvim_vers:     { commit: '3dec002', date: '2023-06-03', descrip: 'undo tree' }
 which_key_nvim_vers:          { commit: 'e271c28', date: '2023-05-22', descrip: 'keymap help' }
+nvim_lspconfig_vers:          { commit: '80861dc', date: '2023-06-16', descrip: 'LSP config' }
+mason_nvim_vers:              { commit: 'f7f81ab', date: '2023-06-18', descrip: 'install editor-tooling' }
+mason_lspconfig_nvim_vers:    { commit: 'd381fcb', date: '2023-06-18', descrip: 'auto-install mason lang servers' }
 

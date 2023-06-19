@@ -471,5 +471,50 @@ require("lazy").setup({
     end,
   },
 
+  -- LSP plugins
+  {
+    -- auto-configure a wide range of language servers
+    url = "https://github.com/neovim/nvim-lspconfig",
+    commit = "{{ nvim_lspconfig_vers.commit }}",
+    dependencies = {
+      {
+        -- install language servers, linters, formatters, etc
+        url = "https://github.com/williamboman/mason.nvim",
+        commit = "{{ mason_nvim_vers.commit }}",
+        build = ":MasonUpdate",
+      },
+      {
+        -- auto-install select language servers
+        url = "https://github.com/williamboman/mason-lspconfig.nvim",
+        commit = "{{ mason_lspconfig_nvim_vers.commit }}",
+        opts = {
+          ensure_installed = {
+            "ansiblels", "bashls", "clangd",
+            "cmake", "jsonls", "lua_ls",
+            "marksman", "yamlls",
+          },
+          automatic_installation = true,
+        },
+        config = function()
+          require("mason-lspconfig").setup_handlers {
+            function (server_name)
+              require("lspconfig")[server_name].setup{}
+            end
+          }
+        end,
+      },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local bufnr = args.buf
+          map("n", "<leader>d", vim.lsp.buf.definition, "Go To LSP Def", { buffer = bufnr })
+          map("n", "<leader>h", vim.lsp.buf.hover, "Show LSP Hover", { buffer = bufnr })
+          map("n", "<leader>y", vim.lsp.buf.references, "Show LSP References", { buffer = bufnr })
+        end,
+      })
+    end,
+  },
+
 }) -- require("lazy").setup({
 
