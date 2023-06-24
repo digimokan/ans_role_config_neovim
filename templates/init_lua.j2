@@ -486,8 +486,8 @@ require("lazy").setup({
       --   expand = function(args) require'luasnip'.lsp_expand(args.body) end,
       -- },
       mapping = require'cmp'.mapping.preset.insert{
-        ['<space>'] = require'cmp'.mapping.confirm({ select = false }),
-        ['<cr>']    = require'cmp'.mapping.confirm({ select = false }),
+        ['<space>'] = require'cmp'.mapping.confirm{ select = false },
+        ['<cr>']    = require'cmp'.mapping.confirm{ select = false },
         ['<esc>']   = require'cmp'.mapping.abort(),
       },
       sources = require'cmp'.config.sources{
