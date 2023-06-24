@@ -511,7 +511,7 @@ require("lazy").setup({
     init = function()
       -- configure externally-installed LSP servers via their their CLI options
       -- ref: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
-      local lsp_server_cmds = { {{ neovim_lsp_server_cmd_list | to_json }} }
+      local lsp_server_cmds = { {{ neovim_lsp_server_cmd_list | to_yaml }} }
       local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       for _, cmd in ipairs(lsp_server_cmds) do
         require('lspconfig')[cmd].setup({ capabilities = cmp_capabilities, })
