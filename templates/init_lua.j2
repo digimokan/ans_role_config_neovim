@@ -471,46 +471,59 @@ require("lazy").setup({
     end,
   },
 
-  -- LSP plugins
+  -- nvim-cmp: auto-completion
   {
-    -- auto-configure a wide range of language servers
+    url = "https://github.com/hrsh7th/nvim-cmp",
+    commit = "{{ nvim_cmp_vers.commit }}",
+    dependencies = {
+      { url = "https://github.com/hrsh7th/cmp-buffer", commit = "{{ cmp_buffer_vers.commit }}" },
+      { url = "https://github.com/hrsh7th/cmp-path", commit = "{{ cmp_path_vers.commit }}" },
+      { url = "https://github.com/hrsh7th/cmp-nvim-lsp", commit = "{{ cmp_nvim_lsp_vers.commit }}" },
+      -- { url = "https://github.com/saadparwaiz1/cmp_luasnip", commit = "{{ cmp_luasnip_vers.commit }}" },
+    },
+    config = function() require'cmp'.setup{
+      -- snippet = {
+      --   expand = function(args) require'luasnip'.lsp_expand(args.body) end,
+      -- },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      }),
+      sources = cmp.config.sources({
+        { name = "buffer" },
+        { name = "path" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+      }),
+    } end,
+  },
+
+  -- nvim-lspconfig: configure neovim's builtin LSP client
+  {
     url = "https://github.com/neovim/nvim-lspconfig",
     commit = "{{ nvim_lspconfig_vers.commit }}",
     dependencies = {
-      {
-        -- install language servers, linters, formatters, etc
-        url = "https://github.com/williamboman/mason.nvim",
-        commit = "{{ mason_nvim_vers.commit }}",
-        build = ":MasonUpdate",
-      },
-      {
-        -- auto-install select language servers
-        url = "https://github.com/williamboman/mason-lspconfig.nvim",
-        commit = "{{ mason_lspconfig_nvim_vers.commit }}",
-        opts = {
-          ensure_installed = {
-            "ansiblels", "bashls", "clangd",
-            "cmake", "jsonls", "lua_ls",
-            "marksman", "yamlls",
-          },
-          automatic_installation = true,
-        },
-        config = function()
-          require("mason-lspconfig").setup_handlers {
-            function (server_name)
-              require("lspconfig")[server_name].setup{}
-            end
-          }
-        end,
-      },
+      { url = "https://github.com/hrsh7th/nvim-cmp", commit = "{{ nvim_cmp_vers.commit }}" },
     },
     init = function()
-      vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(args)
-          local bufnr = args.buf
-          map("n", "<leader>d", vim.lsp.buf.definition, "Go To LSP Def", { buffer = bufnr })
-          map("n", "<leader>h", vim.lsp.buf.hover, "Show LSP Hover", { buffer = bufnr })
-          map("n", "<leader>y", vim.lsp.buf.references, "Show LSP References", { buffer = bufnr })
+      -- configure externally-installed LSP servers via their their CLI options
+      -- ref: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
+      local lsp_server_cmds = { {{ neovim_lsp_server_cmd_list | to_json }} }
+      local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+      for _, cmd in ipairs(lsp_server_cmds) do
+        require('lspconfig')[cmd].setup({ capabilities = cmp_capabilities, })
+      end
+      -- set LSP keymaps that take effect when an LSP server attaches
+      -- ref: https://github.com/neovim/nvim-lspconfig#suggested-configuration
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(event)
+          map("n", "<leader>k", vim.lsp.buf.definition, "LSP Def", { buffer = bufnr })
+          map("n", "<leader>h", vim.lsp.buf.hover, "LSP Hover", { buffer = bufnr })
+          map("n", "<leader>y", vim.lsp.buf.references, "LSP References", { buffer = bufnr })
         end,
       })
     end,

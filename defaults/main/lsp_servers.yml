@@ -1,0 +1,4 @@
+# list of externally-installed LSP servers to use with builtin LSP client
+# each of these is a command that can be executed at CLI
+neovim_lsp_server_cmd_list: []
+
