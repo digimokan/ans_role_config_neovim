@@ -509,7 +509,7 @@ require("lazy").setup({
     init = function()
       -- configure externally-installed LSP servers via their their CLI options
       -- ref: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
-      local lsp_servers = { {{ neovim_lsp_server_cmd_list | map("regex_replace", "(.+)", "\"\\1\"") | join(',') }} }
+      local lsp_servers = { {{ neovim_lsp_server_cmd_list | map("regex_replace", "(.+)", "\"\\1\"") | join(', ') }} }
       local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       for _, cmd in ipairs(lsp_servers) do
         require('lspconfig')[cmd].setup{ capabilities = cmp_capabilities, }
