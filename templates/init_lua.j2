@@ -487,8 +487,6 @@ require("lazy").setup({
       -- },
       mapping = require'cmp'.mapping.preset.insert{
         ['<space>'] = require'cmp'.mapping.confirm{ select = false },
-        ['<cr>']    = require'cmp'.mapping.confirm{ select = false },
-        ['<esc>']   = require'cmp'.mapping.abort(),
       },
       sources = require'cmp'.config.sources{
         { name = "buffer" },
