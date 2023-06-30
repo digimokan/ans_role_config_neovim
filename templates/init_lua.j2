@@ -517,11 +517,19 @@ require("lazy").setup({
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(event)
-          map("n", "<leader>k", vim.lsp.buf.definition, "LSP Def", { buffer = bufnr })
-          map("n", "<leader>h", vim.lsp.buf.hover, "LSP Hover", { buffer = bufnr })
-          map("n", "<leader>y", vim.lsp.buf.references, "LSP References", { buffer = bufnr })
+          map("n", "<leader>i", vim.lsp.buf.declaration, "LSP Decl", { buffer = event.buf })
+          map("n", "<leader>k", vim.lsp.buf.definition, "LSP Def", { buffer = event.buf })
+          map("n", "<leader>h", vim.lsp.buf.type_definition, "LSP Type Def", { buffer = event.buf })
+          map("n", "<leader>j", vim.lsp.buf.implementation, "LSP Impl", { buffer = event.buf })
+          map("n", "<leader>y", vim.lsp.buf.hover, "LSP Hover", { buffer = event.buf })
+          map("n", "<leader>l", vim.lsp.buf.references, "LSP Refs", { buffer = event.buf })
+          map("n", "<leader>m", vim.lsp.buf.rename, "LSP Rename", { buffer = event.buf })
         end,
       })
+      -- set non-LSP neovim builtin diagnosics maps
+      map("n", "<leader>,", vim.diagnostic.goto_prev, "Diagnostic Prev")
+      map("n", "<leader>.", vim.diagnostic.goto_next, "Diagnostic Next")
+      map("n", "<leader>e", vim.diagnostic.open_float, "Diagnostic List")
     end,
   },
 
