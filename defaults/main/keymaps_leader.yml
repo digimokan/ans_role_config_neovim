@@ -5,6 +5,7 @@ keymap_save_file: "<leader>w"
 keymap_find_proj_files: "<leader>f"
 keymap_find_open_buffer: "<leader>r"
 keymap_search_for_text_in_cwd: "<leader>s"
+keymap_search_for_sel_text_in_cwd: "<leader>x"
 keymap_clear_highlighted_search_text: "<leader>n"
 
 keymap_plugin_manager_menu: "<leader>p"
@@ -30,6 +31,4 @@ keymap_lsp_implementations: "<leader>j"
 keymap_lsp_references: "<leader>l"
 keymap_lsp_calls: "<leader>o"
 keymap_lsp_rename: "<leader>m"
-
-keymap_open_undo_tree: "<leader>u"
 
