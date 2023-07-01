@@ -1,3 +1,6 @@
 # command to execute to run neovim
 neovim_main_cmd: 'nvim'
 
+# command to execute to run externally-installed ripgrep search utility
+neovim_ripgrep_cmd: 'false'
+
