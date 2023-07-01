@@ -1,6 +1,0 @@
-# allow hidden (not visible, unsaved) bufs
-allow_hidden_unsaved_buffers: 'false'
-
-# prompt when switching from unsaved buf
-prompt_on_switch_from_usaved_buff: 'false'
-

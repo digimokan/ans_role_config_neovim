@@ -30,13 +30,6 @@ vim.opt.autoread = {{ reload_buffer_if_changed_externally }}
 -- save swapfiles
 vim.opt.swapfile = {{ save_vim_swapfiles }}
 
--- BUFFER SETTINGS
-
--- allow hidden (not visible, unsaved) bufs
-vim.opt.hidden = {{ allow_hidden_unsaved_buffers }}
--- prompt when switching from unsaved buf
-vim.opt.confirm = {{ prompt_on_switch_from_usaved_buff }}
-
 -- CURSOR, LINES, COLUMN SETTINGS
 
 -- cursor style: 'hor' (horizontal bar), 'ver' (vertical bar), 'block'
@@ -187,7 +180,7 @@ map("n", "{{ keymap_move_to_last_edit_pos }}", "g;", "Last Edit Pos", { silent =
 -- quit neovim
 map("n", "{{ keymap_quit_neovim }}", "<cmd>quitall<cr>", "Quit Neovim")
 -- save current split
-map("n", "{{ keymap_save_file }}", "<cmd>write<cr>", "Save Buffer")
+map("n", "{{ keymap_save_file }}", "<cmd>wall<cr>", "Save Buffer")
 
 -- SPLIT KEYMAPS
 
