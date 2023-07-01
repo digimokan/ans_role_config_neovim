@@ -263,7 +263,7 @@ require("lazy").setup({
     url = "https://github.com/folke/lazy.nvim.git",
     tag = "{{ lazy_nvim_vers.tag }}",
     init = function()
-      map({"n"}, "{{ keymap_plugin_manager_menu }}", "<cmd>Lazy<cr>", "Plugin Manager")
+      map("n", "{{ keymap_plugin_manager_menu }}", "<cmd>Lazy<cr>", "Plugin Manager")
     end,
   },
 
