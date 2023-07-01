@@ -23,6 +23,8 @@ keymap_toggle_fold_expand_collapse: ","
 keymap_indent_visual_selection_to_left: "<"
 keymap_indent_visual_selection_to_right: ">"
 
+keymap_search_replace_in_buffer: "X"
+
 keymap_copy_to_end_of_line: "Y"
 
 keymap_undo_last_edit: "u"
