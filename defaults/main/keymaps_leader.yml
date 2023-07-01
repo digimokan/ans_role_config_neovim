@@ -19,6 +19,10 @@ keymap_git_show_blame: "<leader>gb"
 keymap_git_stage_hunk: "<leader>gl"
 keymap_git_unstage_hunk: "<leader>gh"
 
+keymap_diagnostics_list: "<leader>e"
+keymap_diagnostics_next: "<leader>."
+keymap_diagnostics_prev: "<leader>,"
+
 keymap_find_proj_files: "<leader>f"
 keymap_find_open_buffer: "<leader>r"
 

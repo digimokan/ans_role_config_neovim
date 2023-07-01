@@ -435,6 +435,9 @@ require("lazy").setup({
     init = function()
       map("n", "{{ keymap_find_proj_files }}", function() require("telescope.builtin").find_files() end, "Find File In Project")
       map("n", "{{ keymap_find_open_buffer }}", function() require("telescope.builtin").buffers() end, "Find File In Buffers")
+      map("n", "{{ keymap_diagnostics_list }}", function() require("telescope.builtin").diagnostics() end, "Diagnostic List")
+      map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
+      map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
     end,
     lazy = true,
@@ -519,10 +522,6 @@ require("lazy").setup({
           map("n", "<leader>m", vim.lsp.buf.rename, "LSP Rename", { buffer = event.buf })
         end,
       })
-      -- set non-LSP neovim builtin diagnosics maps
-      map("n", "<leader>,", vim.diagnostic.goto_prev, "Diagnostic Prev")
-      map("n", "<leader>.", vim.diagnostic.goto_next, "Diagnostic Next")
-      map("n", "<leader>e", vim.diagnostic.open_float, "Diagnostic List")
     end,
   },
 
