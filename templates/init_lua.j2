@@ -442,7 +442,7 @@ require("lazy").setup({
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
       map("n", "{{ keymap_search_for_text_in_cwd }}", function() require("telescope.builtin").live_grep() end, "Search For Text")
-      map({"n", "v"}, "{{ keymap_search_for_sel_text_in_cwd }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
+      map("n", "{{ keymap_search_for_sel_text_in_cwd }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
     end,
     lazy = true,
     cmd = "Telescope",
