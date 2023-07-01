@@ -485,21 +485,8 @@ require("lazy").setup({
       -- snippet = {
       --   expand = function(args) require'luasnip'.lsp_expand(args.body) end,
       -- },
-
-      -- mapping = require'cmp'.mapping.preset.insert{
-      mapping = {
-        -- ['<space>'] = require'cmp'.mapping.confirm{ select = false },
-        ["<space>"] = require'cmp'.mapping({
-          i = function(fallback)
-            if require'cmp'.visible() and require'cmp'.get_active_entry() then
-              require'cmp'.confirm({ behavior = require'cmp'.ConfirmBehavior.Replace, select = false })
-            else
-              fallback()
-            end
-          end,
-          s = require'cmp'.mapping.confirm({ select = true }),
-          c = require'cmp'.mapping.confirm({ behavior = require'cmp'.ConfirmBehavior.Replace, select = true }),
-        }),
+      mapping = require'cmp'.mapping.preset.insert{
+        ['<space>'] = require'cmp'.mapping.confirm{ select = false },
       },
       sources = require'cmp'.config.sources{
         { name = "buffer" },
