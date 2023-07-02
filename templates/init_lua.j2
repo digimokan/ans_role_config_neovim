@@ -554,15 +554,10 @@ require("lazy").setup({
           cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
           desc = "Run Replace All",
         },
-        ["toggle_ignore_case"] = {
-          map = "ti",
-          cmd = "<cmd>lua require('spectre').change_options('ignore-case')<cr>",
-          desc = "Toggle Ignore-Case",
-        },
-        ["toggle_ignore_hidden"] = {
-          map = "th",
-          cmd = "<cmd>lua require('spectre').change_options('hidden')<cr>",
-          desc = "Toggle Search-Hidden-Files",
+        ['change_view_mode'] = {
+          map = "tv",
+          cmd = "<cmd>lua require('spectre').change_view()<cr>",
+          desc = "Change View Mode"
         },
       },
     },
