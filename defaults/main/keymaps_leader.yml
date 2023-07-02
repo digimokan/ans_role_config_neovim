@@ -4,8 +4,9 @@ keymap_save_file: "<leader>w"
 
 keymap_find_proj_files: "<leader>f"
 keymap_find_open_buffer: "<leader>r"
-keymap_search_for_text_in_cwd: "<leader>s"
-keymap_search_for_sel_text_in_cwd: "<leader>x"
+keymap_global_search_for_text: "<leader>s"
+keymap_global_search_for_sel_text: "<leader>x"
+keymap_global_replace_text: "<leader>v"
 keymap_clear_highlighted_search_text: "<leader>n"
 
 keymap_plugin_manager_menu: "<leader>p"

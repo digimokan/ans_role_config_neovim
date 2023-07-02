@@ -441,8 +441,8 @@ require("lazy").setup({
       map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
-      map("n", "{{ keymap_search_for_text_in_cwd }}", function() require("telescope.builtin").live_grep() end, "Search For Text")
-      map("n", "{{ keymap_search_for_sel_text_in_cwd }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
+      map("n", "{{ keymap_global_search_for_text }}", function() require("telescope.builtin").live_grep() end, "Search For Text")
+      map("n", "{{ keymap_global_search_for_sel_text }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
     end,
     lazy = true,
     cmd = "Telescope",
@@ -539,6 +539,22 @@ require("lazy").setup({
       toggler = { line = "{{ keymap_comment_toggle }}" },
       opleader = { line = "{{ keymap_comment_toggle }}" },
       mappings = { basic = true, extra = false },
+    },
+  },
+
+  -- nvim-spectre: global search and replace
+  {
+    url = "https://github.com/nvim-pack/nvim-spectre",
+    commit = '{{ nvim_spectre_vers.commit }}',
+    opts = {
+      find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
+      mapping = {
+        ['run_replace'] = {
+          map = "{{ keymap_global_replace_text }}",
+          cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
+          desc = "Global Replace"
+        },
+      },
     },
   },
 
