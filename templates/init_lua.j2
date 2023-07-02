@@ -344,7 +344,7 @@ require("lazy").setup({
   -- gitsigns.nvim: git integration
   {
     url = "https://github.com/lewis6991/gitsigns.nvim",
-    commit = '{{ gitsigns_nvim_vers.commit }}',
+    commit = "{{ gitsigns_nvim_vers.commit }}",
     opts = {
       on_attach = function(bufnr)
         -- actions
@@ -485,10 +485,10 @@ require("lazy").setup({
       -- snippet = {
       --   expand = function(args) require'luasnip'.lsp_expand(args.body) end,
       -- },
-      mapping = require'cmp'.mapping.preset.insert{
-        ['<space>'] = require'cmp'.mapping.confirm{ select = false },
+      mapping = require"cmp".mapping.preset.insert{
+        ["<space>"] = require"cmp".mapping.confirm{ select = false },
       },
-      sources = require'cmp'.config.sources{
+      sources = require"cmp".config.sources{
         { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp" },
@@ -508,15 +508,15 @@ require("lazy").setup({
     init = function()
       -- configure externally-installed LSP servers via their their CLI options
       -- ref: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
-      local lsp_servers = { {{ neovim_lsp_server_cmd_list | map("regex_replace", "(.+)", "\"\\1\"") | join(', ') }} }
+      local lsp_servers = { {{ neovim_lsp_server_cmd_list | map("regex_replace", "(.+)", "\"\\1\"") | join(", ") }} }
       local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       for _, cmd in ipairs(lsp_servers) do
-        require('lspconfig')[cmd].setup{ capabilities = cmp_capabilities, }
+        require("lspconfig")[cmd].setup{ capabilities = cmp_capabilities, }
       end
       -- set LSP keymaps that take effect when an LSP server attaches
       -- ref: https://github.com/neovim/nvim-lspconfig#suggested-configuration
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
           map("n", "<leader>i", vim.lsp.buf.declaration, "LSP Decl", { buffer = event.buf })
           map("n", "<leader>k", vim.lsp.buf.definition, "LSP Def", { buffer = event.buf })
@@ -534,7 +534,7 @@ require("lazy").setup({
   -- comment.nvim: code commenting
   {
     url = "https://github.com/numToStr/Comment.nvim",
-    commit = '{{ comment_nvim_vers.commit }}',
+    commit = "{{ comment_nvim_vers.commit }}",
     opts = {
       toggler = { line = "{{ keymap_comment_toggle }}" },
       opleader = { line = "{{ keymap_comment_toggle }}" },
@@ -545,11 +545,11 @@ require("lazy").setup({
   -- nvim-spectre: global search and replace
   {
     url = "https://github.com/nvim-pack/nvim-spectre",
-    commit = '{{ nvim_spectre_vers.commit }}',
+    commit = "{{ nvim_spectre_vers.commit }}",
     opts = {
       find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
       mapping = {
-        ['run_replace'] = {
+        ["run_replace"] = {
           map = "{{ keymap_global_replace_text }}",
           cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
           desc = "Global Replace"
