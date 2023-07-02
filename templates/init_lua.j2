@@ -548,14 +548,17 @@ require("lazy").setup({
     commit = "{{ nvim_spectre_vers.commit }}",
     opts = {
       find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
-      mapping = {
-        ["run_replace"] = {
-          map = "{{ keymap_global_replace_text }}",
-          cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
-          desc = "Global Replace"
-        },
-      },
+      -- mapping = {
+      --   ["run_replace"] = {
+      --     map = "{{ keymap_global_replace_text }}",
+      --     cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
+      --     desc = "Global Replace"
+      --   },
+      -- },
     },
+    init = function()
+      map("n", "{{ keymap_global_replace_text }}", "<cmd>lua require('spectre').open()<cr>", "Global Search & Replace")
+    end,
   },
 
 }) -- require("lazy").setup({
