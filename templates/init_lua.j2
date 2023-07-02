@@ -528,7 +528,18 @@ require("lazy").setup({
           map("n", "<leader>m", vim.lsp.buf.rename, "LSP Rename", { buffer = event.buf })
         end,
       })
-    end,
+    end, -- init
+  },
+
+  -- comment.nvim: code commenting
+  {
+    url = "https://github.com/numToStr/Comment.nvim",
+    commit = '{{ comment_nvim_vers.commit }}',
+    opts = {
+      toggler = { line = "{{ keymap_comment_toggle }}" },
+      opleader = { line = "{{ keymap_comment_toggle }}" },
+      extra = false,
+    },
   },
 
 }) -- require("lazy").setup({

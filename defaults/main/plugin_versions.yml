@@ -18,4 +18,5 @@ cmp_path_vers:                { commit: '91ff86c', date: '2022-10-03', descrip: 
 cmp_nvim_lsp_vers:            { commit: '44b16d1', date: '2023-06-22', descrip: 'nvim-cmp LSP completion' }
 cmp_luasnip_vers:             { commit: '1809552', date: '2022-10-28', descrip: 'nvim-cmp luasnip completion' }
 nvim_lspconfig_vers:          { commit: '80861dc', date: '2023-06-16', descrip: 'LSP config' }
+comment_nvim_vers:            { commit: '176e85e', date: '2023-06-12', descrip: 'commenting' }
 

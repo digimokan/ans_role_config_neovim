@@ -11,6 +11,7 @@ keymap_clear_highlighted_search_text: "<leader>n"
 keymap_plugin_manager_menu: "<leader>p"
 keymap_open_file_browser_at_current_file: "<leader>t"
 keymap_close_file_browser: "<leader>T"
+keymap_comment_toggle: "<leader>c"
 keymap_open_undo_tree: "<leader>u"
 
 keymap_git_next_hunk: "<leader><right>"
