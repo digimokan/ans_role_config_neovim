@@ -549,17 +549,17 @@ require("lazy").setup({
     opts = {
       find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
       mapping = {
-        ['run_replace'] = {
+        ["run_replace"] = {
           map = "<leader>R",
           cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
           desc = "Run Replace All",
         },
-        ['toggle_ignore_case'] = {
+        ["toggle_ignore_case"] = {
           map = "ti",
           cmd = "<cmd>lua require('spectre').change_options('ignore-case')<cr>",
           desc = "Toggle Ignore-Case",
         },
-        ['toggle_ignore_hidden'] = {
+        ["toggle_ignore_hidden"] = {
           map = "th",
           cmd = "<cmd>lua require('spectre').change_options('hidden')<cr>",
           desc = "Toggle Search-Hidden-Files",
