@@ -550,7 +550,7 @@ require("lazy").setup({
     url = "https://github.com/barklan/capslock.nvim",
     commit = "{{ capslock_nvim_vers.commit }}",
     init = function()
-      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<cmd>CapsLockToggle<cr>", "Toggle Caps-Lock")
+      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
     end,
   },
 
