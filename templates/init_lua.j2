@@ -514,6 +514,7 @@ require("lazy").setup({
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
+          map("n", "{{ keymap_switch_to_source_or_header }}", "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header", { buffer = event.buf })
           map("n", "{{ keymap_lsp_declaration }}", vim.lsp.buf.declaration, "LSP Decl", { buffer = event.buf })
           map("n", "{{ keymap_lsp_definition }}", vim.lsp.buf.definition, "LSP Def", { buffer = event.buf })
           map("n", "{{ keymap_lsp_type_definition }}", vim.lsp.buf.type_definition, "LSP Type Def", { buffer = event.buf })
