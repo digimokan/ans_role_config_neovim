@@ -258,10 +258,6 @@ require("lazy").setup({
     commit = "{{ lualine_nvim_vers.commit }}",
     dependencies = {
       { url = "https://github.com/barklan/capslock.nvim", commit = "{{ capslock_nvim_vers.commit }}" },
-      config = true,
-      init = function()
-        map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
-      end,
     },
     opts = {
       options = {
@@ -546,6 +542,16 @@ require("lazy").setup({
     },
     init = function()
       map("n", "{{ keymap_global_replace_text }}", "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
+    end,
+  },
+
+  -- capslock.nvim: toggle insert-mode-only caps-lock
+  {
+    url = "https://github.com/barklan/capslock.nvim",
+    commit = "{{ capslock_nvim_vers.commit }}",
+    config = true,
+    init = function()
+      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
     end,
   },
 
