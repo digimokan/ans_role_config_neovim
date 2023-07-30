@@ -256,6 +256,13 @@ require("lazy").setup({
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
     commit = "{{ lualine_nvim_vers.commit }}",
+    dependencies = {
+      { url = "https://github.com/barklan/capslock.nvim", commit = "{{ capslock_nvim_vers.commit }}" },
+      config = true,
+      init = function()
+        map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
+      end,
+    },
     opts = {
       options = {
         icons_enabled = false,
@@ -266,7 +273,7 @@ require("lazy").setup({
       sections = {
         lualine_a = {"mode"},
         lualine_b = {"branch"},
-        lualine_c = {"filename"},
+        lualine_c = {"filename", require("capslock").status_string },
         lualine_x = {"diagnostics"},
         lualine_y = {"filetype", "fileformat", "encoding"},
         lualine_z = {"progress", "location"}
@@ -539,16 +546,6 @@ require("lazy").setup({
     },
     init = function()
       map("n", "{{ keymap_global_replace_text }}", "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
-    end,
-  },
-
-  -- capslock.nvim: toggle insert-mode-only caps-lock
-  {
-    url = "https://github.com/barklan/capslock.nvim",
-    commit = "{{ capslock_nvim_vers.commit }}",
-    config = true,
-    init = function()
-      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
     end,
   },
 
