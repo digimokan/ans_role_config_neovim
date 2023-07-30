@@ -269,7 +269,7 @@ require("lazy").setup({
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { "filename", { require("capslock").status_string } },
+        lualine_c = { "filename", { function() return require("capslock").status_string() end } },
         lualine_x = { "diagnostics" },
         lualine_y = { "filetype", "fileformat", "encoding" },
         lualine_z = { "progress", "location" }
