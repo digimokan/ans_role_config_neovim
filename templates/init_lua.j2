@@ -105,21 +105,6 @@ vim.opt.preserveindent = {{ insert_tabs_when_surrounding_code_has_them }}
 vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
 
 --------------------------------------------------------------------------------
--- FILE FINDING / OPENING [fzf] [projectionist]
---------------------------------------------------------------------------------
-
--- projectionist: set global defaults (override with project .projections.json)
--- let g:projectionist_heuristics = {
---   \ '*': {
---     \ '*.h'   : { 'alternate' : [ '{}.c', '{}.cpp' ] },
---     \ '*.hpp' : { 'alternate' : [ '{}.cpp', '{}.hxx' ] },
---     \ '*.c'   : { 'alternate' :   '{}.h' },
---     \ '*.cpp' : { 'alternate' : [ '{}.h', '{}.hpp' ] },
---     \ '*.hxx' : { 'alternate' :   '{}.hpp' }
---   \ }
--- \ }
-
---------------------------------------------------------------------------------
 -- KEYMAPS
 --------------------------------------------------------------------------------
 
@@ -222,9 +207,6 @@ map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Yank To End Of Line")
 
 map("n", "{{ keymap_undo_last_edit }}", "<cmd>undo<cr>", "Undo Last Edit")
 map("n", "{{ keymap_redo_last_edit }}", "<cmd>redo<cr>", "Redo Last Edit")
-
--- projectionist: invoke the defined 'alternate' cmd
--- nnoremap <silent> <leader>a :A<CR>
 
 -- toggle an insert-mode-only capslock
 -- imap <silent> <C-l> <Plug>CapsLockToggle
@@ -560,6 +542,15 @@ require("lazy").setup({
     },
     init = function()
       map("n", "{{ keymap_global_replace_text }}", "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
+    end,
+  },
+
+  -- capslock.nvim: toggle insert-mode-only caps-lock
+  {
+    url = "https://github.com/barklan/capslock.nvim",
+    commit = "{{ capslock_nvim_vers.commit }}",
+    init = function()
+      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<cmd>CapsLockToggle<cr>", "Toggle Caps-Lock")
     end,
   },
 

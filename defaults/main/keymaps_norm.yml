@@ -4,6 +4,8 @@ keymap_show_all_keymaps: "?"
 keymap_enter_cmd_mode: ";"
 keymap_enter_insert_mode_at_line_start: "I"
 
+keymap_toggle_insert_mode_capslock: "<del>"
+
 keymap_move_to_start_of_line_no_wsp: "q"
 keymap_move_to_end_of_line: "-"
 keymap_toggle_to_prev_buffer: "<cr>"
