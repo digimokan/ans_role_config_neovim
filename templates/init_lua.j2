@@ -562,5 +562,15 @@ require("lazy").setup({
     config = true,
   },
 
+  -- nvim-pasta: indented, line-wise copy/paste
+  {
+    url = "https://github.com/hrsh7th/nvim-pasta",
+    commit = "{{ nvim_pasta_vers.commit }}",
+    init = function()
+      map("n", "{{ keymap_paste_below }}", function() require('pasta.mappings').p() end, "Paste Below")
+      map("n", "{{ keymap_paste_above }}", function() require('pasta.mappings').P() end, "Paste Above")
+    end,
+  },
+
 }) -- require("lazy").setup({
 
