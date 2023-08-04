@@ -1,0 +1,7 @@
+# make neovim yank to system clipboard, and paste from system clipboard
+yank_and_paste_from_system_clipboard: true
+
+# for copy/paste to and from system clipboard
+# valid options: "xsel", "xclip", "wl-copy", or "waycopy"
+neovim_clipboard_provider: 'none'
+

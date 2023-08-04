@@ -99,6 +99,10 @@ vim.opt.copyindent = {{ insert_tabs_when_surrounding_code_has_them }}
 -- make insertions in existing line us same spaces or actual <TAB>s
 vim.opt.preserveindent = {{ insert_tabs_when_surrounding_code_has_them }}
 
+-- COPY / PASTE SETTINGS
+
+vim.opt.clipboard = "{{ 'unnamedplus' if yank_and_paste_from_system_clipboard else '' }}"
+
 -- UNDO / REDO SETTINGS
 
 -- enable persistent undo/redo between editing sessions, via an undo file
