@@ -569,10 +569,10 @@ require("lazy").setup({
     commit = "{{ nvim_pasta_vers.commit }}",
     -- to-do: re-enable this init, and verify that line-wise pasting works ok
     --        ...need updated neovim 9.0 in order to re-enable
-    -- init = function()
-    --   map("n", "{{ keymap_paste_below }}", function() require("pasta.mappings").p() end, "Paste Below")
-    --   map("n", "{{ keymap_paste_above }}", function() require("pasta.mappings").P() end, "Paste Above")
-    -- end,
+    init = function()
+      map("n", "{{ keymap_paste_below }}", function() require("pasta.mappings").p() end, "Paste Below")
+      map("n", "{{ keymap_paste_above }}", function() require("pasta.mappings").P() end, "Paste Above")
+    end,
   },
 
 }) -- require("lazy").setup({
