@@ -5,6 +5,7 @@
             (neovim_clipboard_provider == 'wl-copy') or
             (neovim_clipboard_provider == 'waycopy') ]
     fail_msg: "neovim_clipboard_provider is not set to a valid option"
+    quiet: true
 
 - name: "Create user neovim config dir at '{{ user_neovim_config_dir }}'"
   ansible.builtin.file:
