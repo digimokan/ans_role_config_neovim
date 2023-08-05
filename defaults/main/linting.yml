@@ -1,0 +1,6 @@
+# list of externally-installed linters to run for certain filetypes
+# neovim_linters:
+#   - { filetype: 'sh', cmd: 'shellcheck' }
+#   - { filetype: 'yaml', cmd: 'yamllint' }
+neovim_linters: []
+
