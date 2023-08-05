@@ -569,7 +569,6 @@ require("lazy").setup({
   {
     url = "https://github.com/mfussenegger/nvim-lint",
     commit = "{{ nvim_lint_vers.commit }}",
-    config = true,
     init = function()
       require("lint").linters_by_ft = {
         {% for linter in neovim_linters %}
