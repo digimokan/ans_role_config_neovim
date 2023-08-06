@@ -572,10 +572,10 @@ require("lazy").setup({
     init = function()
       require("lint").linters_by_ft = {
         {% for linter in neovim_linters %}
-        {{ linter.filetype }}{{ " = {'" }}{{ linter.cmd }}{{ "'}" }}
+        {{ linter.filetype }}{{ " = {'" }}{{ linter.cmd }}{{ "'}," }}
         {% endfor %}
       }
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      vim.api.nvim_create_autocmd({"BufEnter", "BufWritePost" }, {
         callback = function() require("lint").try_lint() end,
       })
     end,
