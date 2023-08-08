@@ -418,7 +418,6 @@ require("lazy").setup({
     init = function()
       map("n", "{{ keymap_find_proj_files }}", function() require("telescope.builtin").find_files() end, "Find File In Project")
       map("n", "{{ keymap_find_open_buffer }}", function() require("telescope.builtin").buffers() end, "Find File In Buffers")
-      map("n", "{{ keymap_diagnostics_list }}", function() require("telescope.builtin").diagnostics() end, "Diagnostic List")
       map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
@@ -578,6 +577,15 @@ require("lazy").setup({
       vim.api.nvim_create_autocmd({"BufEnter", "BufWritePost" }, {
         callback = function() require("lint").try_lint() end,
       })
+    end,
+  },
+
+  -- trouble.nvim: display warning/error diagnostics
+  {
+    url = "https://github.com/folke/trouble.nvim",
+    commit = "{{ trouble_nvim_vers.commit }}",
+    init = function()
+      map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
     end,
   },
 
