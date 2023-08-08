@@ -584,6 +584,9 @@ require("lazy").setup({
   {
     url = "https://github.com/folke/trouble.nvim",
     commit = "{{ trouble_nvim_vers.commit }}",
+    opts = {
+      icons = false,
+    },
     init = function()
       map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
     end,
