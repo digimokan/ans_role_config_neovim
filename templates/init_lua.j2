@@ -418,8 +418,6 @@ require("lazy").setup({
     init = function()
       map("n", "{{ keymap_find_proj_files }}", function() require("telescope.builtin").find_files() end, "Find File In Project")
       map("n", "{{ keymap_find_open_buffer }}", function() require("telescope.builtin").buffers() end, "Find File In Buffers")
-      map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
-      map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
       map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
       map("n", "{{ keymap_global_search_for_text }}", function() require("telescope.builtin").live_grep() end, "Search For Text")
       map("n", "{{ keymap_global_search_for_sel_text }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
@@ -586,9 +584,18 @@ require("lazy").setup({
     commit = "{{ trouble_nvim_vers.commit }}",
     opts = {
       icons = false,
+      auto_open = true, -- default is false
+      auto_close = true, -- default is false
+      auto_preview = true, -- default is true
+      use_diagnostic_signs = true,
     },
     init = function()
       map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
+      -- map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
+      map("n", "{{ keymap_diagnostics_next }}", require("trouble").next({skip_groups = false, jump = true}), "Diagnostic Next")
+      -- map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
+      map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
+      map("n", "{{ keymap_diagnostics_next }}", require("trouble").previous({skip_groups = false, jump = true}), "Diagnostic Prev")
     end,
   },
 
