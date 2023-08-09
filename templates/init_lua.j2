@@ -584,18 +584,34 @@ require("lazy").setup({
     commit = "{{ trouble_nvim_vers.commit }}",
     opts = {
       icons = false,
-      auto_open = true, -- default is false
-      auto_close = true, -- default is false
-      auto_preview = true, -- default is true
       use_diagnostic_signs = true,
+      action_keys = {
+        close = {},
+        cancel = {},
+        refresh = "r",
+        jump = { "<cr>" },
+        open_split = {},
+        open_vsplit = {},
+        open_tab = {},
+        jump_close = {"o"},
+        toggle_mode = "m",
+        switch_severity = "s",
+        toggle_preview = {},
+        hover = "l",
+        preview = {},
+        open_code_href = "c",
+        close_folds = {},
+        open_folds = {},
+        toggle_fold = {","},
+        previous = "k",
+        next = "j",
+        help = "?",
+      },
     },
     init = function()
       map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
-      -- map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
-      map("n", "{{ keymap_diagnostics_next }}", function() require("trouble").next({skip_groups = false, jump = true}) end, "Diagnostic Next")
-      -- map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
+      map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
-      map("n", "{{ keymap_diagnostics_next }}", function() require("trouble").previous({skip_groups = false, jump = true}) end, "Diagnostic Prev")
     end,
   },
 
