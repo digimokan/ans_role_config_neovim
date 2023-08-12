@@ -24,4 +24,5 @@ capslock_nvim_vers:           { commit: '35b560d', date: '2022-05-21', descrip: 
 nvim_surround_vers:           { commit: '10b20ca', date: '2023-05-30', descrip: 'select/mod delimiters' }
 nvim_lint_vers:               { commit: '4744fc0', date: '2023-07-30', descrip: 'run external linters' }
 trouble_nvim_vers:            { commit: '40aad00', date: '2023-07-29', descrip: 'diagnostics visuals' }
+luasnip_vers:                 { commit: '99a94cc', date: '2023-08-04', descrip: 'snippets' }
 

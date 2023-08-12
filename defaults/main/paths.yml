@@ -1,3 +1,9 @@
+# main neovim config dir
+neovim_user_config_dir: "/home/{{ neovim_user_name }}/.config/nvim"
+
 # main neovim config file path
-neovim_user_config_file_path: "/home/{{ neovim_user_name }}/.config/nvim/init.lua"
+neovim_user_config_file_path: "{{ neovim_user_config_dir }}/init.lua"
+
+# neovim snippets config dir
+neovim_user_snippets_dir: "{{ neovim_user_config_dir }}/snippets"
 

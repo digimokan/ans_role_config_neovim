@@ -457,12 +457,10 @@ require("lazy").setup({
       { url = "https://github.com/hrsh7th/cmp-buffer", commit = "{{ cmp_buffer_vers.commit }}" },
       { url = "https://github.com/hrsh7th/cmp-path", commit = "{{ cmp_path_vers.commit }}" },
       { url = "https://github.com/hrsh7th/cmp-nvim-lsp", commit = "{{ cmp_nvim_lsp_vers.commit }}" },
-      -- { url = "https://github.com/saadparwaiz1/cmp_luasnip", commit = "{{ cmp_luasnip_vers.commit }}" },
+      { url = "https://github.com/saadparwaiz1/cmp_luasnip", commit = "{{ cmp_luasnip_vers.commit }}" },
     },
     config = function() require'cmp'.setup{
-      -- snippet = {
-      --   expand = function(args) require'luasnip'.lsp_expand(args.body) end,
-      -- },
+      snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
       mapping = require"cmp".mapping.preset.insert{
         ["<space>"] = require"cmp".mapping.confirm{ select = false },
       },
@@ -470,7 +468,7 @@ require("lazy").setup({
         { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
       },
     } end,
   },
@@ -594,6 +592,20 @@ require("lazy").setup({
       map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
       map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
+    end,
+  },
+
+  -- LuaSnip: snippets
+  {
+    url = "https://github.com/L3MON4D3/LuaSnip",
+    commit = "{{ luasnip_vers.commit }}",
+    init = function()
+      map({"i", "s"}, "<right>", function() require("luasnip").jump(1) end, "Next Snippet Marker", { silent = true })
+      map({"i", "s"}, "<left>", function() require("luasnip").jump(-1) end, "Next Snippet Marker", { silent = true })
+      map({"i", "s"}, "<pagedown>",
+        function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end,
+        "Change Snippet Selection", { silent = true })
+      require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
     end,
   },
 

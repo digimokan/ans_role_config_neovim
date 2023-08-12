@@ -1,0 +1,30 @@
+- name: "Check that 'neovim_clipboard_provider' is set to a valid option"
+  ansible.builtin.assert:
+    that: [ (neovim_clipboard_provider == 'xsel') or
+            (neovim_clipboard_provider == 'xclip') or
+            (neovim_clipboard_provider == 'wl-copy') or
+            (neovim_clipboard_provider == 'waycopy') ]
+    fail_msg: "neovim_clipboard_provider is not set to a valid option"
+    quiet: true
+
+- name: "Create user neovim config dir at '{{ neovim_user_config_dir }}'"
+  ansible.builtin.file:
+    path: "{{ neovim_user_config_dir }}"
+    state: directory
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '755'
+  become: true
+  become_user: root
+
+- name: "Configure user neovim settings in '{{ neovim_user_config_file_path }}'"
+  ansible.builtin.template:
+    dest: "{{ neovim_user_config_file_path }}"
+    src: "init_lua.j2"
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '644'
+    force: yes
+  become: true
+  become_user: root
+

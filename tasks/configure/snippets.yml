@@ -1,0 +1,26 @@
+- name: "Create snippets dir at '{{ neovim_user_snippets_dir }}'"
+  ansible.builtin.file:
+    path: "{{ neovim_user_snippets_dir }}"
+    state: directory
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '755'
+  become: true
+  become_user: root
+
+- name: "Create a snippets file for each filetype"
+  ansible.builtin.template:
+    dest: "{{ neovim_user_snippets_dir }}/{{ filetype_name }}.lua"
+    src: "snippets/{{ filetype_name }}.j2"
+    owner: "{{ neovim_user_name }}"
+    group: "{{ neovim_user_name }}"
+    mode: '755'
+    force: yes
+  become: true
+  become_user: root
+  loop:
+    - 'all'
+    # - 'markdown'
+  loop_control:
+    loop_var: filetype_name
+
