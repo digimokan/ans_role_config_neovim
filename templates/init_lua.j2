@@ -567,7 +567,7 @@ require("lazy").setup({
     init = function()
       require("lint").linters_by_ft = {
         {% for linter in neovim_linters %}
-        {{ linter.filetype }}{{ " = {'" }}{{ linter.cmd }}{{ "'}," }}
+        {{ linter.filetype }}{{ " = {\"" }}{{ linter.cmd }}{{ "\"}," }}
         {% endfor %}
       }
       vim.api.nvim_create_autocmd({"BufEnter", "BufWritePost" }, {
