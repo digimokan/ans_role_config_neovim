@@ -1,0 +1,15 @@
+-- vim: set filetype=lua:
+-- ref: https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md
+
+return {
+  require("luasnip").snippet(
+    { trig = "github_ext_link", dscr = "Gitub-Markdown URL link to external page." },
+    {
+      require("luasnip").text_node({"["}),
+      require("luasnip").insert_node(1),
+      require("luasnip").text_node({"]"}),
+      require("luasnip").insert_node(0),
+    }
+  )
+}
+

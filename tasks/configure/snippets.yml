@@ -20,7 +20,7 @@
   become_user: root
   loop:
     - 'all'
-    # - 'markdown'
+    - 'markdown'
   loop_control:
     loop_var: filetype_name
 
