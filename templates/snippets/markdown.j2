@@ -6,8 +6,10 @@ return {
     { trig = "github_ext_link", dscr = "Gitub-Markdown URL link to external page." },
     {
       require("luasnip").text_node({"["}),
-      require("luasnip").insert_node(1),
-      require("luasnip").text_node({"]"}),
+      require("luasnip").insert_node(1, "link text"),
+      require("luasnip").text_node({"]("}),
+      require("luasnip").insert_node(2, "url"),
+      require("luasnip").text_node({")"}),
       require("luasnip").insert_node(0),
     }
   )
