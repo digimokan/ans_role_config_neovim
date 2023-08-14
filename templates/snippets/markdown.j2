@@ -6,12 +6,36 @@ return {
     { trig = "github_ext_link", dscr = "Gitub-Markdown URL link to external page." },
     {
       require("luasnip").text_node({"["}),
-      require("luasnip").insert_node(1, "link text"),
+      require("luasnip").insert_node(1, "https://some-site.net"),
       require("luasnip").text_node({"]("}),
       require("luasnip").insert_node(2, "url"),
       require("luasnip").text_node({")"}),
       require("luasnip").insert_node(0),
     }
-  )
+  ),
+
+  require("luasnip").snippet(
+    { trig = "github_int_link", dscr = "Gitub-Markdown URL link to internal anchor." },
+    {
+      require("luasnip").text_node({"["}),
+      require("luasnip").insert_node(1, "link text"),
+      require("luasnip").text_node({"](#"}),
+      require("luasnip").insert_node(2, "anchor-name-with-spaces--slash"),
+      require("luasnip").text_node({")"}),
+      require("luasnip").insert_node(0),
+    }
+  ),
+
+  require("luasnip").snippet(
+    { trig = "github_image_link", dscr = "Gitub-Markdown URL link to external image." },
+    {
+      require("luasnip").text_node({"!["}),
+      require("luasnip").insert_node(1, "image name"),
+      require("luasnip").text_node({"]("}),
+      require("luasnip").insert_node(2, "https://some-site.net/image.jpg"),
+      require("luasnip").text_node({")"}),
+      require("luasnip").insert_node(0),
+    }
+  ),
 }
 
