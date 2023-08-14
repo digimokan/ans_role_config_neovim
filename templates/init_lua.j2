@@ -601,10 +601,7 @@ require("lazy").setup({
     commit = "{{ luasnip_vers.commit }}",
     init = function()
       map({"i", "s"}, "<right>", function() require("luasnip").jump(1) end, "Next Snippet Marker", { silent = true })
-      map({"i", "s"}, "<left>", function() require("luasnip").jump(-1) end, "Next Snippet Marker", { silent = true })
-      map({"i", "s"}, "<pagedown>",
-        function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end,
-        "Change Snippet Selection", { silent = true })
+      map({"i", "s"}, "<left>", function() require("luasnip").jump(-1) end, "Prev Snippet Marker", { silent = true })
       require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
     end,
   },
