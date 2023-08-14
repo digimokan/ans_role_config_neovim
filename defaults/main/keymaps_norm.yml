@@ -10,9 +10,8 @@ keymap_move_to_start_of_line_no_wsp: "q"
 keymap_move_to_end_of_line: "-"
 keymap_toggle_to_prev_buffer: "<cr>"
 
-keymap_move_to_next_jumplist_pos: "s"
-keymap_move_to_prev_jumplist_pos: "f"
-keymap_move_to_last_edit_pos: "t"
+keymap_move_to_next_jumplist_pos: "f"
+keymap_move_to_prev_jumplist_pos: "s"
 
 keymap_inc_current_split_height: "<up>"
 keymap_dec_current_split_height: "<down>"
