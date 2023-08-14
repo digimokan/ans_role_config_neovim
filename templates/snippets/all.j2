@@ -5,14 +5,14 @@ return {
   require("luasnip").snippet(
     { trig = "license_mit", dscr = "The MIT software license text." },
     {
-      require("luasnip").text_node({ "MIT License\n" }),
-      require("luasnip").text_node({ "\n" }),
+      require("luasnip").text_node({ "MIT License", "", "" }),
       require("luasnip").text_node({"Copyright (c) "}),
       require("luasnip").insert_node(1, os.date("%Y")),
       require("luasnip").text_node({" "}),
       require("luasnip").insert_node(2, "digimokan"),
-      require("luasnip").text_node({ "\n" }),
       require("luasnip").text_node({
+        "",
+        "",
         "Permission is hereby granted, free of charge, to any person obtaining a copy",
         "of this software and associated documentation files (the \"Software\"), to deal",
         "in the Software without restriction, including without limitation the rights",
