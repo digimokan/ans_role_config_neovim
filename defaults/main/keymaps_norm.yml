@@ -33,3 +33,5 @@ keymap_paste_above: "P"
 keymap_undo_last_edit: "u"
 keymap_redo_last_edit: "U"
 
+keymap_diagnostics_hover: 't'
+

@@ -589,6 +589,7 @@ require("lazy").setup({
       },
     },
     init = function()
+      map("n", "{{ keymap_diagnostics_hover }}", vim.diagnostic.open_float, "Diagnostic Line")
       map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
       map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
