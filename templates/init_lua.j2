@@ -158,9 +158,9 @@ map({ "n", "v" }, "{{ keymap_move_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
 map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
 -- move to next location in jumplist
-map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<C-o>", "Next Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<C-i>", "Next Jumplist Pos", { silent = true })
 -- move to prev location in jumplist
-map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<C-i>", "Prev Jumplist Pos", { silent = true })
+map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<C-o>", "Prev Jumplist Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
