@@ -144,10 +144,12 @@ vim.g.mapleader = "{{ neovim_leader_key.super }}"
 
 -- MODE CHANGE KEYMAPS
 
--- enter normal mode
+-- enter normal-mode
 map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
--- insert at start of line
+-- enter insert-mode at start of line
 map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
+-- enter visual-block-mode
+map("n", "{{ keymap_enter_visual_block_mode }}", "<C-v>", "Visual Block Mode")
 
 -- NAVIGATION KEYMAPS
 

@@ -3,6 +3,7 @@ keymap_show_all_keymaps: "?"
 
 keymap_enter_cmd_mode: ";"
 keymap_enter_insert_mode_at_line_start: "I"
+keymap_enter_visual_block_mode: "X"
 
 keymap_toggle_insert_mode_capslock: "<del>"
 
@@ -24,7 +25,7 @@ keymap_toggle_fold_expand_collapse: ","
 keymap_indent_visual_selection_to_left: "<"
 keymap_indent_visual_selection_to_right: ">"
 
-keymap_search_replace_in_buffer: "X"
+keymap_search_replace_in_buffer: "S"
 
 keymap_copy_to_end_of_line: "Y"
 keymap_paste_below: "p"
