@@ -490,8 +490,6 @@ require("lazy").setup({
       for _, cmd in ipairs(lsp_servers) do
         require("lspconfig")[cmd].setup{ capabilities = cmp_capabilities, }
       end
-      require("lspconfig").lua.setup{ settings = { Lua = { diagnostics = {
-        globals = { "vim" } } } } }
       -- set LSP keymaps that take effect when an LSP server attaches
       -- ref: https://github.com/neovim/nvim-lspconfig#suggested-configuration
       vim.api.nvim_create_autocmd("LspAttach", {
