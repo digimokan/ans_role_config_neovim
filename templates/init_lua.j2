@@ -552,6 +552,18 @@ require("lazy").setup({
     end,
   },
 
+  -- text-case.nvim: chane word case
+  {
+    url = "https://github.com/johmsalas/text-case.nvim",
+    commit = "{{ text_case_nvim_vers.commit }}",
+    config = true,
+    init = function()
+      map("n", "{{ keymap_change_word_case_lower }}", function() require("textcase").current_word("to_lower_case") end, "Change Word Case Lower", { silent = true })
+      map("n", "{{ keymap_change_word_case_upper }}", function() require("textcase").current_word("to_upper_case") end, "Change Word Case Upper", { silent = true })
+      map("n", "{{ keymap_change_word_case_title }}", function() require("textcase").current_word("to_title_case") end, "Change Word Case Title", { silent = true })
+    end,
+  },
+
   -- nvim-surround: select/change surrounding delimiter pairs
   {
     url = "https://github.com/kylechui/nvim-surround",

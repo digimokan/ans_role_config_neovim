@@ -1,6 +1,4 @@
-neovim_leader_key: { super: " ", map: "<space>" }
 keymap_show_all_keymaps: "?"
-
 keymap_enter_cmd_mode: ";"
 keymap_enter_insert_mode_at_line_start: "I"
 keymap_enter_visual_block_mode: "X"
@@ -10,7 +8,6 @@ keymap_toggle_insert_mode_capslock: "<S-space>"
 keymap_move_to_start_of_line_no_wsp: "q"
 keymap_move_to_end_of_line: "-"
 keymap_toggle_to_prev_buffer: "<cr>"
-
 keymap_move_to_prev_edit_pos: "s"
 
 keymap_inc_current_split_height: "<up>"
@@ -26,12 +23,15 @@ keymap_indent_visual_selection_to_right: ">"
 
 keymap_search_replace_in_buffer: "S"
 
+keymap_change_word_case_lower: "crl"
+keymap_change_word_case_upper: "cru"
+keymap_change_word_case_title: "crt"
+keymap_undo_last_edit: "u"
+keymap_redo_last_edit: "U"
+
 keymap_copy_to_end_of_line: "Y"
 keymap_paste_below: "p"
 keymap_paste_above: "P"
-
-keymap_undo_last_edit: "u"
-keymap_redo_last_edit: "U"
 
 keymap_diagnostics_hover: 't'
 

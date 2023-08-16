@@ -1,3 +1,5 @@
+neovim_leader_key: { super: " ", map: "<space>" }
+
 keymap_close_split: "<leader>q"
 keymap_quit_neovim: "<leader><bs>"
 keymap_save_file: "<leader>w"
