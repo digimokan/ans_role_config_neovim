@@ -159,10 +159,8 @@ map({ "n", "v" }, "{{ keymap_move_to_start_of_line_no_wsp }}", "^", "Start Of Li
 map({ "n", "v" }, "{{ keymap_move_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
 map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
--- move to next location in jumplist
-map("n", "{{ keymap_move_to_next_jumplist_pos }}", "<C-i>", "Next Jumplist Pos", { silent = true })
--- move to prev location in jumplist
-map("n", "{{ keymap_move_to_prev_jumplist_pos }}", "<C-o>", "Prev Jumplist Pos", { silent = true })
+-- move to prev edit pos (persistent, when use_undo_file_for_peristent_undos)
+map("n", "{{ keymap_move_to_prev_edit_pos }}", "g;", "Prev Edit Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
