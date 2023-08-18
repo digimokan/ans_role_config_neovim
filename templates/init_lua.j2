@@ -313,8 +313,8 @@ require("lazy").setup({
       }
     end, -- config function()
     init = function()
-      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Open File Browser", { silent = true })
-      map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",                   "Close File Browser", { silent = true })
+      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Open File Browser")
+      map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>", "Close File Browser")
     end,
     lazy = true,
     cmd = "NvimTreeFindFile",
@@ -558,9 +558,9 @@ require("lazy").setup({
     commit = "{{ text_case_nvim_vers.commit }}",
     config = true,
     init = function()
-      map("n", "{{ keymap_change_word_case_lower }}", function() require("textcase").current_word("to_lower_case") end, "Change Word Case Lower", { silent = true })
-      map("n", "{{ keymap_change_word_case_upper }}", function() require("textcase").current_word("to_upper_case") end, "Change Word Case Upper", { silent = true })
-      map("n", "{{ keymap_change_word_case_title }}", function() require("textcase").current_word("to_title_case") end, "Change Word Case Title", { silent = true })
+      map("n", "{{ keymap_change_word_case_lower }}", function() require("textcase").current_word("to_lower_case") end, "Change Word Case Lower")
+      map("n", "{{ keymap_change_word_case_upper }}", function() require("textcase").current_word("to_upper_case") end, "Change Word Case Upper")
+      map("n", "{{ keymap_change_word_case_title }}", function() require("textcase").current_word("to_title_case") end, "Change Word Case Title")
     end,
   },
 
@@ -613,8 +613,8 @@ require("lazy").setup({
     url = "https://github.com/L3MON4D3/LuaSnip",
     commit = "{{ luasnip_vers.commit }}",
     init = function()
-      map({"i", "s"}, "<S-right>", function() require("luasnip").jump(1) end, "Next Snippet Marker", { silent = true })
-      map({"i", "s"}, "<S-left>", function() require("luasnip").jump(-1) end, "Prev Snippet Marker", { silent = true })
+      map({"i", "s"}, "<S-right>", function() require("luasnip").jump(1) end, "Next Snippet Marker")
+      map({"i", "s"}, "<S-left>", function() require("luasnip").jump(-1) end, "Prev Snippet Marker")
       require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
     end,
   },
