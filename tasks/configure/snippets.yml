@@ -15,7 +15,7 @@
     owner: "{{ neovim_user_name }}"
     group: "{{ neovim_user_name }}"
     mode: '755'
-    force: yes
+    force: true
   become: true
   become_user: root
   loop:

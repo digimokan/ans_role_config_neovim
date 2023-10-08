@@ -54,7 +54,7 @@ Install and configure the neovim text editor.
        - name: "Install and configure the neovim text editor"
          ansible.builtin.include_role:
            name: ans_role_config_neovim
-           public: yes
+           public: true
          vars:
            neovim_user_name: "userl"
    ```
