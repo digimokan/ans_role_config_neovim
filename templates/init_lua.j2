@@ -354,21 +354,22 @@ require("lazy").setup({
   {
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
     commit = "{{ nvim_treesitter_vers.commit }}",
-    dependencies = {
-      { url = "https://github.com/HiPhish/nvim-ts-rainbow2", commit = "{{ nvim_ts_rainbow2_vers.commit }}" },
-    },
     opts = {
       -- build a parser for the buffer's filetype automatically, on buff enter
       -- each parser is a .so file located in the treesitter plugin dir
       auto_install = true,
       -- treesitter built-in module for better syntax highlighting
       highlight = { enable = true, },
-      -- nvim-ts-rainbow2 plugin for paren/brace colorizing
-      rainbow = { enable = true },
     }, -- opts
     main = "nvim-treesitter.configs",
     -- when treesitter plugin gets an update, re-build all parsers to latest
     build = ":TSUpdate",
+  },
+
+  -- rainbow-delimiters.nvim: color-matched parentheses
+  {
+    url = "https://github.com/hiphish/rainbow-delimiters.nvim",
+    commit = "{{ rainbow_delimiters_nvim_vers.commit }}",
   },
 
   -- indent-blankline.nvim: indentation guides
