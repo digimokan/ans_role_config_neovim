@@ -4,7 +4,7 @@ lualine_nvim_vers:            { commit: '05d78e9', date: '2023-05-04', descrip: 
 nvim_tree_lua_vers:           { commit: '58d1014', date: '2023-06-04', descrip: 'file browser' }
 gitsigns_nvim_vers:           { commit: 'f868d82', date: '2023-05-25', descrip: 'git diff column' }
 nvim_autopairs_vers:          { commit: '59df87a', date: '2023-05-25', descrip: 'paren insertion' }
-nvim_treesitter_vers:         { commit: 'f9d7011', date: '2023-06-10', descrip: 'file AST parsing' }
+nvim_treesitter_vers:         { commit: '9e66d5c', date: '2024-08-06', descrip: 'file AST parsing' }
 rainbow_delimiters_nvim_vers: { commit: 'a727bd3', date: '2024-06-28', descrip: 'colored parens' }
 indent_blankline_nvim_vers:   { commit: '7075d78', date: '2023-05-29', descrip: 'indent guides' }
 nvim_spider_vers:             { commit: 'ef0c75f', date: '2023-05-25', descrip: 'move by word segments' }
