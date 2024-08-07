@@ -363,6 +363,8 @@ require("lazy").setup({
       -- treesitter built-in module for better syntax highlighting
       highlight = { enable = true, },
     }, -- opts
+    -- need this, because of non-standard, treesitter MAIN module location
+    main = "nvim-treesitter.configs",
     -- when treesitter plugin gets an update, re-build all parsers to latest
     build = ":TSUpdate",
   },
