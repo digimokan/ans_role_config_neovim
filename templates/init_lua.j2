@@ -355,6 +355,8 @@ require("lazy").setup({
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
     commit = "{{ nvim_treesitter_vers.commit }}",
     opts = {
+      -- per README, these parsers must always be installed
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
       -- build a parser for the buffer's filetype automatically, on buff enter
       -- each parser is a .so file located in the treesitter plugin dir
       auto_install = true,
