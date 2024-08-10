@@ -1,5 +1,5 @@
 lazy_nvim_vers:               { tag:    'v11.14.1', date: '2024-07-25', descrip: 'plugin manager' }
-onedark_nvim_vers:            { commit: '8ef5192',  date: '2023-06-02', descrip: 'colorscheme' }
+gruvbox_nvim_vers:            { commit: '7a1b23e',  date: '2024-07-04', descrip: 'colorscheme' }
 lualine_nvim_vers:            { commit: '05d78e9',  date: '2023-05-04', descrip: 'statusline' }
 nvim_tree_lua_vers:           { commit: '58d1014',  date: '2023-06-04', descrip: 'file browser' }
 gitsigns_nvim_vers:           { commit: 'f868d82',  date: '2023-05-25', descrip: 'git diff column' }

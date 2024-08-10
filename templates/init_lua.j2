@@ -269,11 +269,11 @@ require("lazy").setup({
 
   -- onedark.nvim: colorscheme
   {
-    url = "https://github.com/navarasu/onedark.nvim",
-    commit = "{{ onedark_nvim_vers.commit }}",
+    url = "https://github.com/ellisonleao/gruvbox.nvim",
+    commit = "{{ gruvbox_nvim_vers.commit }}",
     priority = 1000,
-    opts = { style = "warm" },
-    init = function() require("onedark").load() end,
+    -- opts = { style = "warm" },
+    -- init = function() require("onedark").load() end,
   },
 
   -- lualine.nvim: statusline
