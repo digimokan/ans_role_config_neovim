@@ -214,23 +214,38 @@ map("n", "{{ keymap_undo_last_edit }}", "<cmd>undo<cr>", "Undo Last Edit")
 map("n", "{{ keymap_redo_last_edit }}", "<cmd>redo<cr>", "Redo Last Edit")
 
 --------------------------------------------------------------------------------
--- PLUGINS
+-- PLUGIN MANAGER BOOTSTRAP
 --------------------------------------------------------------------------------
 
+-- set path to plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- do one-time auto-install of the lazy.nvim plugin manager
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
+
+-- do one-time auto-install of the plugin manager
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local cmd_output = vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
     "--branch={{ lazy_nvim_vers.tag }}",
-    lazypath,
-  })
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { cmd_output, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
--- set rtp for lazy.nvim and its plugins
+
+-- set runtime-path for plugin manager and its plugins
 vim.opt.rtp:prepend(lazypath)
+
+--------------------------------------------------------------------------------
+-- PLUGIN DEFINITIONS
+--------------------------------------------------------------------------------
 
 -- install individual plugins (at ~/.local/share/nvim/)
 require("lazy").setup({
