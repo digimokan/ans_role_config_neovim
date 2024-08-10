@@ -2,8 +2,8 @@ lazy_nvim_vers:               { tag:    'v11.14.1', date: '2024-07-25', descrip:
 gruvbox_nvim_vers:            { commit: '7a1b23e',  date: '2024-07-04', descrip: 'colorscheme' }
 lualine_nvim_vers:            { commit: '544dd15',  date: '2024-07-15', descrip: 'statusline' }
 nvim_tree_lua_vers:           { commit: 'ad0b95d',  date: '2024-08-09', descrip: 'file browser' }
-gitsigns_nvim_vers:           { commit: 'f868d82',  date: '2023-05-25', descrip: 'git diff column' }
-nvim_autopairs_vers:          { commit: '59df87a',  date: '2023-05-25', descrip: 'paren insertion' }
+gitsigns_nvim_vers:           { commit: '562dc47',  date: '2024-08-07', descrip: 'git diff column' }
+nvim_autopairs_vers:          { commit: '48ca9aa',  date: '2024-08-10', descrip: 'paren insertion' }
 nvim_treesitter_vers:         { commit: '9e66d5c',  date: '2024-08-06', descrip: 'file AST parsing' }
 rainbow_delimiters_nvim_vers: { commit: 'a727bd3',  date: '2024-06-28', descrip: 'colored parens' }
 indent_blankline_nvim_vers:   { commit: '7075d78',  date: '2023-05-29', descrip: 'indent guides' }

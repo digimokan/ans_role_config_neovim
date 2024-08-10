@@ -373,7 +373,6 @@ require("lazy").setup({
         map("n", "{{ keymap_git_show_blame }}", function() gs.blame_line() end, "Git Show Blame", { buffer = bufnr })
         map("n", "{{ keymap_git_stage_hunk }}", gs.stage_hunk, "Git Stage Hunk", { buffer = bufnr })
         map("n", "{{ keymap_git_unstage_hunk }}", gs.undo_stage_hunk, "Git Unstage Hunk", { buffer = bufnr })
-
         -- text object
         map({"o", "x"}, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
       end
