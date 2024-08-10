@@ -6,8 +6,8 @@ gitsigns_nvim_vers:           { commit: '562dc47',  date: '2024-08-07', descrip:
 nvim_autopairs_vers:          { commit: '48ca9aa',  date: '2024-08-10', descrip: 'paren insertion' }
 nvim_treesitter_vers:         { commit: '9e66d5c',  date: '2024-08-06', descrip: 'file AST parsing' }
 rainbow_delimiters_nvim_vers: { commit: 'a727bd3',  date: '2024-06-28', descrip: 'colored parens' }
-indent_blankline_nvim_vers:   { commit: '7075d78',  date: '2023-05-29', descrip: 'indent guides' }
-nvim_spider_vers:             { commit: 'ef0c75f',  date: '2023-05-25', descrip: 'move by word segments' }
+indent_blankline_nvim_vers:   { commit: 'dddb5d2',  date: '2024-08-08', descrip: 'indent guides' }
+nvim_spider_vers:             { commit: '508b350',  date: '2024-07-21', descrip: 'move by word segments' }
 telescope_nvim_vers:          { tag:    '0.1.2',    date: '2023-06-08', descrip: 'file finder' }
 plenary_nvim_vers:            { commit: '36aaceb',  date: '2023-06-10', descrip: 'file finder' }
 telescope_undo_nvim_vers:     { commit: '3dec002',  date: '2023-06-03', descrip: 'undo tree' }
