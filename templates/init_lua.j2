@@ -357,6 +357,8 @@ require("lazy").setup({
     opts = {
       -- per README, these parsers must always be installed
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+      -- install 'ensure_installed' parsers synchronously (prevents races)
+      sync_install = true,
       -- build a parser for the buffer's filetype automatically, on buff enter
       -- each parser is a .so file located in the treesitter plugin dir
       auto_install = true,
@@ -365,7 +367,7 @@ require("lazy").setup({
     }, -- opts
     -- need this, because of non-standard, treesitter MAIN module location
     main = "nvim-treesitter.configs",
-    -- when treesitter plugin gets an update, re-build all parsers to latest
+    -- when treesitter plugin is installed or updated, re-build all parsers
     build = ":TSUpdate",
   },
 
