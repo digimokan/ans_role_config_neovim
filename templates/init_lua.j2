@@ -267,13 +267,18 @@ require("lazy").setup({
     end,
   },
 
-  -- onedark.nvim: colorscheme
+  -- gruvbox.nvim: colorscheme
   {
     url = "https://github.com/ellisonleao/gruvbox.nvim",
     commit = "{{ gruvbox_nvim_vers.commit }}",
     priority = 1000,
-    -- opts = { style = "warm" },
-    -- init = function() require("onedark").load() end,
+    opts = {
+      -- set to "soft", "" (medium - or omit setting), or "hard"
+      contrast = "soft",
+    }, -- opts
+    init = function()
+      vim.cmd([[colorscheme gruvbox]])
+    end,
   },
 
   -- lualine.nvim: statusline
