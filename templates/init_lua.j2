@@ -308,17 +308,28 @@ require("lazy").setup({
     config = function()
       local function nvim_tree_on_attach(bufnr)
         local api = require "nvim-tree.api"
-        map("n", "u", api.tree.change_root_to_parent, "Change CWD Up",    { buffer = bufnr, silent = true, nowait = true })
-        map("n", "s", api.tree.change_root_to_node, "Set Current As CWD", { buffer = bufnr, silent = true, nowait = true })
-        map("n", "l", api.node.open.edit, "Open",                         { buffer = bufnr, silent = true, nowait = true })
-        map("n", "h", api.node.navigate.parent_close, "Collapse",         { buffer = bufnr, silent = true, nowait = true })
-        map("n", "a", api.fs.create, "Create",                            { buffer = bufnr, silent = true, nowait = true })
-        map("n", "m", api.fs.rename_sub, "Move Or Rename",                { buffer = bufnr, silent = true, nowait = true })
-        map("n", "e", api.fs.rename_basename, "Edit Filename",            { buffer = bufnr, silent = true, nowait = true })
-        map("n", "c", api.fs.copy.node, "Copy",                           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "p", api.fs.paste, "Paste",                              { buffer = bufnr, silent = true, nowait = true })
-        map("n", "d", api.fs.remove, "Delete",                            { buffer = bufnr, silent = true, nowait = true })
-        map("n", "?", api.tree.toggle_help, "Help",                       { buffer = bufnr, silent = true, nowait = true })
+        map("n", "u", api.tree.change_root_to_parent, "Change CWD Up",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "s", api.tree.change_root_to_node, "Set Current As CWD",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "l", api.node.open.edit, "Open",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "h", api.node.navigate.parent_close, "Collapse",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "a", api.fs.create, "Create",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "m", api.fs.rename_sub, "Move Or Rename",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "e", api.fs.rename_basename, "Edit Filename",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "c", api.fs.copy.node, "Copy",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "p", api.fs.paste, "Paste",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "d", api.fs.remove, "Delete",
+          { buffer = bufnr, silent = true, nowait = true })
+        map("n", "?", api.tree.toggle_help, "Help",
+          { buffer = bufnr, silent = true, nowait = true })
       end -- nvim_tree_on_attach()
 
       require("nvim-tree").setup {
