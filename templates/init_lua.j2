@@ -126,8 +126,8 @@ vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
 
 -- LOCAL MAPPING FUNCTIONS
 
-local function map(mode, keys, action, desc, opts)
-  local opts = opts or {}
+local function map(mode, keys, action, desc, in_opts)
+  local opts = in_opts or {}
   local map_opts = {}
   map_opts.desc = desc
   map_opts.silent = opts.silent or false
