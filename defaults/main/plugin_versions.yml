@@ -8,9 +8,9 @@ nvim_treesitter_vers:         { commit: '9e66d5c',  date: '2024-08-06', descrip:
 rainbow_delimiters_nvim_vers: { commit: 'a727bd3',  date: '2024-06-28', descrip: 'colored parens' }
 indent_blankline_nvim_vers:   { commit: 'dddb5d2',  date: '2024-08-08', descrip: 'indent guides' }
 nvim_spider_vers:             { commit: '508b350',  date: '2024-07-21', descrip: 'move by word segments' }
-telescope_nvim_vers:          { tag:    '0.1.2',    date: '2023-06-08', descrip: 'file finder' }
-plenary_nvim_vers:            { commit: '36aaceb',  date: '2023-06-10', descrip: 'file finder' }
-telescope_undo_nvim_vers:     { commit: '3dec002',  date: '2023-06-03', descrip: 'undo tree' }
+telescope_nvim_vers:          { commit: '3b1600d',  date: '2024-08-01', descrip: 'file finder' }
+plenary_nvim_vers:            { commit: 'a3e3bc8',  date: '2024-05-20', descrip: 'file finder' }
+telescope_undo_nvim_vers:     { commit: '51be9ae',  date: '2024-06-30', descrip: 'undo tree' }
 which_key_nvim_vers:          { commit: 'e271c28',  date: '2023-05-22', descrip: 'keymap help' }
 nvim_cmp_vers:                { commit: 'e1f1b40',  date: '2023-06-22', descrip: 'completion engine' }
 cmp_buffer_vers:              { commit: '3022dbc',  date: '2022-09-22', descrip: 'nvim-cmp buffer completion' }
