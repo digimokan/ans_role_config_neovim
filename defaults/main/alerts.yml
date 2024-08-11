@@ -1,6 +1,0 @@
-# issue audible alert bells
-audio_bell_on_alert: 'false'
-
-# issue visual alert bells
-visual_bell_on_alert: 'false'
-

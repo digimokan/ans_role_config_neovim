@@ -1,6 +1,6 @@
 # auto-formatting: insert comment leader on starting new line
-insert_comment_leader_on_new_line: 'true'
+neovim_insert_comment_leader_on_new_line: 'true'
 
 # auto-formatting: allow long line to continue without formatting, on editing
-allow_long_line_to_continue: 'true'
+neovim_allow_long_line_to_continue: 'true'
 

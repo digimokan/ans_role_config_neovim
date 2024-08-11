@@ -1,12 +1,12 @@
 # show matching paired chars with a brief secondary-cursor highlight
-show_matching_brace_paren_pairs: 'true'
+neovim_show_matching_brace_paren_pairs: 'true'
 
 # show an invisible TAB as this char
-char_to_show_for_tab: '→ '
+neovim_char_to_show_for_tab: '→ '
 
 # show an invisible trailing space (at end of line) as this char
-char_to_show_for_trailing_space: '⋅'
+neovim_char_to_show_for_trailing_space: '⋅'
 
 # show an invisible non-breaking-space (NBSP) as this char
-char_to_show_for_nbsp: '¬'
+neovim_char_to_show_for_nbsp: '¬'
 

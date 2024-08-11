@@ -1,0 +1,6 @@
+# issue audible alert bells
+neovim_audio_bell_on_alert: 'false'
+
+# issue visual alert bells
+neovim_visual_bell_on_alert: 'false'
+

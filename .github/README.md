@@ -56,18 +56,22 @@ Install and configure the neovim text editor.
            name: ans_role_config_neovim
            public: true
          vars:
-           neovim_user_name: "userl"
+           neovim_user_name: "user2"
    ```
 
 ## Role Options
 
-See the role `defaults` files for main role vars listings:
+Vars that must be defined when including the role in the playbook:
 
-  * [defaults](../defaults/main/)
+  * [dependencies](../defaults/main/dependencies/user.yml)
 
-Define these _required_ vars for the role:
+Vars with default values, which can be overridden in the playbook:
 
-  * `neovim_user_name`: user name of main neovim user
+  * [overridable](../defaults/main/overridable)
+
+Vars defined by this role, exported with `public: true`, for use in other roles:
+
+  * [export](../defaults/main/export/commands.yml)
 
 ## Contributing
 

@@ -1,0 +1,6 @@
+# reload buffer if changed externally
+neovim_reload_buffer_if_changed_externally: 'true'
+
+# save swapfiles
+neovim_save_vim_swapfiles: 'false'
+

@@ -1,0 +1,39 @@
+neovim_leader_key: { super: " ", map: "<space>" }
+
+neovim_keymap_close_split: "<leader>q"
+neovim_keymap_quit_neovim: "<leader><bs>"
+neovim_keymap_save_file: "<leader>w"
+
+neovim_keymap_find_proj_files: "<leader>f"
+neovim_keymap_find_open_buffer: "<leader>r"
+neovim_keymap_global_search_for_text: "<leader>s"
+neovim_keymap_global_search_for_sel_text: "<leader>x"
+neovim_keymap_global_replace_text: "<leader>v"
+neovim_keymap_clear_highlighted_search_text: "<leader>n"
+
+neovim_keymap_plugin_manager_menu: "<leader>p"
+neovim_keymap_open_file_browser_at_current_file: "<leader>t"
+neovim_keymap_close_file_browser: "<leader>T"
+neovim_keymap_comment_toggle: "<leader>c"
+neovim_keymap_open_undo_tree: "<leader>u"
+
+neovim_keymap_git_next_hunk: "<leader><right>"
+neovim_keymap_git_prev_hunk: "<leader><left>"
+neovim_keymap_git_show_preview: "<leader>gs"
+neovim_keymap_git_show_blame: "<leader>gb"
+neovim_keymap_git_stage_hunk: "<leader>gl"
+neovim_keymap_git_unstage_hunk: "<leader>gh"
+
+neovim_keymap_diagnostics_list: "<leader>e"
+neovim_keymap_diagnostics_next: "<leader>."
+neovim_keymap_diagnostics_prev: "<leader>,"
+neovim_keymap_switch_to_source_or_header: "<leader>a"
+neovim_keymap_lsp_declaration: "<leader>i"
+neovim_keymap_lsp_definition: "<leader>k"
+neovim_keymap_lsp_type_definition: "<leader>h"
+neovim_keymap_lsp_hover: "<leader>y"
+neovim_keymap_lsp_implementations: "<leader>j"
+neovim_keymap_lsp_references: "<leader>l"
+neovim_keymap_lsp_calls: "<leader>o"
+neovim_keymap_lsp_rename: "<leader>m"
+

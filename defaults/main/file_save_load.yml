@@ -1,6 +1,0 @@
-# reload buffer if changed externally
-reload_buffer_if_changed_externally: 'true'
-
-# save swapfiles
-save_vim_swapfiles: 'false'
-

@@ -1,18 +1,18 @@
 # number of spaces to use for each step of autoindent
-num_spaces_to_use_for_auto_indent: 2
+neovim_num_spaces_to_use_for_auto_indent: 2
 
 # round an indent to multiple of shiftwidth
-round_indent_to_auto_indent_multiple: 'true'
+neovim_round_indent_to_auto_indent_multiple: 'true'
 
 # when inserting an input <TAB>, expand it to a series of spaces
-expand_inserted_tabs_to_spaces: 'true'
+neovim_expand_inserted_tabs_to_spaces: 'true'
 
 # when expanding a <TAB>, use this number of spaces
-num_spaces_to_use_for_expanded_tabs: 2
+neovim_num_spaces_to_use_for_expanded_tabs: 2
 
 # for file with existing tab, represent the tab as this number of spaces
-show_existing_tabs_as_this_num_spaces: 2
+neovim_show_existing_tabs_as_this_num_spaces: 2
 
 # make insertions, new lines use same spaces or actual <TAB>s of existing lines
-insert_tabs_when_surrounding_code_has_them: 'true'
+neovim_insert_tabs_when_surrounding_code_has_them: 'true'
 

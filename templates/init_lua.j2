@@ -18,8 +18,8 @@
 -- TERMINAL SETTINGS
 
 -- use truecolors in term (if vt support)
-vim.opt.termguicolors = {{ use_24bit_true_colors_in_term }}
-vim.opt.timeoutlen = {{ multikey_timeout_for_keymaps_ms }}
+vim.opt.termguicolors = {{ neovim_use_24bit_true_colors_in_term }}
+vim.opt.timeoutlen = {{ neovim_multikey_timeout_for_keymaps_ms }}
 -- disable the built-in neovim netrw file manager (req for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -27,95 +27,98 @@ vim.g.loaded_netrwPlugin = 1
 -- ALERT SETTINGS
 
 -- issue audible alert bells
-vim.opt.errorbells = {{ audio_bell_on_alert }}
+vim.opt.errorbells = {{ neovim_audio_bell_on_alert }}
 -- issue visual alert bells
-vim.opt.visualbell = {{ visual_bell_on_alert }}
+vim.opt.visualbell = {{ neovim_visual_bell_on_alert }}
 
 -- FILE SAVE/LOAD SETTINGS
 
 -- reload buffer if changed externally
-vim.opt.autoread = {{ reload_buffer_if_changed_externally }}
+vim.opt.autoread = {{ neovim_reload_buffer_if_changed_externally }}
 -- save swapfiles
-vim.opt.swapfile = {{ save_vim_swapfiles }}
+vim.opt.swapfile = {{ neovim_save_vim_swapfiles }}
 
 -- CURSOR, LINES, COLUMN SETTINGS
 
 -- cursor style: 'hor' (horizontal bar), 'ver' (vertical bar), 'block'
-vim.opt.guicursor = "a:{{ cursor_style_for_all_modes }}"
+vim.opt.guicursor = "a:{{ neovim_cursor_style_for_all_modes }}"
 -- shade active line
-vim.opt.cursorline = {{ shade_active_line }}
+vim.opt.cursorline = {{ neovim_shade_active_line }}
 -- set permanent colorschemed stripe along a vertical column number
 vim.opt.colorcolumn = "{{ shade_vertical_column_num }}"
 -- show line numbers
-vim.opt.number = {{ show_line_nums_in_left_margin }}
+vim.opt.number = {{ neovim_show_line_nums_in_left_margin }}
 -- keep at least n lines above or below the cursor
-vim.opt.scrolloff = {{ show_n_lines_above_below_cursor }}
+vim.opt.scrolloff = {{ neovim_show_n_lines_above_below_cursor }}
 -- wrap long lines
-vim.opt.wrap = {{ wrap_long_lines }}
+vim.opt.wrap = {{ neovim_wrap_long_lines }}
 
 -- TEXT DISPLAY SETTINGS
 
 -- show matching paired chars with a brief secondary-cursor highlight
-vim.opt.showmatch = {{ show_matching_brace_paren_pairs }}
+vim.opt.showmatch = {{ neovim_show_matching_brace_paren_pairs }}
 -- show invisible characters
 vim.opt.list = true
 -- what to show for invisible characters
-vim.opt.listchars = { tab = "{{ char_to_show_for_tab }}", trail = "{{ char_to_show_for_trailing_space }}", nbsp = "{{ char_to_show_for_nbsp }}" }
+vim.opt.listchars = {
+  tab = "{{ neovim_char_to_show_for_tab }}",
+  trail = "{{ neovim_char_to_show_for_trailing_space }}",
+  nbsp = "{{ neovim_char_to_show_for_nbsp }}" }
 
 -- NEOVIM CMD-LINE (BELOW STATUSLINE) SETTINGS
 
 -- show info when this min num of lines has been changed (0 for always)
-vim.opt.report = {{ min_num_lines_to_show_cmd_info }}
+vim.opt.report = {{ neovim_min_num_lines_to_show_cmd_info }}
 -- show info about current mode ("INSERT", "VISUAL", etc)
-vim.opt.showmode = {{ show_current_vim_mode_cmd_info }}
+vim.opt.showmode = {{ neovim_show_current_vim_mode_cmd_info }}
 -- show info about current char/line selection size
-vim.opt.showcmd = {{ show_line_and_col_cmd_info }}
+vim.opt.showcmd = {{ neovim_show_line_and_col_cmd_info }}
 -- show info for current cursor-pos line number and column number
-vim.opt.ruler = {{ show_line_and_col_cmd_info }}
+vim.opt.ruler = {{ neovim_show_line_and_col_cmd_info }}
 -- what to show or abbreviate for certain cmd-line messages
-vim.opt.shortmess = "{{ msg_showing_criteria }}"
+vim.opt.shortmess = "{{ neovim_msg_showing_criteria }}"
 
 -- BUFFER-SEARCH SETTINGS
 
 -- ignore case in search patterns
-vim.opt.ignorecase = {{ ignore_case_in_buffer_search }}
+vim.opt.ignorecase = {{ neovim_ignore_case_in_buffer_search }}
 -- override ignorecase (if true), and search case-sensitive if upper-case input
-vim.opt.smartcase = {{ override_ignore_buffer_search_case_if_caps }}
+vim.opt.smartcase = {{ neovim_override_ignore_buffer_search_case_if_caps }}
 
 -- EDITING SETTINGS
 
 -- allow backspacing over certain non-character markers
 vim.opt.backspace = { "indent", "eol", "start" }
 -- auto-formatting: insert comment leader on starting new line
-vim.opt.formatoptions:append("{{ 'r' if insert_comment_leader_on_new_line else ''}}")
+vim.opt.formatoptions:append("{{ 'r' if neovim_insert_comment_leader_on_new_line else ''}}")
 -- auto-formatting: allow long line to continue without formatting, on editing
-vim.opt.formatoptions:append("{{ 'l' if allow_long_line_to_continue else ''}}")
+vim.opt.formatoptions:append("{{ 'l' if neovim_allow_long_line_to_continue else ''}}")
 
 -- INDENT / TAB SETTINGS
 
 -- number of spaces to use for each step of autoindent
-vim.opt.shiftwidth = {{ num_spaces_to_use_for_auto_indent }}
+vim.opt.shiftwidth = {{ neovim_num_spaces_to_use_for_auto_indent }}
 -- round an indent to multiple of shiftwidth
-vim.opt.shiftround = {{ round_indent_to_auto_indent_multiple }}
+vim.opt.shiftround = {{ neovim_round_indent_to_auto_indent_multiple }}
 -- when inserting an input <TAB>, expand it to a series of spaces
-vim.opt.expandtab = {{ expand_inserted_tabs_to_spaces }}
+vim.opt.expandtab = {{ neovim_expand_inserted_tabs_to_spaces }}
 -- when expanding a <TAB>, use this number of spaces
-vim.opt.softtabstop = {{ num_spaces_to_use_for_expanded_tabs }}
+vim.opt.softtabstop = {{ neovim_num_spaces_to_use_for_expanded_tabs }}
 -- for file with existing tab, represent the tab as this number of spaces
-vim.opt.tabstop = {{ show_existing_tabs_as_this_num_spaces }}
+vim.opt.tabstop = {{ neovim_show_existing_tabs_as_this_num_spaces }}
 -- make inserted/new lines use same spaces or actual <TAB>s of existing lines
-vim.opt.copyindent = {{ insert_tabs_when_surrounding_code_has_them }}
+vim.opt.copyindent = {{ neovim_insert_tabs_when_surrounding_code_has_them }}
 -- make insertions in existing line us same spaces or actual <TAB>s
-vim.opt.preserveindent = {{ insert_tabs_when_surrounding_code_has_them }}
+vim.opt.preserveindent = {{ neovim_insert_tabs_when_surrounding_code_has_them }}
 
 -- COPY / PASTE SETTINGS
 
-vim.opt.clipboard = "{{ 'unnamedplus' if yank_and_paste_from_system_clipboard else '' }}"
+vim.opt.clipboard = "{{ 'unnamedplus' if neovim_yank_and_paste_from_system_clipboard else '' }}"
 
 -- UNDO / REDO SETTINGS
 
 -- enable persistent undo/redo between editing sessions, via an undo file
-vim.opt.undofile = {{ use_undo_file_for_peristent_undos }}
+vim.opt.undofile = {{ neovim_use_undo_file_for_peristent_undos }}
 
 --------------------------------------------------------------------------------
 -- KEYMAPS
@@ -154,72 +157,82 @@ vim.g.mapleader = "{{ neovim_leader_key.super }}"
 -- MODE CHANGE KEYMAPS
 
 -- enter normal-mode
-map("n", "{{ keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
+map("n", "{{ neovim_keymap_enter_cmd_mode }}", ":", "Enter Neovim Cmd Mode")
 -- enter insert-mode at start of line
-map("n", "{{ keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
+map("n", "{{ neovim_keymap_enter_insert_mode_at_line_start }}", "0i", "Insert At Line Start")
 -- enter visual-block-mode
-map("n", "{{ keymap_enter_visual_block_mode }}", "<C-v>", "Visual Block Mode")
+map("n", "{{ neovim_keymap_enter_visual_block_mode }}", "<C-v>", "Visual Block Mode")
 
 -- NAVIGATION KEYMAPS
 
 -- move to the first non-whitespace char in the line
-map({ "n", "v" }, "{{ keymap_move_to_start_of_line_no_wsp }}", "^", "Start Of Line (Non-Wsp)")
+map({ "n", "v" }, "{{ neovim_keymap_move_to_start_of_line_no_wsp }}", "^", "Start Of Line (Non-Wsp)")
 -- move to end of line
-map({ "n", "v" }, "{{ keymap_move_to_end_of_line }}", "$", "End Of Line")
+map({ "n", "v" }, "{{ neovim_keymap_move_to_end_of_line }}", "$", "End Of Line")
 -- toggle back to previous buffer
-map("n", "{{ keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
+map("n", "{{ neovim_keymap_toggle_to_prev_buffer }}", "<cmd>buffer#<cr>", "Prev Buffer", { silent = true })
 -- move to prev edit pos (persistent, when use_undo_file_for_peristent_undos)
-map("n", "{{ keymap_move_to_prev_edit_pos }}", "g;", "Prev Edit Pos", { silent = true })
+map("n", "{{ neovim_keymap_move_to_prev_edit_pos }}", "g;", "Prev Edit Pos", { silent = true })
 
 -- QUIT / SAVE KEYMAPS
 
 -- quit neovim
-map("n", "{{ keymap_quit_neovim }}", "<cmd>quitall<cr>", "Quit Neovim")
+map("n", "{{ neovim_keymap_quit_neovim }}", "<cmd>quitall<cr>", "Quit Neovim")
 -- save current split
-map("n", "{{ keymap_save_file }}", "<cmd>wall<cr>", "Save Buffer")
+map("n", "{{ neovim_keymap_save_file }}", "<cmd>wall<cr>", "Save Buffer")
 
 -- SPLIT KEYMAPS
 
 -- resize current split in horizontal or vertical dimension
-map("n", "{{ keymap_inc_current_split_height }}", "<cmd>resize +1<cr>", "Inc Split Height", { silent = true })
-map("n", "{{ keymap_dec_current_split_height }}", "<cmd>resize -1<cr>", "Dec Split Height", { silent = true })
-map("n", "{{ keymap_dec_current_split_width }}", "<cmd>vertical resize -1<cr>", "Dec Split Width", { silent = true })
-map("n", "{{ keymap_inc_current_split_width }}", "<cmd>vertical resize +1<cr>", "Inc Split Width", { silent = true })
+map("n", "{{ neovim_keymap_inc_current_split_height }}", "<cmd>resize +1<cr>",
+    "Inc Split Height", { silent = true })
+map("n", "{{ neovim_keymap_dec_current_split_height }}", "<cmd>resize -1<cr>",
+    "Dec Split Height", { silent = true })
+map("n", "{{ neovim_keymap_dec_current_split_width }}", "<cmd>vertical resize -1<cr>",
+    "Dec Split Width", { silent = true })
+map("n", "{{ neovim_keymap_inc_current_split_width }}", "<cmd>vertical resize +1<cr>",
+    "Inc Split Width", { silent = true })
 -- rotate through all splits
-map("n", "{{ keymap_rotate_through_splits }}", "<C-w>w", "Rotate Through Splits", { silent = true })
+map("n", "{{ neovim_keymap_rotate_through_splits }}", "<C-w>w",
+    "Rotate Through Splits", { silent = true })
 -- close current split
-map("n", "{{ keymap_close_split }}", "<cmd>quit<cr>", "Close Split")
+map("n", "{{ neovim_keymap_close_split }}", "<cmd>quit<cr>", "Close Split")
 
 -- FOLD KEYMAPS
 
 -- fold expand/collapse toggle
-map("n", "{{ keymap_toggle_fold_expand_collapse }}", "za", "Toggle Fold Expand/Collapse", { silent = true })
+map("n", "{{ neovim_keymap_toggle_fold_expand_collapse }}", "za",
+    "Toggle Fold Expand/Collapse", { silent = true })
 
 -- BUFFER-SEARCH KEYMAPS
 
 -- clear highlighted text from last search
-map("n", "{{ keymap_clear_highlighted_search_text }}", "<cmd>nohlsearch<cr>", "Clear Highlighted Search Text")
+map("n", "{{ neovim_keymap_clear_highlighted_search_text }}", "<cmd>nohlsearch<cr>",
+    "Clear Highlighted Search Text")
 
 -- search and replace in buffer
-map("n", "{{ keymap_search_replace_in_buffer }}", ":%s//g<left><left>", "Search & Replace In Buffer")
+map("n", "{{ neovim_keymap_search_replace_in_buffer }}", ":%s//g<left><left>",
+    "Search & Replace In Buffer")
 
 -- INDENT / TAB KEYMAPS
 
 -- allow repeat indenting of visual selection
-map("v", "{{ keymap_indent_visual_selection_to_left }}", "<gv", "Indent To Left")
-map("v", "{{ keymap_indent_visual_selection_to_right }}", ">gv", "Indent To Right")
+map("v", "{{ neovim_keymap_indent_visual_selection_to_left }}", "<gv",
+    "Indent To Left")
+map("v", "{{ neovim_keymap_indent_visual_selection_to_right }}", ">gv",
+    "Indent To Right")
 
 -- COPY / PASTE KEYMAPS
 
 -- copy to end of line
-map("n", "{{ keymap_paste_below }}", "p=']", "Paste Below")
-map("n", "{{ keymap_paste_above }}", "P=']", "Paste Above")
-map("n", "{{ keymap_copy_to_end_of_line }}", "y$", "Yank To End Of Line")
+map("n", "{{ neovim_keymap_paste_below }}", "p=']", "Paste Below")
+map("n", "{{ neovim_keymap_paste_above }}", "P=']", "Paste Above")
+map("n", "{{ neovim_keymap_copy_to_end_of_line }}", "y$", "Yank To End Of Line")
 
 -- UNDO / REDO KEYMAPS
 
-map("n", "{{ keymap_undo_last_edit }}", "<cmd>undo<cr>", "Undo Last Edit")
-map("n", "{{ keymap_redo_last_edit }}", "<cmd>redo<cr>", "Redo Last Edit")
+map("n", "{{ neovim_keymap_undo_last_edit }}", "<cmd>undo<cr>", "Undo Last Edit")
+map("n", "{{ neovim_keymap_redo_last_edit }}", "<cmd>redo<cr>", "Redo Last Edit")
 
 --------------------------------------------------------------------------------
 -- PLUGIN MANAGER BOOTSTRAP
@@ -234,7 +247,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--branch={{ lazy_nvim_vers.tag }}",
+    "--branch={{ neovim_lazy_nvim_vers.tag }}",
     "https://github.com/folke/lazy.nvim.git",
     lazypath })
   if vim.v.shell_error ~= 0 then
@@ -261,16 +274,17 @@ require("lazy").setup({
   -- manage lazy.nvim itself
   {
     url = "https://github.com/folke/lazy.nvim.git",
-    tag = "{{ lazy_nvim_vers.tag }}",
+    tag = "{{ neovim_lazy_nvim_vers.tag }}",
     init = function()
-      map("n", "{{ keymap_plugin_manager_menu }}", "<cmd>Lazy<cr>", "Plugin Manager")
+      map("n", "{{ neovim_keymap_plugin_manager_menu }}", "<cmd>Lazy<cr>",
+          "Plugin Manager")
     end,
   },
 
   -- gruvbox.nvim: colorscheme
   {
     url = "https://github.com/ellisonleao/gruvbox.nvim",
-    commit = "{{ gruvbox_nvim_vers.commit }}",
+    commit = "{{ neovim_gruvbox_nvim_vers.commit }}",
     priority = 1000,
     opts = {
       -- set to "soft", "" (medium - or omit setting), or "hard"
@@ -284,9 +298,10 @@ require("lazy").setup({
   -- lualine.nvim: statusline
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
-    commit = "{{ lualine_nvim_vers.commit }}",
+    commit = "{{ neovim_lualine_nvim_vers.commit }}",
     dependencies = {
-      { url = "https://github.com/barklan/capslock.nvim", commit = "{{ capslock_nvim_vers.commit }}" },
+      { url = "https://github.com/barklan/capslock.nvim",
+        commit = "{{ neovim_capslock_nvim_vers.commit }}" },
     },
     opts = {
       options = {
@@ -317,7 +332,7 @@ require("lazy").setup({
   -- nvim-tree.lua: file-explorer tree
   {
     url = "https://github.com/nvim-tree/nvim-tree.lua",
-    commit = "{{ nvim_tree_lua_vers.commit }}",
+    commit = "{{ neovim_nvim_tree_lua_vers.commit }}",
     config = function()
       local function nvim_tree_on_attach(bufnr)
         local api = require "nvim-tree.api"
@@ -352,8 +367,10 @@ require("lazy").setup({
       }
     end, -- config function()
     init = function()
-      map("n", "{{ keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>", "Open File Browser")
-      map("n", "{{ keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>", "Close File Browser")
+      map("n", "{{ neovim_keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>",
+          "Open File Browser")
+      map("n", "{{ neovim_keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",
+          "Close File Browser")
     end,
     lazy = true,
     cmd = "NvimTreeFindFile",
@@ -362,17 +379,23 @@ require("lazy").setup({
   -- gitsigns.nvim: git integration
   {
     url = "https://github.com/lewis6991/gitsigns.nvim",
-    commit = "{{ gitsigns_nvim_vers.commit }}",
+    commit = "{{ neovim_gitsigns_nvim_vers.commit }}",
     opts = {
       on_attach = function(bufnr)
         -- actions
         local gs = package.loaded.gitsigns
-        map("n", "{{ keymap_git_next_hunk }}", gs.next_hunk, "Next Unstaged Git Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_git_prev_hunk }}", gs.prev_hunk, "Prev Unstaged Git Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_git_show_preview }}", gs.preview_hunk, "Git Show Preview", { buffer = bufnr })
-        map("n", "{{ keymap_git_show_blame }}", function() gs.blame_line() end, "Git Show Blame", { buffer = bufnr })
-        map("n", "{{ keymap_git_stage_hunk }}", gs.stage_hunk, "Git Stage Hunk", { buffer = bufnr })
-        map("n", "{{ keymap_git_unstage_hunk }}", gs.undo_stage_hunk, "Git Unstage Hunk", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_next_hunk }}", gs.next_hunk,
+            "Next Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_prev_hunk }}", gs.prev_hunk,
+            "Prev Unstaged Git Hunk", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_show_preview }}", gs.preview_hunk,
+            "Git Show Preview", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_show_blame }}", function() gs.blame_line() end,
+            "Git Show Blame", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_stage_hunk }}", gs.stage_hunk,
+            "Git Stage Hunk", { buffer = bufnr })
+        map("n", "{{ neovim_keymap_git_unstage_hunk }}", gs.undo_stage_hunk,
+            "Git Unstage Hunk", { buffer = bufnr })
         -- text object
         map({"o", "x"}, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Unstaged Git Hunk")
       end
@@ -382,7 +405,7 @@ require("lazy").setup({
   -- nvim-autopairs: brace/paren insertion
   {
     url = "https://github.com/windwp/nvim-autopairs",
-    commit = "{{ nvim_autopairs_vers.commit }}",
+    commit = "{{ neovim_nvim_autopairs_vers.commit }}",
     config = true,
     lazy = true,
     event = "InsertEnter",
@@ -391,7 +414,7 @@ require("lazy").setup({
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
   {
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
-    commit = "{{ nvim_treesitter_vers.commit }}",
+    commit = "{{ neovim_nvim_treesitter_vers.commit }}",
     opts = {
       -- per README, these parsers must always be installed
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
@@ -412,19 +435,19 @@ require("lazy").setup({
   -- rainbow-delimiters.nvim: color-matched parentheses
   {
     url = "https://github.com/hiphish/rainbow-delimiters.nvim",
-    commit = "{{ rainbow_delimiters_nvim_vers.commit }}",
+    commit = "{{ neovim_rainbow_delimiters_nvim_vers.commit }}",
   },
 
   -- indent-blankline.nvim: indentation guides
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
-    commit = "{{ indent_blankline_nvim_vers.commit }}",
+    commit = "{{ neovim_indent_blankline_nvim_vers.commit }}",
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
-    commit = "{{ nvim_spider_vers.commit }}",
+    commit = "{{ neovim_nvim_spider_vers.commit }}",
     init = function()
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<cr>", "Next Word Start")
       map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<cr>", "Next Word End")
@@ -436,10 +459,12 @@ require("lazy").setup({
   -- telescope.nvim: fuzzy filter, finder, and pick
   {
     url = "https://github.com/nvim-telescope/telescope.nvim",
-    tag = "{{ telescope_nvim_vers.tag }}",
+    tag = "{{ neovim_telescope_nvim_vers.commit }}",
     dependencies = {
-      { url = "https://github.com/nvim-lua/plenary.nvim",         commit = "{{ plenary_nvim_vers.commit }}" },
-      { url = "https://github.com/debugloop/telescope-undo.nvim", commit = "{{ telescope_undo_nvim_vers.commit }}" },
+      { url = "https://github.com/nvim-lua/plenary.nvim",
+        commit = "{{ neovim_plenary_nvim_vers.commit }}" },
+      { url = "https://github.com/debugloop/telescope-undo.nvim",
+        commit = "{{ neovim_telescope_undo_nvim_vers.commit }}" },
     },
     config = function()
       require("telescope").setup {
@@ -458,11 +483,21 @@ require("lazy").setup({
       require("telescope").load_extension("undo")
     end, --config = function()
     init = function()
-      map("n", "{{ keymap_find_proj_files }}", function() require("telescope.builtin").find_files() end, "Find File In Project")
-      map("n", "{{ keymap_find_open_buffer }}", function() require("telescope.builtin").buffers() end, "Find File In Buffers")
-      map("n", "{{ keymap_open_undo_tree }}", "<cmd>Telescope undo<cr>", "Open Undo Tree")
-      map("n", "{{ keymap_global_search_for_text }}", function() require("telescope.builtin").live_grep() end, "Search For Text")
-      map("v", "{{ keymap_global_search_for_sel_text }}", function() require("telescope.builtin").grep_string() end, "Search For Sel Text")
+      map("n", "{{ neovim_keymap_find_proj_files }}",
+          function() require("telescope.builtin").find_files() end,
+          "Find File In Project")
+      map("n", "{{ neovim_keymap_find_open_buffer }}",
+          function() require("telescope.builtin").buffers() end,
+          "Find File In Buffers")
+      map("n", "{{ neovim_keymap_open_undo_tree }}",
+          "<cmd>Telescope undo<cr>",
+          "Open Undo Tree")
+      map("n", "{{ neovim_keymap_global_search_for_text }}",
+          function() require("telescope.builtin").live_grep() end,
+          "Search For Text")
+      map("v", "{{ neovim_keymap_global_search_for_sel_text }}",
+          function() require("telescope.builtin").grep_string() end,
+          "Search For Sel Text")
     end,
     lazy = true,
     cmd = "Telescope",
@@ -471,7 +506,7 @@ require("lazy").setup({
   -- which-key.nvim: pop-up display for keymaps
   {
     url = "https://github.com/folke/which-key.nvim",
-    commit = "{{ which_key_nvim_vers.commit }}",
+    commit = "{{ neovim_which_key_nvim_vers.commit }}",
     config = function()
       require("which-key").register({
         ["<C-l>"] = "which_key_ignore", ["<C-w>"] = "which_key_ignore",
@@ -487,7 +522,8 @@ require("lazy").setup({
     cmd = "WhichKey",
     keys = "{{ neovim_leader_key.map }}",
     init = function()
-      map("n", "{{ keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>", "Keymap Help Screen")
+      map("n", "{{ neovim_keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>",
+          "Keymap Help Screen")
     end,
   },
 
@@ -496,11 +532,16 @@ require("lazy").setup({
     url = "https://github.com/hrsh7th/nvim-cmp",
     commit = "{{ nvim_cmp_vers.commit }}",
     dependencies = {
-      { url = "https://github.com/hrsh7th/cmp-buffer", commit = "{{ cmp_buffer_vers.commit }}" },
-      { url = "https://github.com/hrsh7th/cmp-path", commit = "{{ cmp_path_vers.commit }}" },
-      { url = "https://github.com/hrsh7th/cmp-nvim-lsp", commit = "{{ cmp_nvim_lsp_vers.commit }}" },
-      { url = "https://github.com/L3MON4D3/LuaSnip", commit = "{{ luasnip_vers.commit }}" },
-      { url = "https://github.com/saadparwaiz1/cmp_luasnip", commit = "{{ cmp_luasnip_vers.commit }}" },
+      { url = "https://github.com/hrsh7th/cmp-buffer",
+        commit = "{{ neovim_cmp_buffer_vers.commit }}" },
+      { url = "https://github.com/hrsh7th/cmp-path",
+        commit = "{{ neovim_cmp_path_vers.commit }}" },
+      { url = "https://github.com/hrsh7th/cmp-nvim-lsp",
+        commit = "{{ neovim_cmp_nvim_lsp_vers.commit }}" },
+      { url = "https://github.com/L3MON4D3/LuaSnip",
+        commit = "{{ neovim_luasnip_vers.commit }}" },
+      { url = "https://github.com/saadparwaiz1/cmp_luasnip",
+        commit = "{{ neovim_cmp_luasnip_vers.commit }}" },
     },
     config = function() require'cmp'.setup{
       snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
@@ -519,10 +560,12 @@ require("lazy").setup({
   -- nvim-lspconfig: configure neovim's builtin LSP client
   {
     url = "https://github.com/neovim/nvim-lspconfig",
-    commit = "{{ nvim_lspconfig_vers.commit }}",
+    commit = "{{ neovim_nvim_lspconfig_vers.commit }}",
     dependencies = {
-      { url = "https://github.com/hrsh7th/nvim-cmp", commit = "{{ nvim_cmp_vers.commit }}" },
-      { url = "https://github.com/nvim-telescope/telescope.nvim", commit = "{{ telescope_nvim_vers.tag }}" },
+      { url = "https://github.com/hrsh7th/nvim-cmp",
+        commit = "{{ neovim_nvim_cmp_vers.commit }}" },
+      { url = "https://github.com/nvim-telescope/telescope.nvim",
+        commit = "{{ neovim_telescope_nvim_vers.tag }}" },
     },
     init = function()
       -- configure externally-installed LSP servers via their their CLI options
@@ -537,18 +580,33 @@ require("lazy").setup({
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
-          map("n", "{{ keymap_switch_to_source_or_header }}", "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_declaration }}", vim.lsp.buf.declaration, "LSP Decl", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_definition }}", vim.lsp.buf.definition, "LSP Def", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_type_definition }}", vim.lsp.buf.type_definition, "LSP Type Def", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_hover }}", vim.lsp.buf.hover, "LSP Hover", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_implementations }}", function() require("telescope.builtin").lsp_implementations() end,
-            "LSP Impls", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_references }}", function() require("telescope.builtin").lsp_references() end,
-            "LSP Refs", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_calls }}", function() require("telescope.builtin").lsp_incoming_calls() end,
-            "LSP Calls", { buffer = event.buf })
-          map("n", "{{ keymap_lsp_rename }}", vim.lsp.buf.rename, "LSP Rename", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_switch_to_source_or_header }}",
+              "<cmd>ClangdSwitchSourceHeader<cr>",
+              "Switch Source/Header", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_declaration }}",
+              vim.lsp.buf.declaration,
+              "LSP Decl", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_definition }}",
+              vim.lsp.buf.definition,
+              "LSP Def", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_type_definition }}",
+              vim.lsp.buf.type_definition,
+              "LSP Type Def", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_hover }}",
+              vim.lsp.buf.hover,
+              "LSP Hover", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_implementations }}",
+              function() require("telescope.builtin").lsp_implementations() end,
+              "LSP Impls", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_references }}",
+              function() require("telescope.builtin").lsp_references() end,
+              "LSP Refs", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_calls }}",
+              function() require("telescope.builtin").lsp_incoming_calls() end,
+              "LSP Calls", { buffer = event.buf })
+          map("n", "{{ neovim_keymap_lsp_rename }}",
+              vim.lsp.buf.rename,
+              "LSP Rename", { buffer = event.buf })
         end,
       })
     end, -- init
@@ -557,10 +615,10 @@ require("lazy").setup({
   -- comment.nvim: code commenting
   {
     url = "https://github.com/numToStr/Comment.nvim",
-    commit = "{{ comment_nvim_vers.commit }}",
+    commit = "{{ neovim_comment_nvim_vers.commit }}",
     opts = {
-      toggler = { line = "{{ keymap_comment_toggle }}" },
-      opleader = { line = "{{ keymap_comment_toggle }}" },
+      toggler = { line = "{{ neovim_keymap_comment_toggle }}" },
+      opleader = { line = "{{ neovim_keymap_comment_toggle }}" },
       mappings = { basic = true, extra = false },
     },
   },
@@ -568,7 +626,7 @@ require("lazy").setup({
   -- nvim-spectre: global search and replace
   {
     url = "https://github.com/nvim-pack/nvim-spectre",
-    commit = "{{ nvim_spectre_vers.commit }}",
+    commit = "{{ neovim_nvim_spectre_vers.commit }}",
     opts = {
       find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
       mapping = {
@@ -585,43 +643,51 @@ require("lazy").setup({
       },
     },
     init = function()
-      map("n", "{{ keymap_global_replace_text }}", "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
+      map("n", "{{ neovim_keymap_global_replace_text }}",
+          "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
     end,
   },
 
   -- capslock.nvim: toggle insert-mode-only caps-lock
   {
     url = "https://github.com/barklan/capslock.nvim",
-    commit = "{{ capslock_nvim_vers.commit }}",
+    commit = "{{ neovim_capslock_nvim_vers.commit }}",
     config = true,
     init = function()
-      map("i", "{{ keymap_toggle_insert_mode_capslock }}", "<plug>CapsLockToggle", "Toggle Caps-Lock")
+      map("i", "{{ neovim_keymap_toggle_insert_mode_capslock }}",
+          "<plug>CapsLockToggle", "Toggle Caps-Lock")
     end,
   },
 
   -- text-case.nvim: chane word case
   {
     url = "https://github.com/johmsalas/text-case.nvim",
-    commit = "{{ text_case_nvim_vers.commit }}",
+    commit = "{{ neovim_text_case_nvim_vers.commit }}",
     config = true,
     init = function()
-      map("n", "{{ keymap_change_word_case_lower }}", function() require("textcase").current_word("to_lower_case") end, "Change Word Case Lower")
-      map("n", "{{ keymap_change_word_case_upper }}", function() require("textcase").current_word("to_upper_case") end, "Change Word Case Upper")
-      map("n", "{{ keymap_change_word_case_title }}", function() require("textcase").current_word("to_title_case") end, "Change Word Case Title")
+      map("n", "{{ neovim_keymap_change_word_case_lower }}",
+          function() require("textcase").current_word("to_lower_case") end,
+          "Change Word Case Lower")
+      map("n", "{{ neovim_keymap_change_word_case_upper }}",
+          function() require("textcase").current_word("to_upper_case") end,
+          "Change Word Case Upper")
+      map("n", "{{ neovim_keymap_change_word_case_title }}",
+          function() require("textcase").current_word("to_title_case") end,
+          "Change Word Case Title")
     end,
   },
 
   -- nvim-surround: select/change surrounding delimiter pairs
   {
     url = "https://github.com/kylechui/nvim-surround",
-    commit = "{{ nvim_surround_vers.commit }}",
+    commit = "{{ neovim_nvim_surround_vers.commit }}",
     config = true,
   },
 
   -- nvim-lint: run external linters, and display output via neovim LSP
   {
     url = "https://github.com/mfussenegger/nvim-lint",
-    commit = "{{ nvim_lint_vers.commit }}",
+    commit = "{{ neovim_nvim_lint_vers.commit }}",
     init = function()
       require("lint").linters_by_ft = {
         {% for linter in neovim_linters %}
@@ -637,7 +703,7 @@ require("lazy").setup({
   -- trouble.nvim: display warning/error diagnostics
   {
     url = "https://github.com/folke/trouble.nvim",
-    commit = "{{ trouble_nvim_vers.commit }}",
+    commit = "{{ neovim_trouble_nvim_vers.commit }}",
     opts = {
       icons = false,
       use_diagnostic_signs = true,
@@ -648,20 +714,26 @@ require("lazy").setup({
       },
     },
     init = function()
-      map("n", "{{ keymap_diagnostics_hover }}", vim.diagnostic.open_float, "Diagnostic Line")
-      map("n", "{{ keymap_diagnostics_list }}", function() require("trouble").toggle() end, "Diagnostic List")
-      map("n", "{{ keymap_diagnostics_next }}", vim.diagnostic.goto_next, "Diagnostic Next")
-      map("n", "{{ keymap_diagnostics_prev }}", vim.diagnostic.goto_prev, "Diagnostic Prev")
+      map("n", "{{ neovim_keymap_diagnostics_hover }}",
+          vim.diagnostic.open_float, "Diagnostic Line")
+      map("n", "{{ neovim_keymap_diagnostics_list }}",
+          function() require("trouble").toggle() end, "Diagnostic List")
+      map("n", "{{ neovim_keymap_diagnostics_next }}",
+          vim.diagnostic.goto_next, "Diagnostic Next")
+      map("n", "{{ neovim_keymap_diagnostics_prev }}",
+          vim.diagnostic.goto_prev, "Diagnostic Prev")
     end,
   },
 
   -- LuaSnip: snippets
   {
     url = "https://github.com/L3MON4D3/LuaSnip",
-    commit = "{{ luasnip_vers.commit }}",
+    commit = "{{ neovim_luasnip_vers.commit }}",
     init = function()
-      map({"i", "s"}, "<S-right>", function() require("luasnip").jump(1) end, "Next Snippet Marker")
-      map({"i", "s"}, "<S-left>", function() require("luasnip").jump(-1) end, "Prev Snippet Marker")
+      map({"i", "s"}, "<S-right>",
+          function() require("luasnip").jump(1) end, "Next Snippet Marker")
+      map({"i", "s"}, "<S-left>",
+          function() require("luasnip").jump(-1) end, "Prev Snippet Marker")
       require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
     end,
   },

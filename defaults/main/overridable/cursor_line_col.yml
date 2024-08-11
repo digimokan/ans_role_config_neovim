@@ -1,18 +1,18 @@
 # cursor style: 'hor' (horizontal bar), 'ver' (vertical bar), 'block'
-cursor_style_for_all_modes: 'block'
+neovim_cursor_style_for_all_modes: 'block'
 
 # shade the active line
-shade_active_line: 'true'
+neovim_shade_active_line: 'true'
 
 # shale along a fixed vertical column number
-shade_vertical_column_num: '81'
+neovim_shade_vertical_column_num: '81'
 
 # show line numbers in left-hand margin
-show_line_nums_in_left_margin: 'true'
+neovim_show_line_nums_in_left_margin: 'true'
 
 # keep at least n lines above or below the cursor
-show_n_lines_above_below_cursor: 3
+neovim_show_n_lines_above_below_cursor: 3
 
 # wrap long lines
-wrap_long_lines: 'false'
+neovim_wrap_long_lines: 'false'
 
