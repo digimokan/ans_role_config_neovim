@@ -25,5 +25,5 @@ neovim_nvim_surround_vers:           { commit: '10b20ca',  date: '2023-05-30', d
 neovim_nvim_lint_vers:               { commit: '4744fc0',  date: '2023-07-30', descrip: 'run external linters' }
 neovim_trouble_nvim_vers:            { commit: '40aad00',  date: '2023-07-29', descrip: 'diagnostics visuals' }
 neovim_luasnip_vers:                 { commit: '99a94cc',  date: '2023-08-04', descrip: 'snippets' }
-neovim_text_case_nvim_vers:          { commit: 'cd7cc65',  date: '2023-04-06', descrip: 'change word case' }
+neovim_text_case_nvim_vers:          { commit: 'e898cfd',  date: '2024-08-02', descrip: 'change word case' }
 

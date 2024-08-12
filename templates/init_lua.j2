@@ -620,7 +620,7 @@ require("lazy").setup({
       toggler = { line = "{{ neovim_keymap_comment_toggle }}" },
       opleader = { line = "{{ neovim_keymap_comment_toggle }}" },
       mappings = { basic = true, extra = false },
-    },
+    }, -- opts
   },
 
   -- nvim-spectre: global search and replace
@@ -641,7 +641,7 @@ require("lazy").setup({
           desc = "Change View Mode"
         },
       },
-    },
+    }, -- opts
     init = function()
       map("n", "{{ neovim_keymap_global_replace_text }}",
           "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
@@ -659,11 +659,14 @@ require("lazy").setup({
     end,
   },
 
-  -- text-case.nvim: chane word case
+  -- text-case.nvim: change word case
   {
     url = "https://github.com/johmsalas/text-case.nvim",
     commit = "{{ neovim_text_case_nvim_vers.commit }}",
     config = true,
+    opts = {
+      default_keymappings_enabled = true,
+    }, -- opts
     init = function()
       map("n", "{{ neovim_keymap_change_word_case_lower }}",
           function() require("textcase").current_word("to_lower_case") end,
@@ -712,7 +715,7 @@ require("lazy").setup({
         jump_close = "o", toggle_mode = "m", switch_severity = "s",
         hover = "l", toggle_fold = ",", help = "?",
       },
-    },
+    }, -- opts
     init = function()
       map("n", "{{ neovim_keymap_diagnostics_hover }}",
           vim.diagnostic.open_float, "Diagnostic Line")
