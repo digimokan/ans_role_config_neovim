@@ -494,10 +494,10 @@ require("lazy").setup({
           "Open Undo Tree")
       map("n", "{{ neovim_keymap_global_search_for_text }}",
           function() require("telescope.builtin").live_grep() end,
-          "Search For Text")
+          "Search For Text In Project")
       map("v", "{{ neovim_keymap_global_search_for_sel_text }}",
           function() require("telescope.builtin").grep_string() end,
-          "Search For Sel Text")
+          "Search For Sel Text In Project")
     end,
     lazy = true,
     cmd = "Telescope",
