@@ -508,15 +508,15 @@ require("lazy").setup({
     url = "https://github.com/folke/which-key.nvim",
     commit = "{{ neovim_which_key_nvim_vers.commit }}",
     config = function()
-      require("which-key").register({
-        ["<C-l>"] = "which_key_ignore", ["<C-w>"] = "which_key_ignore",
-        ["$"] = "which_key_ignore", ["&"] = "which_key_ignore", ["^"] = "which_key_ignore",
-        ["{"] = "which_key_ignore", ["}"] = "which_key_ignore", ["["] = "which_key_ignore",
-        ["]"] = "which_key_ignore", ["!"] = "which_key_ignore", ["'"] = "which_key_ignore",
-        ['"'] = "which_key_ignore", ["`"] = "which_key_ignore", ['@'] = "which_key_ignore",
-        ['F'] = "which_key_ignore", ["H"] = "which_key_ignore", ["L"] = "which_key_ignore",
-        ["M"] = "which_key_ignore", ["T"] = "which_key_ignore", ["h"] = "which_key_ignore",
-        ["j"] = "which_key_ignore", ["k"] = "which_key_ignore", ["l"] = "which_key_ignore",
+      require("which-key").add({
+        { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
+        { "$", hidden = true }, { "&", hidden = true }, { "^", hidden = true },
+        { "{", hidden = true }, { "}", hidden = true }, { "[", hidden = true },
+        { "]", hidden = true }, { "!", hidden = true }, { "'", hidden = true },
+        { '"', hidden = true }, { "`", hidden = true }, { '@', hidden = true },
+        { 'F', hidden = true }, { "H", hidden = true }, { "L", hidden = true },
+        { "M", hidden = true }, { "T", hidden = true }, { "h", hidden = true },
+        { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
       })
     end,
     cmd = "WhichKey",
