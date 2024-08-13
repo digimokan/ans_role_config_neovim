@@ -3,8 +3,6 @@ neovim_keymap_enter_cmd_mode: ";"
 neovim_keymap_enter_insert_mode_at_line_start: "I"
 neovim_keymap_enter_visual_block_mode: "X"
 
-neovim_keymap_toggle_insert_mode_capslock: "<S-->"
-
 neovim_keymap_move_to_start_of_line_no_wsp: "q"
 neovim_keymap_move_to_end_of_line: "-"
 neovim_keymap_toggle_to_prev_buffer: "<cr>"

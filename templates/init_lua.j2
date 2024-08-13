@@ -657,17 +657,6 @@ require("lazy").setup({
     end,
   },
 
-  -- capslock.nvim: toggle insert-mode-only caps-lock
-  {
-    url = "https://github.com/barklan/capslock.nvim",
-    commit = "{{ neovim_capslock_nvim_vers.commit }}",
-    config = true,
-    init = function()
-      map("i", "{{ neovim_keymap_toggle_insert_mode_capslock }}",
-          "<plug>CapsLockToggle", "Toggle Caps-Lock")
-    end,
-  },
-
   -- text-case.nvim: change word case
   {
     url = "https://github.com/johmsalas/text-case.nvim",
