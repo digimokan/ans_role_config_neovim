@@ -299,10 +299,6 @@ require("lazy").setup({
   {
     url = "https://github.com/nvim-lualine/lualine.nvim",
     commit = "{{ neovim_lualine_nvim_vers.commit }}",
-    dependencies = {
-      { url = "https://github.com/barklan/capslock.nvim",
-        commit = "{{ neovim_capslock_nvim_vers.commit }}" },
-    },
     opts = {
       options = {
         icons_enabled = false,
@@ -313,7 +309,7 @@ require("lazy").setup({
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { "filename", { function() return require("capslock").status_string() end } },
+        lualine_c = { "filename" },
         lualine_x = { "diagnostics" },
         lualine_y = { "filetype", "fileformat", "encoding" },
         lualine_z = { "progress", "location" }
