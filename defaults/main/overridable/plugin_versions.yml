@@ -18,7 +18,7 @@ neovim_cmp_path_vers:                { commit: '91ff86c',  date: '2022-10-03', d
 neovim_cmp_nvim_lsp_vers:            { commit: '44b16d1',  date: '2023-06-22', descrip: 'nvim-cmp LSP completion' }
 neovim_cmp_luasnip_vers:             { commit: '1809552',  date: '2022-10-28', descrip: 'nvim-cmp luasnip completion' }
 neovim_nvim_lspconfig_vers:          { commit: '80861dc',  date: '2023-06-16', descrip: 'LSP config' }
-neovim_comment_nvim_vers:            { commit: '176e85e',  date: '2023-06-12', descrip: 'commenting' }
+neovim_comment_nvim_vers:            { commit: 'e30b7f2',  date: '2024-06-09', descrip: 'commenting' }
 neovim_nvim_spectre_vers:            { commit: 'dc3f0bd',  date: '2023-07-01', descrip: 'global search-and-replace' }
 neovim_capslock_nvim_vers:           { commit: '35b560d',  date: '2022-05-21', descrip: 'toggle ins-mode capslock' }
 neovim_nvim_surround_vers:           { commit: '10b20ca',  date: '2023-05-30', descrip: 'select/mod delimiters' }
