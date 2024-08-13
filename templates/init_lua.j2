@@ -507,8 +507,18 @@ require("lazy").setup({
   {
     url = "https://github.com/folke/which-key.nvim",
     commit = "{{ neovim_which_key_nvim_vers.commit }}",
-    config = function()
-      require("which-key").add({
+    opts = {
+      plugins = {
+        marks = false,
+        registers =  false,
+        spelling = { enabled = false },
+      }, -- plugins
+      plugins = false,
+      keys = {
+        scroll_down = "<PageDown>",
+        scroll_up = "<PageUp>",
+      }, -- keys
+      spec = {
         { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
         { "$", hidden = true }, { "&", hidden = true }, { "^", hidden = true },
         { "{", hidden = true }, { "}", hidden = true }, { "[", hidden = true },
@@ -517,8 +527,20 @@ require("lazy").setup({
         { 'F', hidden = true }, { "H", hidden = true }, { "L", hidden = true },
         { "M", hidden = true }, { "T", hidden = true }, { "h", hidden = true },
         { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
-      })
-    end,
+      }, -- spec
+    }, -- opts
+    -- config = function()
+    --   require("which-key").add({
+    --     { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
+    --     { "$", hidden = true }, { "&", hidden = true }, { "^", hidden = true },
+    --     { "{", hidden = true }, { "}", hidden = true }, { "[", hidden = true },
+    --     { "]", hidden = true }, { "!", hidden = true }, { "'", hidden = true },
+    --     { '"', hidden = true }, { "`", hidden = true }, { '@', hidden = true },
+    --     { 'F', hidden = true }, { "H", hidden = true }, { "L", hidden = true },
+    --     { "M", hidden = true }, { "T", hidden = true }, { "h", hidden = true },
+    --     { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
+    --   })
+    -- end,
     cmd = "WhichKey",
     keys = "{{ neovim_leader_key.map }}",
     init = function()
