@@ -403,8 +403,7 @@ require("lazy").setup({
     url = "https://github.com/windwp/nvim-autopairs",
     commit = "{{ neovim_nvim_autopairs_vers.commit }}",
     config = true,
-    lazy = true,
-    event = "InsertEnter",
+    event = "VeryLazy",
   },
 
   -- nvim-treesitter: buffer syntax parsing (and add-ons)
