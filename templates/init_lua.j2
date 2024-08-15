@@ -494,7 +494,6 @@ require("lazy").setup({
           "Search For Sel Text In Project")
     end,
     event = "VeryLazy",
-    cmd = "Telescope",
   },
 
   -- which-key.nvim: pop-up display for keymaps
@@ -522,12 +521,12 @@ require("lazy").setup({
         { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
       }, -- spec
     }, -- opts
-    event = "VeryLazy",
     keys = "{{ neovim_leader_key.map }}",
     init = function()
       map("n", "{{ neovim_keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>",
           "Keymap Help Screen")
     end,
+    event = "VeryLazy",
   },
 
   -- nvim-cmp: auto-completion
