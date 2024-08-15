@@ -524,7 +524,7 @@ require("lazy").setup({
         { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
       }, -- spec
     }, -- opts
-    cmd = "WhichKey",
+    event = "VeryLazy",
     keys = "{{ neovim_leader_key.map }}",
     init = function()
       map("n", "{{ neovim_keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>",
