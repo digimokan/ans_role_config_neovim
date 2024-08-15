@@ -449,7 +449,7 @@ require("lazy").setup({
       map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<cr>", "Next Word End")
       map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<cr>", "Prev Word Start")
     end,
-    lazy = true,
+    event = "VeryLazy",
   },
 
   -- telescope.nvim: fuzzy filter, finder, and pick
