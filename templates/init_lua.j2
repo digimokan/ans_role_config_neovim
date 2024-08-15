@@ -368,8 +368,7 @@ require("lazy").setup({
       map("n", "{{ neovim_keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",
           "Close File Browser")
     end,
-    lazy = true,
-    cmd = "NvimTreeFindFile",
+    event = "VeryLazy",
   },
 
   -- gitsigns.nvim: git integration
