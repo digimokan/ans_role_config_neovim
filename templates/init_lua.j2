@@ -579,7 +579,7 @@ require("lazy").setup({
         require("lspconfig")[cmd].setup{ capabilities = cmp_capabilities, }
       end
       -- set LSP keymaps that take effect when an LSP server attaches
-      -- ref: https://github.com/neovim/nvim-lspconfig#suggested-configuration
+      -- ref: https://neovim.io/doc/user/lsp.html#LspAttach
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
