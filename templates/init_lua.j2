@@ -650,6 +650,7 @@ require("lazy").setup({
       map("n", "{{ neovim_keymap_global_replace_text }}",
           "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
     end,
+    event = "VeryLazy",
   },
 
   -- text-case.nvim: change word case
