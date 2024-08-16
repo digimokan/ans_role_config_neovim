@@ -728,6 +728,7 @@ require("lazy").setup({
       map("n", "{{ neovim_keymap_diagnostics_prev }}",
           vim.diagnostic.goto_prev, "Diagnostic Prev")
     end,
+    event = "VeryLazy",
   },
 
   -- LuaSnip: snippets
