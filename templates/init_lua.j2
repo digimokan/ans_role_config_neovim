@@ -742,6 +742,7 @@ require("lazy").setup({
           function() require("luasnip").jump(-1) end, "Prev Snippet Marker")
       require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
     end,
+    event = "VeryLazy",
   },
 
 }) -- require("lazy").setup({
