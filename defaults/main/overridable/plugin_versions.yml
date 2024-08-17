@@ -21,8 +21,8 @@ neovim_nvim_lspconfig_vers:          { commit: 'a89de2e',  date: '2024-08-16', d
 neovim_comment_nvim_vers:            { commit: 'e30b7f2',  date: '2024-06-09', descrip: 'commenting' }
 neovim_nvim_spectre_vers:            { commit: 'ba7fb77',  date: '2024-07-30', descrip: 'global search-and-replace' }
 neovim_nvim_surround_vers:           { commit: 'ec2dc76',  date: '2024-06-24', descrip: 'select/mod delimiters' }
-neovim_nvim_lint_vers:               { commit: '4744fc0',  date: '2023-07-30', descrip: 'run external linters' }
-neovim_trouble_nvim_vers:            { commit: '40aad00',  date: '2023-07-29', descrip: 'diagnostics visuals' }
+neovim_nvim_lint_vers:               { commit: 'debabca',  date: '2024-08-16', descrip: 'run external linters' }
+neovim_trouble_nvim_vers:            { commit: '6efc446',  date: '2024-07-22', descrip: 'diagnostics visuals' }
 neovim_luasnip_vers:                 { commit: 'b84eeb3',  date: '2024-08-06', descrip: 'snippets' }
 neovim_text_case_nvim_vers:          { commit: 'e898cfd',  date: '2024-08-02', descrip: 'change word case' }
 
