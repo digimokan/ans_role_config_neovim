@@ -723,19 +723,13 @@ require("lazy").setup({
     url = "https://github.com/folke/trouble.nvim",
     commit = "{{ neovim_trouble_nvim_vers.commit }}",
     opts = {
-      icons = false,
-      use_diagnostic_signs = true,
-      cycle_results = false,
-      action_keys = {
-        jump_close = "o", toggle_mode = "m", switch_severity = "s",
-        hover = "l", toggle_fold = ",", help = "?",
-      },
+      warn_no_results = false,
     }, -- opts
     init = function()
       map("n", "{{ neovim_keymap_diagnostics_hover }}",
           vim.diagnostic.open_float, "Diagnostic Line")
       map("n", "{{ neovim_keymap_diagnostics_list }}",
-          function() require("trouble").toggle() end, "Diagnostic List")
+          "<cmd>Trouble diagnostics toggle<cr>", "Diagnostic List")
       map("n", "{{ neovim_keymap_diagnostics_next }}",
           vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ neovim_keymap_diagnostics_prev }}",
