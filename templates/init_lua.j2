@@ -545,29 +545,42 @@ require("lazy").setup({
       { url = "https://github.com/saadparwaiz1/cmp_luasnip",
         commit = "{{ neovim_cmp_luasnip_vers.commit }}" },
     },
-    config = function() require'cmp'.setup{
-      snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
-      mapping = require"cmp".mapping.preset.insert{
-        -- ["<space>"] = require"cmp".mapping.confirm{ select = false },
-        ["<space>"] = require"cmp".mapping(function(fallback)
-          if require"cmp".visible() then
-            local entry = require"cmp".get_selected_entry()
-            if not entry then
-              require"cmp".select_next_item({ behavior = require"cmp".SelectBehavior.Select })
-            end
-            require"cmp".confirm()
-          else
-            fallback()
-          end
-        end, {"i","s","c",}),
-      },
-      sources = require"cmp".config.sources{
-        { name = "buffer" },
-        { name = "path" },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-      },
-    } end,
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
+        mapping = cmp.mapping.preset.insert({
+          ["<space>"] = cmp.mapping(function(fallback)
+            -- only if cmp is visible
+            if cmp.visible() then
+              -- get the first entry, select if it wasn't before
+              local entry = cmp.get_selected_entry()
+              if not entry then
+                  cmp.select_next_item()
+                  entry = cmp.get_selected_entry()
+              end
+              -- if the source is not a snippet, insert a space automatically
+              local source = entry['source']['name']
+              if source == 'luasnip' then
+                  cmp.confirm({select = true})
+              else
+                  cmp.confirm({select = true}, function()
+                      vim.api.nvim_paste(" ", false, -1)
+                  end)
+              end
+            else
+                fallback()
+            end -- cmp.visible
+          end, {'i', 's'}), -- <space>
+        }), -- mapping
+        sources = require"cmp".config.sources{
+          { name = "buffer" },
+          { name = "path" },
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+        }, -- sources
+      }) -- cmp.setup
+    end, -- config = function()
     event = "VeryLazy",
   },
 
