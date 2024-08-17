@@ -548,7 +548,18 @@ require("lazy").setup({
     config = function() require'cmp'.setup{
       snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
       mapping = require"cmp".mapping.preset.insert{
-        ["<space>"] = require"cmp".mapping.confirm{ select = false },
+        -- ["<space>"] = require"cmp".mapping.confirm{ select = false },
+        ["<space>"] = require"cmp".mapping(function(fallback)
+          if require"cmp".visible() then
+            local entry = require"cmp".get_selected_entry()
+            if not entry then
+              require"cmp".select_next_item({ behavior = require"cmp".SelectBehavior.Select })
+            end
+            require"cmp".confirm()
+          else
+            fallback()
+          end
+        end, {"i","s","c",}),
       },
       sources = require"cmp".config.sources{
         { name = "buffer" },
