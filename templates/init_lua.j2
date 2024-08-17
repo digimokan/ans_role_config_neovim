@@ -510,15 +510,22 @@ require("lazy").setup({
         scroll_down = "<PageDown>",
         scroll_up = "<PageUp>",
       }, -- keys
+      win = { no_overlap = false },
       spec = {
         { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
-        { "$", hidden = true }, { "&", hidden = true }, { "^", hidden = true },
-        { "{", hidden = true }, { "}", hidden = true }, { "[", hidden = true },
-        { "]", hidden = true }, { "!", hidden = true }, { "'", hidden = true },
+        { ":", hidden = true }, { "$", hidden = true }, { "&", hidden = true },
+        { "^", hidden = true }, { "{", hidden = true }, { "}", hidden = true },
+        { "[", hidden = true }, { "]", hidden = true }, { "!", hidden = true },
+        { "%", hidden = true }, { "~", hidden = true }, { "'", hidden = true },
         { '"', hidden = true }, { "`", hidden = true }, { '@', hidden = true },
-        { 'F', hidden = true }, { "H", hidden = true }, { "L", hidden = true },
-        { "M", hidden = true }, { "T", hidden = true }, { "h", hidden = true },
+        { "b", hidden = true }, { "c", hidden = true }, { "d", hidden = true },
+        { "e", hidden = true }, { "g", hidden = true }, { "h", hidden = true },
         { "j", hidden = true }, { "k", hidden = true }, { "l", hidden = true },
+        { "p", hidden = true }, { "r", hidden = true }, { "v", hidden = true },
+        { "w", hidden = true }, { "y", hidden = true }, { "z", hidden = true },
+        { "B", hidden = true }, { "E", hidden = true }, { 'F', hidden = true },
+        { "G", hidden = true }, { "H", hidden = true }, { 'L', hidden = true },
+        { "M", hidden = true }, { "P", hidden = true }, { "T", hidden = true },
       }, -- spec
     }, -- opts
     keys = "{{ neovim_leader_key.map }}",
