@@ -685,19 +685,20 @@ require("lazy").setup({
   {
     url = "https://github.com/kylechui/nvim-surround",
     commit = "{{ neovim_nvim_surround_vers.commit }}",
-    config = true,
     opts = {
-      normal = "ys",     -- surround current word: ysiw"
-      normal_cur = "yS", -- surround current line: yS"
-      delete = "ds",     -- delete surrounding: ds"
-      change = "cs",     -- change surrounding: cs"'
-      visual = "S",      -- surround selection: S"
-      insert = false,
-      insert_line = false,
-      normal_line = false,
-      normal_cur_line = false,
-      visual_line = false,
-      change_line = false,
+      keymaps = {
+        normal = "ys",     -- surround current word: ysiw"
+        normal_cur = "yS", -- surround current line: yS"
+        delete = "ds",     -- delete surrounding: ds"
+        change = "cs",     -- change surrounding: cs"'
+        visual = "S",      -- surround selection: S"
+        insert = false,
+        insert_line = false,
+        normal_line = false,
+        normal_cur_line = false,
+        visual_line = false,
+        change_line = false,
+      }, -- keymaps
     }, -- opts
     event = "VeryLazy",
   },
