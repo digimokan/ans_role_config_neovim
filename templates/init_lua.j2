@@ -140,10 +140,6 @@ local function map(mode, keys, action, desc, in_opts)
   vim.keymap.set(mode, keys, action, map_opts)
 end
 
-local function unmap(mode, keys)
-  map(mode, keys, "<nop>", "Unmapping")
-end
-
 -- LEADER KEY
 
 -- set the leader key
