@@ -502,7 +502,6 @@ require("lazy").setup({
         scroll_down = "<PageDown>",
         scroll_up = "<PageUp>",
       }, -- keys
-      win = { no_overlap = false },
       spec = {
         { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
         { ":", hidden = true }, { "$", hidden = true }, { "&", hidden = true },
@@ -548,30 +547,36 @@ require("lazy").setup({
     config = function()
       local cmp = require("cmp")
       cmp.setup({
-        snippet = { expand = function(args) require"luasnip".lsp_expand(args.body) end, },
+        snippet = {
+          expand = function(args) require"luasnip".lsp_expand(args.body) end,
+        },
         mapping = cmp.mapping.preset.insert({
+          -- ref: https://github.com/hrsh7th/nvim-cmp/discussions/1137#discussioncomment-3433112
           ["<space>"] = cmp.mapping(function(fallback)
-            -- only if cmp is visible
-            if cmp.visible() then
-              -- get the first entry, select if it wasn't before
-              local entry = cmp.get_selected_entry()
-              if not entry then
-                  cmp.select_next_item()
-                  entry = cmp.get_selected_entry()
-              end
-              -- if the source is not a snippet, insert a space automatically
-              local source = entry['source']['name']
-              if source == 'luasnip' then
-                  cmp.confirm({select = true})
-              else
-                  cmp.confirm({select = true}, function()
-                      vim.api.nvim_paste(" ", false, -1)
-                  end)
-              end
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm(
+                { select = true },
+                function() vim.api.nvim_paste(" ", false, -1) end)
             else
                 fallback()
-            end -- cmp.visible
-          end, {'i', 's'}), -- <space>
+            end
+          end), -- <space>
+          ["<tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm(
+                { select = true },
+                function() vim.api.nvim_paste("\t", false, -1) end)
+            else
+                fallback()
+            end
+          end), -- <tab>
+          ["<esc>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm()
+            else
+                fallback()
+            end
+          end), -- <esc>
         }), -- mapping
         sources = require"cmp".config.sources{
           { name = "buffer" },
