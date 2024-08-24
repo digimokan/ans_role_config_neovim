@@ -278,13 +278,14 @@ require("lazy").setup({
     url = "https://github.com/ellisonleao/gruvbox.nvim",
     commit = "{{ neovim_gruvbox_nvim_vers.commit }}",
     priority = 1000,
-    opts = {
-      -- set to "soft", "" (medium - or omit setting), or "hard"
-      contrast = "soft",
-    }, -- opts
-    init = function()
+    config = function()
+      local gruvbox = require("gruvbox")
+      gruvbox.setup({
+        -- set to "soft", "" (medium - or omit setting), or "hard"
+        contrast = "soft",
+      })
       vim.cmd([[colorscheme gruvbox]])
-    end,
+    end, -- config = function()
   },
 
   -- lualine.nvim: statusline
