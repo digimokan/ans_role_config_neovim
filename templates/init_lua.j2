@@ -581,7 +581,9 @@ require("lazy").setup({
           end), -- <cr>
           ["<esc>"] = cmp.mapping(function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm()
+              cmp.confirm(
+                { select = true },
+                function() vim.cmd("stopinsert") end)
             else
                 fallback()
             end
