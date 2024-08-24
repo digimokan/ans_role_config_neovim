@@ -671,25 +671,26 @@ require("lazy").setup({
   {
     url = "https://github.com/nvim-pack/nvim-spectre",
     commit = "{{ neovim_nvim_spectre_vers.commit }}",
-    opts = {
-      find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
-      mapping = {
-        ["run_replace"] = {
-          map = "<leader>R",
-          cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
-          desc = "Run Replace All",
-        },
-        ["change_view_mode"] = {
-          map = "tv",
-          cmd = "<cmd>lua require('spectre').change_view()<cr>",
-          desc = "Change View Mode"
-        },
-      },
-    }, -- opts
-    init = function()
+    config = function()
+      local spectre = require("spectre")
+      spectre.setup({
+        find_engine = { ["rg"] = { cmd = "{{ neovim_ripgrep_cmd }}" } },
+        mapping = {
+          ["run_replace"] = {
+            map = "<leader>R",
+            cmd = "<cmd>lua require('spectre.actions').run_replace()<cr>",
+            desc = "Run Replace All",
+          },
+          ["change_view_mode"] = {
+            map = "tv",
+            cmd = "<cmd>lua require('spectre').change_view()<cr>",
+            desc = "Change View Mode"
+          },
+        }, -- mapping
+      }) -- spectre.setup
       map("n", "{{ neovim_keymap_global_replace_text }}",
-          "<cmd>lua require('spectre').toggle()<cr>", "Toggle Search & Replace")
-    end,
+          function() spectre.toggle() end, "Toggle Search & Replace")
+    end, -- config = function()
     event = "VeryLazy",
   },
 
