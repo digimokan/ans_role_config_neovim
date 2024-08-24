@@ -490,39 +490,40 @@ require("lazy").setup({
   {
     url = "https://github.com/folke/which-key.nvim",
     commit = "{{ neovim_which_key_nvim_vers.commit }}",
-    opts = {
-      plugins = {
-        marks = false,
-        registers =  false,
-        spelling = { enabled = false },
-      }, -- plugins
-      keys = {
-        scroll_down = "<PageDown>",
-        scroll_up = "<PageUp>",
-      }, -- keys
-      spec = {
-        { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
-        { ":", hidden = true }, { "$", hidden = true }, { "&", hidden = true },
-        { "^", hidden = true }, { "{", hidden = true }, { "}", hidden = true },
-        { "[", hidden = true }, { "]", hidden = true }, { "!", hidden = true },
-        { "?", hidden = true }, { "%", hidden = true }, { "~", hidden = true },
-        { "'", hidden = true }, { '"', hidden = true }, { "`", hidden = true },
-        { '@', hidden = true }, { "b", hidden = true }, { "c", hidden = true },
-        { "d", hidden = true }, { "e", hidden = true }, { "g", hidden = true },
-        { "h", hidden = true }, { "j", hidden = true }, { "k", hidden = true },
-        { "l", hidden = true }, { "p", hidden = true }, { "r", hidden = true },
-        { "v", hidden = true }, { "w", hidden = true }, { "y", hidden = true },
-        { "z", hidden = true }, { "B", hidden = true }, { "E", hidden = true },
-        { 'F', hidden = true }, { "G", hidden = true }, { "H", hidden = true },
-        { 'L', hidden = true }, { "M", hidden = true }, { "P", hidden = true },
-        { "T", hidden = true }, { "V", hidden = true }, { "W", hidden = true },
-      }, -- spec
-    }, -- opts
     keys = "{{ neovim_leader_key.map }}",
-    init = function()
+    config = function()
+      local whichkey = require("whichkey")
+      whichkey.setup({
+        plugins = {
+          marks = false,
+          registers =  false,
+          spelling = { enabled = false },
+        }, -- plugins
+        keys = {
+          scroll_down = "<PageDown>",
+          scroll_up = "<PageUp>",
+        }, -- keys
+        spec = {
+          { "<C-l>", hidden = true }, { "<C-w>", hidden = true },
+          { ":", hidden = true }, { "$", hidden = true }, { "&", hidden = true },
+          { "^", hidden = true }, { "{", hidden = true }, { "}", hidden = true },
+          { "[", hidden = true }, { "]", hidden = true }, { "!", hidden = true },
+          { "?", hidden = true }, { "%", hidden = true }, { "~", hidden = true },
+          { "'", hidden = true }, { '"', hidden = true }, { "`", hidden = true },
+          { '@', hidden = true }, { "b", hidden = true }, { "c", hidden = true },
+          { "d", hidden = true }, { "e", hidden = true }, { "g", hidden = true },
+          { "h", hidden = true }, { "j", hidden = true }, { "k", hidden = true },
+          { "l", hidden = true }, { "p", hidden = true }, { "r", hidden = true },
+          { "v", hidden = true }, { "w", hidden = true }, { "y", hidden = true },
+          { "z", hidden = true }, { "B", hidden = true }, { "E", hidden = true },
+          { 'F', hidden = true }, { "G", hidden = true }, { "H", hidden = true },
+          { 'L', hidden = true }, { "M", hidden = true }, { "P", hidden = true },
+          { "T", hidden = true }, { "V", hidden = true }, { "W", hidden = true },
+        }, -- spec
+      }) -- whichkey.setup
       map("n", "{{ neovim_keymap_show_all_keymaps }}", "<cmd>WhichKey<cr>",
           "Keymap Help Screen")
-    end,
+    end, -- config = function()
     event = "VeryLazy",
   },
 
