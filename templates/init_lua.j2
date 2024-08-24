@@ -325,8 +325,10 @@ require("lazy").setup({
     url = "https://github.com/nvim-tree/nvim-tree.lua",
     commit = "{{ neovim_nvim_tree_lua_vers.commit }}",
     config = function()
+      local nvim_tree = require("nvim-tree")
+      local api = require("nvim-tree.api")
+
       local function nvim_tree_on_attach(bufnr)
-        local api = require("nvim-tree.api")
         map("n", "u", api.tree.change_root_to_parent, "Change CWD Up",
           { buffer = bufnr, silent = true, nowait = true })
         map("n", "s", api.tree.change_root_to_node, "Set Current As CWD",
@@ -351,17 +353,16 @@ require("lazy").setup({
           { buffer = bufnr, silent = true, nowait = true })
       end -- nvim_tree_on_attach()
 
-      local setup = require("nvim-tree").setup
-      setup({
+      nvim_tree.setup({
         view = { width = 20, },
         renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
       })
 
-      map("n", "{{ neovim_keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>",
-          "Open File Browser")
-      map("n", "{{ neovim_keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",
-          "Close File Browser")
+      map("n", "{{ neovim_keymap_open_file_browser_at_current_file }}",
+          api.tree.find_file, "Open File Browser")
+      map("n", "{{ neovim_keymap_close_file_browser }}",
+          api.tree.close, "Close File Browser")
     end, -- config = function()
     event = "VeryLazy",
   },
