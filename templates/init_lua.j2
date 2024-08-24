@@ -437,9 +437,10 @@ require("lazy").setup({
     url = "https://github.com/chrisgrieser/nvim-spider",
     commit = "{{ neovim_nvim_spider_vers.commit }}",
     config = function()
-      map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<cr>", "Next Word Start")
-      map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<cr>", "Next Word End")
-      map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<cr>", "Prev Word Start")
+      local spider = require("spider")
+      map({"n", "o", "x"}, "w", function() spider.motion("w") end, "Next Word Start")
+      map({"n", "o", "x"}, "e", function() spider.motion("e") end, "Next Word End")
+      map({"n", "o", "x"}, "b", function() spider.motion("b") end, "Prev Word Start")
     end,
     event = "VeryLazy",
   },
