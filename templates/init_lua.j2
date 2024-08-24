@@ -468,20 +468,21 @@ require("lazy").setup({
         }, -- extensions
       }) -- telescope.setup
       telescope.load_extension("undo")
+      local builtin = require("telescope.builtin")
       map("n", "{{ neovim_keymap_find_proj_files }}",
-          function() telescope.builtin.find_files() end,
+          function() builtin.find_files() end,
           "Find File In Project")
       map("n", "{{ neovim_keymap_find_open_buffer }}",
-          function() telescope.builtin.buffers() end,
+          function() builtin.buffers() end,
           "Find File In Buffers")
       map("n", "{{ neovim_keymap_open_undo_tree }}",
           "<cmd>Telescope undo<cr>",
           "Open Undo Tree")
       map("n", "{{ neovim_keymap_global_search_for_text }}",
-          function() telescope.builtin.live_grep() end,
+          function() builtin.live_grep() end,
           "Search For Text In Project")
       map("v", "{{ neovim_keymap_global_search_for_sel_text }}",
-          function() telescope.builtin.grep_string() end,
+          function() builtin.grep_string() end,
           "Search For Sel Text In Project")
     end, --config = function()
     event = "VeryLazy",
