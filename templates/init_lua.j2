@@ -492,7 +492,7 @@ require("lazy").setup({
     commit = "{{ neovim_which_key_nvim_vers.commit }}",
     keys = "{{ neovim_leader_key.map }}",
     config = function()
-      local whichkey = require("whichkey")
+      local whichkey = require("which-key")
       whichkey.setup({
         plugins = {
           marks = false,
