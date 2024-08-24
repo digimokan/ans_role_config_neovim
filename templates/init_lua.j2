@@ -261,6 +261,7 @@ vim.opt.rtp:prepend(lazypath)
 --------------------------------------------------------------------------------
 
 -- install individual plugins (at ~/.local/share/nvim/)
+-- ref: https://lazy.folke.io/usage#%EF%B8%8F-startup-sequence
 require("lazy").setup({
 
   -- manage lazy.nvim itself
@@ -268,7 +269,8 @@ require("lazy").setup({
     url = "https://github.com/folke/lazy.nvim.git",
     tag = "{{ neovim_lazy_nvim_vers.tag }}",
     init = function()
-      map("n", "{{ neovim_keymap_plugin_manager_menu }}", "<cmd>Lazy<cr>",
+      local lazy = require("lazy")
+      map("n", "{{ neovim_keymap_plugin_manager_menu }}", lazy.home,
           "Plugin Manager")
     end,
   },
