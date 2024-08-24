@@ -434,7 +434,7 @@ require("lazy").setup({
   {
     url = "https://github.com/chrisgrieser/nvim-spider",
     commit = "{{ neovim_nvim_spider_vers.commit }}",
-    init = function()
+    config = function()
       map({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<cr>", "Next Word Start")
       map({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<cr>", "Next Word End")
       map({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<cr>", "Prev Word Start")
@@ -453,7 +453,8 @@ require("lazy").setup({
         commit = "{{ neovim_telescope_undo_nvim_vers.commit }}" },
     },
     config = function()
-      require("telescope").setup {
+      local telescope = require("telescope")
+      telescope.setup({
         defaults = {
           -- make one press of ESC exit telescope, since it starts in insert mode
           mappings = { i = { ["<esc>"] = "close", ["<C-c>"] = false }, },
@@ -465,26 +466,24 @@ require("lazy").setup({
             mappings = { i = { ["<cr>"] = require("telescope-undo.actions").restore, }, },
           },
         }, -- extensions
-      } -- require("telescope").setup
-      require("telescope").load_extension("undo")
-    end, --config = function()
-    init = function()
+      }) -- telescope.setup
+      telescope.load_extension("undo")
       map("n", "{{ neovim_keymap_find_proj_files }}",
-          function() require("telescope.builtin").find_files() end,
+          function() telescope.builtin.find_files() end,
           "Find File In Project")
       map("n", "{{ neovim_keymap_find_open_buffer }}",
-          function() require("telescope.builtin").buffers() end,
+          function() telescope.builtin.buffers() end,
           "Find File In Buffers")
       map("n", "{{ neovim_keymap_open_undo_tree }}",
           "<cmd>Telescope undo<cr>",
           "Open Undo Tree")
       map("n", "{{ neovim_keymap_global_search_for_text }}",
-          function() require("telescope.builtin").live_grep() end,
+          function() telescope.builtin.live_grep() end,
           "Search For Text In Project")
       map("v", "{{ neovim_keymap_global_search_for_sel_text }}",
-          function() require("telescope.builtin").grep_string() end,
+          function() telescope.builtin.grep_string() end,
           "Search For Sel Text In Project")
-    end,
+    end, --config = function()
     event = "VeryLazy",
   },
 
