@@ -322,44 +322,44 @@ require("lazy").setup({
     url = "https://github.com/nvim-tree/nvim-tree.lua",
     commit = "{{ neovim_nvim_tree_lua_vers.commit }}",
     config = function()
+      local nvim_tree = require("nvim-tree")
+
       local function nvim_tree_on_attach(bufnr)
-        local api = require "nvim-tree.api"
-        map("n", "u", api.tree.change_root_to_parent, "Change CWD Up",
+        map("n", "u", nvim_tree.api.tree.change_root_to_parent, "Change CWD Up",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "s", api.tree.change_root_to_node, "Set Current As CWD",
+        map("n", "s", nvim_tree.api.tree.change_root_to_node, "Set Current As CWD",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "l", api.node.open.edit, "Open",
+        map("n", "l", nvim_tree.api.node.open.edit, "Open",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "h", api.node.navigate.parent_close, "Collapse",
+        map("n", "h", nvim_tree.api.node.navigate.parent_close, "Collapse",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "a", api.fs.create, "Create",
+        map("n", "a", nvim_tree.api.fs.create, "Create",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "m", api.fs.rename_sub, "Move Or Rename",
+        map("n", "m", nvim_tree.api.fs.rename_sub, "Move Or Rename",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "e", api.fs.rename_basename, "Edit Filename",
+        map("n", "e", nvim_tree.api.fs.rename_basename, "Edit Filename",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "c", api.fs.copy.node, "Copy",
+        map("n", "c", nvim_tree.api.fs.copy.node, "Copy",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "p", api.fs.paste, "Paste",
+        map("n", "p", nvim_tree.api.fs.paste, "Paste",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "d", api.fs.remove, "Delete",
+        map("n", "d", nvim_tree.api.fs.remove, "Delete",
           { buffer = bufnr, silent = true, nowait = true })
-        map("n", "?", api.tree.toggle_help, "Help",
+        map("n", "?", nvim_tree.api.tree.toggle_help, "Help",
           { buffer = bufnr, silent = true, nowait = true })
       end -- nvim_tree_on_attach()
 
-      require("nvim-tree").setup {
+      nvim_tree.setup {
         view = { width = 20, },
         renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
       }
-    end, -- config function()
-    init = function()
+
       map("n", "{{ neovim_keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>",
           "Open File Browser")
       map("n", "{{ neovim_keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",
           "Close File Browser")
-    end,
+    end, -- config function()
     event = "VeryLazy",
   },
 
