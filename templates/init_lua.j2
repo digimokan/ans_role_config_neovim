@@ -348,12 +348,12 @@ require("lazy").setup({
           { buffer = bufnr, silent = true, nowait = true })
       end -- nvim_tree_on_attach()
 
-      local setup = require("nvim-tree.setup")
-      setup {
+      local setup = require("nvim-tree").setup
+      setup({
         view = { width = 20, },
         renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
-      }
+      })
 
       map("n", "{{ neovim_keymap_open_file_browser_at_current_file }}", "<cmd>NvimTreeFindFile<cr>",
           "Open File Browser")
