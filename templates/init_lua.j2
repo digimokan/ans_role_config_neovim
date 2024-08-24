@@ -372,7 +372,6 @@ require("lazy").setup({
     commit = "{{ neovim_gitsigns_nvim_vers.commit }}",
     opts = {
       on_attach = function(bufnr)
-        -- actions
         local gs = package.loaded.gitsigns
         map("n", "{{ neovim_keymap_git_next_hunk }}", gs.next_hunk,
             "Next Unstaged Git Hunk", { buffer = bufnr })
@@ -380,7 +379,7 @@ require("lazy").setup({
             "Prev Unstaged Git Hunk", { buffer = bufnr })
         map("n", "{{ neovim_keymap_git_show_preview }}", gs.preview_hunk,
             "Git Show Preview", { buffer = bufnr })
-        map("n", "{{ neovim_keymap_git_show_blame }}", function() gs.blame_line() end,
+        map("n", "{{ neovim_keymap_git_show_blame }}", gs.blame_line,
             "Git Show Blame", { buffer = bufnr })
         map("n", "{{ neovim_keymap_git_stage_hunk }}", gs.stage_hunk,
             "Git Stage Hunk", { buffer = bufnr })
