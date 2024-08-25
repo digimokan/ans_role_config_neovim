@@ -558,15 +558,6 @@ require("lazy").setup({
                 fallback()
             end
           end), -- <space>
-          ["<tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm(
-                { select = true },
-                function() vim.api.nvim_paste("\t", false, -1) end)
-            else
-                fallback()
-            end
-          end), -- <tab>
           ["<cr>"] = cmp.mapping(function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
               cmp.confirm(
@@ -576,6 +567,13 @@ require("lazy").setup({
                 fallback()
             end
           end), -- <cr>
+          ["<tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm()
+            else
+                fallback()
+            end
+          end), -- <tab>
           ["<esc>"] = cmp.mapping(function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
               cmp.confirm(
