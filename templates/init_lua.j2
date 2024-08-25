@@ -697,26 +697,27 @@ require("lazy").setup({
   {
     url = "https://github.com/johmsalas/text-case.nvim",
     commit = "{{ neovim_text_case_nvim_vers.commit }}",
-    opts = {
-      default_keymappings_enabled = false,
-    }, -- opts
-    init = function()
+    config = function()
+      local textcase = require("textcase")
+      textcase.setup({
+        default_keymappings_enabled = false,
+      }) -- textcase.setup
       map("n", "{{ neovim_keymap_change_word_case_lower }}",
-          function() require("textcase").current_word("to_lower_case") end,
+          function() textcase.current_word("to_lower_case") end,
           "Change Word Case Lower")
       map("n", "{{ neovim_keymap_change_word_case_snake }}",
-          function() require("textcase").current_word("to_snake_case") end,
+          function() textcase.current_word("to_snake_case") end,
           "Change Word Case Snake")
       map("n", "{{ neovim_keymap_change_word_case_dash }}",
-          function() require("textcase").current_word("to_dash_case") end,
+          function() textcase.current_word("to_dash_case") end,
           "Change Word Case Dash")
       map("n", "{{ neovim_keymap_change_word_case_title }}",
-          function() require("textcase").current_word("to_title_case") end,
+          function() textcase.current_word("to_title_case") end,
           "Change Word Case Title")
       map("n", "{{ neovim_keymap_change_word_case_upper }}",
-          function() require("textcase").current_word("to_constant_case") end,
+          function() textcase.current_word("to_constant_case") end,
           "Change Word Case Upper")
-    end,
+    end, -- config = function()
     event = "VeryLazy",
   },
 
