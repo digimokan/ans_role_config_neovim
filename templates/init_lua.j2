@@ -747,16 +747,17 @@ require("lazy").setup({
   {
     url = "https://github.com/mfussenegger/nvim-lint",
     commit = "{{ neovim_nvim_lint_vers.commit }}",
-    init = function()
-      require("lint").linters_by_ft = {
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
         {% for linter in neovim_linters %}
         {{ linter.filetype }}{{ " = {\"" }}{{ linter.cmd }}{{ "\"}," }}
         {% endfor %}
       }
       vim.api.nvim_create_autocmd({"BufEnter", "BufWritePost" }, {
-        callback = function() require("lint").try_lint() end,
+        callback = function() lint.try_lint() end,
       })
-    end,
+    end, -- config = function()
   },
 
   -- trouble.nvim: display warning/error diagnostics
