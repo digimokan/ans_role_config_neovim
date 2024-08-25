@@ -282,10 +282,8 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       local gruvbox = require("gruvbox")
-      gruvbox.setup({
-        -- set to "soft", "" (medium - or omit setting), or "hard"
-        contrast = "soft",
-      })
+      -- set contrast to "soft", "" (medium - or omit setting), or "hard"
+      gruvbox.setup({ contrast = "soft", })
       vim.cmd([[colorscheme gruvbox]])
     end, -- config = function()
   },
@@ -699,9 +697,7 @@ require("lazy").setup({
     commit = "{{ neovim_text_case_nvim_vers.commit }}",
     config = function()
       local textcase = require("textcase")
-      textcase.setup({
-        default_keymappings_enabled = false,
-      }) -- textcase.setup
+      textcase.setup({ default_keymappings_enabled = false, })
       map("n", "{{ neovim_keymap_change_word_case_lower }}",
           function() textcase.current_word("to_lower_case") end,
           "Change Word Case Lower")
@@ -764,10 +760,9 @@ require("lazy").setup({
   {
     url = "https://github.com/folke/trouble.nvim",
     commit = "{{ neovim_trouble_nvim_vers.commit }}",
-    opts = {
-      warn_no_results = false,
-    }, -- opts
-    init = function()
+    config = function()
+      local trouble = require("trouble")
+      trouble.setup({ warn_no_results = false, })
       map("n", "{{ neovim_keymap_diagnostics_hover }}",
           vim.diagnostic.open_float, "Diagnostic Line")
       map("n", "{{ neovim_keymap_diagnostics_list }}",
@@ -776,7 +771,7 @@ require("lazy").setup({
           vim.diagnostic.goto_next, "Diagnostic Next")
       map("n", "{{ neovim_keymap_diagnostics_prev }}",
           vim.diagnostic.goto_prev, "Diagnostic Prev")
-    end,
+    end, -- config = function()
     event = "VeryLazy",
   },
 
@@ -784,13 +779,16 @@ require("lazy").setup({
   {
     url = "https://github.com/L3MON4D3/LuaSnip",
     commit = "{{ neovim_luasnip_vers.commit }}",
-    init = function()
+    config = function()
+      local luasnip = require("luasnip")
+      luasnip.setup({})
       map({"i", "s"}, "<S-right>",
-          function() require("luasnip").jump(1) end, "Next Snippet Marker")
+          function() luasnip.jump(1) end, "Next Snippet Marker")
       map({"i", "s"}, "<S-left>",
-          function() require("luasnip").jump(-1) end, "Prev Snippet Marker")
-      require("luasnip.loaders.from_lua").load({paths = "{{ neovim_user_snippets_dir }}"})
-    end,
+          function() luasnip.jump(-1) end, "Prev Snippet Marker")
+      require("luasnip.loaders.from_lua").load({
+        paths = "{{ neovim_user_snippets_dir }}" })
+    end, -- config = function()
     event = "VeryLazy",
   },
 
