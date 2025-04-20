@@ -462,6 +462,11 @@ require("lazy").setup({
           vimgrep_arguments = { "{{ neovim_ripgrep_cmd }}", "--color=never", "--no-heading",
                                 "--with-filename", "--line-number", "--column", "--smart-case" },
         }, -- defaults
+        pickers = {
+          find_files = {
+            find_command = { "{{ neovim_ripgrep_cmd }}", "--files", "--follow", "--hidden", "--glob=!.git/" },
+          },
+        }, -- pickers
         extensions = {
           undo = {
             mappings = { i = { ["<cr>"] = require("telescope-undo.actions").restore, }, },
