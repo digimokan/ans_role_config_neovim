@@ -428,6 +428,9 @@ require("lazy").setup({
   {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim",
     commit = "{{ neovim_indent_blankline_nvim_vers.commit }}",
+    -- need main and empty opts for this plugin
+    main = "ibl",
+    opts = {},
   },
 
   -- nvim.spider: smarter camelcase/etc word motion
