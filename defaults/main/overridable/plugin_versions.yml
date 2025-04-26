@@ -1,28 +1,30 @@
-neovim_lazy_nvim_vers:               { tag:    'v11.14.1', date: '2024-07-25', descrip: 'plugin manager' }
-neovim_gruvbox_nvim_vers:            { commit: '7a1b23e',  date: '2024-07-04', descrip: 'colorscheme' }
-neovim_lualine_nvim_vers:            { commit: '544dd15',  date: '2024-07-15', descrip: 'statusline' }
-neovim_nvim_tree_lua_vers:           { commit: 'ad0b95d',  date: '2024-08-09', descrip: 'file browser' }
-neovim_gitsigns_nvim_vers:           { commit: '562dc47',  date: '2024-08-07', descrip: 'git diff column' }
-neovim_nvim_autopairs_vers:          { commit: '48ca9aa',  date: '2024-08-10', descrip: 'paren insertion' }
-neovim_nvim_treesitter_vers:         { commit: '9e66d5c',  date: '2024-08-06', descrip: 'file AST parsing' }
-neovim_rainbow_delimiters_nvim_vers: { commit: 'a727bd3',  date: '2024-06-28', descrip: 'colored parens' }
-neovim_indent_blankline_nvim_vers:   { commit: 'dddb5d2',  date: '2024-08-08', descrip: 'indent guides' }
-neovim_nvim_spider_vers:             { commit: '508b350',  date: '2024-07-21', descrip: 'move by word segments' }
-neovim_telescope_nvim_vers:          { commit: '3b1600d',  date: '2024-08-01', descrip: 'file finder' }
-neovim_plenary_nvim_vers:            { commit: 'a3e3bc8',  date: '2024-05-20', descrip: 'file finder' }
-neovim_telescope_undo_nvim_vers:     { commit: '51be9ae',  date: '2024-06-30', descrip: 'undo tree' }
-neovim_which_key_nvim_vers:          { commit: '6c1584e',  date: '2024-07-24', descrip: 'keymap help' }
-neovim_nvim_cmp_vers:                { commit: 'ae644fe',  date: '2024-08-01', descrip: 'completion engine' }
-neovim_cmp_buffer_vers:              { commit: '3022dbc',  date: '2022-09-22', descrip: 'nvim-cmp buffer completion' }
-neovim_cmp_path_vers:                { commit: '91ff86c',  date: '2022-10-03', descrip: 'nvim-cmp path completion' }
-neovim_cmp_nvim_lsp_vers:            { commit: '39e2eda',  date: '2024-05-17', descrip: 'nvim-cmp LSP completion' }
-neovim_cmp_luasnip_vers:             { commit: '05a9ab2',  date: '2023-10-09', descrip: 'nvim-cmp luasnip completion' }
-neovim_nvim_lspconfig_vers:          { commit: 'a89de2e',  date: '2024-08-16', descrip: 'LSP config' }
+# yamllint disable rule:colons rule:commas
+
+neovim_lazy_nvim_vers:               { tag:    'v11.17.1', date: '2025-02-25', descrip: 'plugin manager' }
+neovim_gruvbox_nvim_vers:            { commit: 'c54db7f',  date: '2025-04-25', descrip: 'colorscheme' }
+neovim_lualine_nvim_vers:            { commit: '15884ce',  date: '2025-04-22', descrip: 'statusline' }
+neovim_nvim_tree_lua_vers:           { commit: '582ae48',  date: '2025-04-25', descrip: 'file browser' }
+neovim_gitsigns_nvim_vers:           { commit: '140ac64',  date: '2025-04-24', descrip: 'git diff column' }
+neovim_nvim_autopairs_vers:          { commit: '4d74e75',  date: '2025-04-12', descrip: 'paren insertion' }
+neovim_nvim_treesitter_vers:         { commit: '58dd149',  date: '2025-04-26', descrip: 'file AST parsing' }
+neovim_rainbow_delimiters_nvim_vers: { commit: '55ad4fb',  date: '2025-04-16', descrip: 'colored parens' }
+neovim_indent_blankline_nvim_vers:   { commit: '005b560',  date: '2025-03-17', descrip: 'indent guides' }
+neovim_nvim_spider_vers:             { commit: 'be2ad40',  date: '2025-04-12', descrip: 'move by word segments' }
+neovim_telescope_nvim_vers:          { commit: 'a4ed825',  date: '2025-03-18', descrip: 'file finder' }
+neovim_plenary_nvim_vers:            { commit: '857c5ac',  date: '2025-02-11', descrip: 'file finder' }
+neovim_telescope_undo_nvim_vers:     { commit: '928d0c2',  date: '2025-01-31', descrip: 'undo tree' }
+neovim_which_key_nvim_vers:          { commit: '370ec46',  date: '2025-02-22', descrip: 'keymap help' }
+neovim_nvim_cmp_vers:                { commit: 'b5311ab',  date: '2025-04-12', descrip: 'completion engine' }
+neovim_cmp_buffer_vers:              { commit: 'b74fab3',  date: '2025-04-01', descrip: 'nvim-cmp buffer completion' }
+neovim_cmp_path_vers:                { commit: 'c6635aa',  date: '2025-04-01', descrip: 'nvim-cmp path completion' }
+neovim_cmp_nvim_lsp_vers:            { commit: 'a8912b8',  date: '2025-04-01', descrip: 'nvim-cmp LSP completion' }
+neovim_cmp_luasnip_vers:             { commit: '98d9cb5',  date: '2024-11-04', descrip: 'nvim-cmp luasnip completion' }
+neovim_nvim_lspconfig_vers:          { commit: 'f89f18c',  date: '2025-04-26', descrip: 'LSP config' }
 neovim_comment_nvim_vers:            { commit: 'e30b7f2',  date: '2024-06-09', descrip: 'commenting' }
-neovim_nvim_spectre_vers:            { commit: 'ba7fb77',  date: '2024-07-30', descrip: 'global search-and-replace' }
-neovim_nvim_surround_vers:           { commit: 'ec2dc76',  date: '2024-06-24', descrip: 'select/mod delimiters' }
-neovim_nvim_lint_vers:               { commit: 'debabca',  date: '2024-08-16', descrip: 'run external linters' }
-neovim_trouble_nvim_vers:            { commit: '6efc446',  date: '2024-07-22', descrip: 'diagnostics visuals' }
-neovim_luasnip_vers:                 { commit: 'b84eeb3',  date: '2024-08-06', descrip: 'snippets' }
+neovim_nvim_spectre_vers:            { commit: '4497fef',  date: '2025-04-24', descrip: 'global search-and-replace' }
+neovim_nvim_surround_vers:           { commit: '0e62500',  date: '2025-04-18', descrip: 'select/mod delimiters' }
+neovim_nvim_lint_vers:               { commit: '9dfb77e',  date: '2025-04-23', descrip: 'run external linters' }
+neovim_trouble_nvim_vers:            { commit: '85bedb7',  date: '2025-02-12', descrip: 'diagnostics visuals' }
+neovim_luasnip_vers:                 { commit: 'c9b9a22',  date: '2025-01-04', descrip: 'snippets' }
 neovim_text_case_nvim_vers:          { commit: 'e898cfd',  date: '2024-08-02', descrip: 'change word case' }
 
