@@ -360,6 +360,9 @@ require("lazy").setup({
           "Open File Browser")
       map("n", "{{ neovim_keymap_close_file_browser }}", "<cmd>NvimTreeClose<cr>",
           "Close File Browser")
+      map("n", "{{ neovim_keymap_reload_all_buffers }}", "<cmd>NvimTreeRefresh<cr><cmd>bufdo e<cr>",
+          "Reload All Buffers")
+
     end, -- config = function()
     event = "VeryLazy",
   },
