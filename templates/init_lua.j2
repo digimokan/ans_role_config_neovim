@@ -697,7 +697,9 @@ require("lazy").setup({
         }, -- mapping
       }) -- spectre.setup
       map("n", "{{ neovim_keymap_global_replace_text }}",
-          function() spectre.toggle() end, "Toggle Search & Replace")
+          function() spectre.toggle() end, "Project Search & Replace")
+      map("v", "{{ neovim_keymap_global_replace_text }}",
+          function() spectre.open_visual({select_word=true}) end, "Project Search & Replace")
     end, -- config = function()
     event = "VeryLazy",
   },
