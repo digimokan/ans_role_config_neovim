@@ -21,7 +21,7 @@ neovim_cmp_nvim_lsp_vers:            { commit: 'a8912b8',  date: '2025-04-01', d
 neovim_cmp_luasnip_vers:             { commit: '98d9cb5',  date: '2024-11-04', descrip: 'nvim-cmp luasnip completion' }
 neovim_nvim_lspconfig_vers:          { commit: 'f89f18c',  date: '2025-04-26', descrip: 'LSP config' }
 neovim_comment_nvim_vers:            { commit: 'e30b7f2',  date: '2024-06-09', descrip: 'commenting' }
-neovim_nvim_spectre_vers:            { commit: '4497fef',  date: '2025-04-24', descrip: 'global search-and-replace' }
+neovim_nvim_spectre_vers:            { commit: '72f56f7',  date: '2025-05-12', descrip: 'global search-and-replace' }
 neovim_nvim_surround_vers:           { commit: '0e62500',  date: '2025-04-18', descrip: 'select/mod delimiters' }
 neovim_nvim_lint_vers:               { commit: '9dfb77e',  date: '2025-04-23', descrip: 'run external linters' }
 neovim_trouble_nvim_vers:            { commit: '85bedb7',  date: '2025-02-12', descrip: 'diagnostics visuals' }
