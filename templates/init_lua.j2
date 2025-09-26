@@ -351,7 +351,7 @@ require("lazy").setup({
 
       local setup = require("nvim-tree").setup
       setup({
-        view = { width = 20, },
+        view = { adaptive_size = true, },
         renderer = { group_empty = true, },
         on_attach = nvim_tree_on_attach,
       })
